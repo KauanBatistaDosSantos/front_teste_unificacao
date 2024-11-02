@@ -6,6 +6,7 @@ import { TelaInicialEntregadorComponent } from './components/tela-inicial-entreg
 import { TelaClienteFinalizarPedidoComponent } from './components/tela-cliente-finalizar-pedido/tela-cliente-finalizar-pedido.component';
 import { AcompanharPedidoComponent } from './components/acompanhar-pedido/acompanhar-pedido.component';
 import { PainelEntregadorComponent } from './components/painel-entregador/painel-entregador.component';
+import { InicioComponent } from './components/inicio/inicio.component';
 
 export const routes: Routes = [
     { path: '', component: TelaClienteFinalizarPedidoComponent},
@@ -17,5 +18,6 @@ export const routes: Routes = [
     { path: 'acompanhar-pedido', component: AcompanharPedidoComponent},
     { path: 'tela-escolher-entregador/:numeroPedido', component: TelaEscolherEntregadorComponent},
     { path: 'painel-entregadores', component: PainelEntregadorComponent},
-    { path: 'tela-inicial-entregador/:nome', component: TelaInicialEntregadorComponent }
+    { path: 'tela-inicial-entregador/:nome', component: TelaInicialEntregadorComponent },
+    { path: 'inicio', component: InicioComponent }
 ];

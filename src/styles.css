@@ -21,10 +21,14 @@ body {
     --cinza-botao-inativo: #818D9F;
     --fundo-telas: #25262D;
     --pedido-nao-aceito: #455A64;
+    --fundo-secundario-cinza: #383c46;
 }
 
 html, body { height: 100%; }
 body { margin: 0; }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
