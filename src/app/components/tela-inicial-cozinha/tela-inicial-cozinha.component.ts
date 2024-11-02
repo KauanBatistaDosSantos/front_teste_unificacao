@@ -2,18 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { CozinhaPedidoComponent } from '../cozinha-pedido/cozinha-pedido.component';
 import { PedidoService } from '../pedido.service';
 import { NgFor, NgForOf } from '@angular/common';
+import { MatIcon } from '@angular/material/icon';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tela-inicial-cozinha',
   standalone: true,
-  imports: [CozinhaPedidoComponent, NgFor, NgForOf],
+  imports: [CozinhaPedidoComponent, NgFor, NgForOf, MatIcon],
   templateUrl: './tela-inicial-cozinha.component.html',
   styleUrl: './tela-inicial-cozinha.component.css'
 })
 export class TelaInicialCozinhaComponent implements OnInit {
   pedidos: any[] = [];
 
-  constructor(private pedidoService: PedidoService) {}
+  constructor(private pedidoService: PedidoService, private router: Router) {}
 
   ngOnInit(): void {
     this.getPedidos();
@@ -51,5 +53,9 @@ export class TelaInicialCozinhaComponent implements OnInit {
     const diferenca = agora.getTime() - horario.getTime();
     const minutos = Math.floor(diferenca / 60000);
     return `${minutos} min`;
+  }
+
+  voltar() {
+    this.router.navigate(['inicio']);
   }
 }

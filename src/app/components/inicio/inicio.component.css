@@ -1,0 +1,65 @@
+#corpo {
+    box-sizing: border-box;
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    margin-top: 31px;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+section {
+    margin-left: 20px;
+    margin-top: 31px;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#botoes {
+    align-items: center;
+    padding-bottom: 31px;
+}
+
+header h1 {
+    font-size: 50px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+header p {
+    font-size: 25px;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+img {
+    max-width: 100px;
+    max-height: 100px;
+    border-radius: 50%;
+}
+
+button {
+    max-width: 850px;
+    width: 100%;
+    background-color: var(--fundo-secundario-cinza);
+    border: none;
+    border-radius: 15px;
+    display: flex;
+    color: #ffffff;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+button h1 {
+    font-size: 40px;
+    margin: 0;
+}

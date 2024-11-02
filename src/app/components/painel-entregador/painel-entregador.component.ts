@@ -3,11 +3,12 @@ import { Router } from '@angular/router';
 import { EntregadorService } from '../entregador.service';
 import { FormsModule } from '@angular/forms';
 import { NgIf } from '@angular/common';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-painel-entregador',
   standalone: true,
-  imports: [FormsModule, NgIf],
+  imports: [FormsModule, NgIf, MatIcon],
   templateUrl: './painel-entregador.component.html',
   styleUrl: './painel-entregador.component.css'
 })
@@ -60,5 +61,9 @@ export class PainelEntregadorComponent {
 
   public validarCpf(cpf: string): boolean {
     return cpf.length === 11 && !/^(\d)\1+$/.test(cpf); // Verifica 11 dígitos e evita sequência repetitiva
+  }
+
+  voltar() {
+    this.router.navigate(['inicio']);
   }
 }
