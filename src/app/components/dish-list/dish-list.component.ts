@@ -3,11 +3,12 @@ import { DishService, Dish } from '../../services/dish.service';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router'; 
 import { Location } from '@angular/common';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-dish-list',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, MatIcon],
   templateUrl: './dish-list.component.html',
   styleUrl: './dish-list.component.css'
 })
@@ -37,6 +38,6 @@ export class DishListComponent implements OnInit {
   }
 
   voltar() {
-    this.router.navigate(['/inicio']);
+    this.router.navigate(['/gerencia']);
   }
 }

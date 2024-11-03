@@ -22,3 +22,12 @@ h1 {
     padding: 41px 15px 0 19px;
     gap: 13px;
 }
+
+#botao-seta-voltar {
+    position: absolute;
+    left: 28px;
+    background-color: var(--fundo-telas);
+    border: none;
+    padding-top: 25px;
+    color: #ffffff;
+}

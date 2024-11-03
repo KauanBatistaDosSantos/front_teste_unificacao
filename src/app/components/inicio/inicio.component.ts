@@ -16,7 +16,7 @@ export class InicioComponent {
   }
 
   irParaGerencia() {
-    this.router.navigate(['/dish-list']);
+    this.router.navigate(['/gerencia']);
   }
 
   irParaCozinha() {
