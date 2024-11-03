@@ -987,7 +987,16 @@
       "tempoEstimado": 15
     }
   ],
-  "cart": [],
+  "cart": [
+    {
+      "id": "4",
+      "name": "Cerveja Artesanal",
+      "description": "Cerveja artesanal feita com ingredientes selecionados.",
+      "price": 12,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSobh2ySv1Tb8IQ__Fgq1nt97xXljAWcc7Klg&s",
+      "category": "bebidas"
+    }
+  ],
   "dishes": [
     {
       "id": "4",

@@ -44,6 +44,7 @@ img {
 
 .preco {
     margin-top:16px;
+    margin-bottom: 50px;
 }
 
 button{
@@ -55,5 +56,13 @@ button{
     border: 0;
     font-size: 20px;
     font-weight: 600;
-    margin-top:250px;
+    margin-bottom: 20px;
+}
+
+footer.botao-rodape {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    width: 100%;
+    background-color: var(--fundo-telas); /* ajuste conforme o necessário */
 }

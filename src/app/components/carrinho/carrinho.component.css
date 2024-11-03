@@ -1,18 +1,30 @@
 header {
-    margin: auto;
-    max-width: 414px;
+    width: 100%;
     padding: 16px 24px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+main {
+    flex: 1;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
 body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     max-width: 414px;
     margin: auto;
     text-align: center;
     font-family: "Mulish", sans-serif;
     color: #ffff;
+    min-height: 100vh;
     box-sizing: border-box;
 }
 
@@ -101,4 +113,32 @@ h3 {
 
 #carrinho {
     margin-bottom: 40px;
+}
+
+button:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+}
+
+#finalizar-pedido {
+    cursor: pointer;
+    background-color: #FF9A00;
+    color: #fff;
+    min-width: 200px;
+    height: 42px;
+    border: 0;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+footer.botao-rodape {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    width: 100%;
+    gap: 10px;
+    background-color: var(--fundo-telas); /* Ajuste conforme necessário */
 }
