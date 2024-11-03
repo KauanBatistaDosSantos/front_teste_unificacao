@@ -14,6 +14,6 @@ export class FinalizarEntregaComponent {
 
   finalizarEntrega(): void {
     this.entregaFinalizada.emit();
-    this.dialogRef.close('entregaFinalizada');  // Sinaliza que a entrega foi finalizada
+    this.dialogRef.close('entregaFinalizada');
   }
 }

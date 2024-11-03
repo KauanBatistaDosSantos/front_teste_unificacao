@@ -25,6 +25,7 @@ export class TelaClienteFinalizarPedidoComponent implements OnInit {
   taxaEntrega: number = 15;
   total: number = 0;
   observacao: string = '';
+  cartItems: any[] = [];
 
   constructor(
     private dialog: MatDialog,
@@ -33,9 +34,15 @@ export class TelaClienteFinalizarPedidoComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.subtotal = this.pedidoService.getSubtotal();
-    console.log('Subtotal obtido:', this.subtotal);
-    this.calcularTotal();
+    this.pedidoService.getSubtotal().subscribe(subtotal => {
+      this.subtotal = subtotal;
+      this.calcularTotal();
+    });
+  
+    this.pedidoService.getCartItems().subscribe(items => {
+      this.cartItems = items;
+      this.calcularTotal();
+    });
   }
 
   abrirDialogoInserirNome(): void {
@@ -93,7 +100,7 @@ export class TelaClienteFinalizarPedidoComponent implements OnInit {
     if (this.isButtonEnabled) {
       const novoPedido = {
         nomeCliente: this.nomeSalvo,
-        itens: [],
+        itens: this.cartItems,
         preco: this.total,
         endereco: `${this.enderecoSalvo.logradouro}, ${this.enderecoSalvo.numero} - ${this.enderecoSalvo.bairro}`,
         cpf: this.cpfSalvo,
@@ -101,8 +108,10 @@ export class TelaClienteFinalizarPedidoComponent implements OnInit {
       };
 
       this.pedidoService.fazerPedido(novoPedido).subscribe(pedidoCriado => {
-        this.pedidoService.setCodigoConfirmacao(this.cpfSalvo, pedidoCriado.id);
-        this.router.navigate(['/acompanhar-pedido']);
+        this.pedidoService.limparCarrinho().subscribe(() => {
+          this.pedidoService.setCodigoConfirmacao(this.cpfSalvo, pedidoCriado.id);
+          this.router.navigate(['/acompanhar-pedido']);
+        });
       });
     }
   }
@@ -111,5 +120,9 @@ export class TelaClienteFinalizarPedidoComponent implements OnInit {
     const textarea = event.target as HTMLTextAreaElement;
     textarea.style.height = 'auto';
     textarea.style.height = `${textarea.scrollHeight}px`;
+  }
+
+  voltar() {
+    this.router.navigate(['/carrinho']);
   }
 }

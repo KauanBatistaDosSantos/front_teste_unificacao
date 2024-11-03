@@ -1,34 +1,39 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
+import { forkJoin } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PedidoService {
   private apiUrl = 'http://localhost:3000/pedidos';
-  private subtotal: number = 100;
+  private cartUrl = 'http://localhost:3000/cart';
   private codigoConfirmacao: string = '';
   private pedidoId: string = '';
+  private pedidosAtualizados = new Subject<void>();
+  private novoPedidoAtribuido = new Subject<void>();
 
   constructor(private http: HttpClient) {
-    this.simularPedidoFicticio();
   }
 
-  setSubtotal(subtotal: number): void {
-    console.log('Subtotal setado no serviço:', subtotal);
-    this.subtotal = subtotal;
+  getNovoPedidoAtribuido(): Observable<void> {
+    return this.novoPedidoAtribuido.asObservable();
   }
 
-  getSubtotal(): number {
-    return this.subtotal;
+  getPedidosAtualizados(): Observable<void> {
+    return this.pedidosAtualizados.asObservable();
   }
 
-  simularPedidoFicticio(): void {
-    const subtotalFicticio = 100;
-    this.setSubtotal(subtotalFicticio);
-    console.log('Pedido fictício simulado com subtotal de: R$' + subtotalFicticio);
+  getSubtotal(): Observable<number> {
+    return this.http.get<any[]>(this.cartUrl).pipe(
+      map(cartItems => cartItems.reduce((total, item) => total + item.price, 0))
+    );
+  }
+
+  getCartItems(): Observable<any[]> {
+    return this.http.get<any[]>(this.cartUrl);
   }
 
   getPedidos(): Observable<any[]> {
@@ -72,7 +77,11 @@ export class PedidoService {
       status: 'pedido enviado para entrega',
       tempoEstimado: tempoEstimado
     };
-    return this.http.patch(`${this.apiUrl}/${id}`, pedidoAtualizado);
+    return this.http.patch(`${this.apiUrl}/${id}`, pedidoAtualizado).pipe(
+      map(() => {
+        this.novoPedidoAtribuido.next();
+      })
+    );
   }
 
   fazerPedido(pedido: any): Observable<any> {
@@ -109,7 +118,11 @@ export class PedidoService {
   }
 
   finalizarPedido(id: number): Observable<any> {
-    return this.http.patch(`${this.apiUrl}/${id}`, { status: 'pedido finalizado' });
+    return this.http.patch(`${this.apiUrl}/${id}`, { status: 'pedido finalizado' }).pipe(
+      map(() => {
+        this.pedidosAtualizados.next();
+      })
+    );
   }
 
   setCodigoConfirmacao(cpf: string, id: string): void {
@@ -123,5 +136,14 @@ export class PedidoService {
 
   getPedidoId(): string {
     return this.pedidoId;
+  }
+
+  limparCarrinho(): Observable<void> {
+    return this.getCartItems().pipe(
+        switchMap((items) => 
+            forkJoin(items.map(item => this.http.delete<void>(`${this.cartUrl}/${item.id}`)))
+        ),
+        map(() => undefined)
+    );
   }
 }

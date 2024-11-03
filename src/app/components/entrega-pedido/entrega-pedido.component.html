@@ -13,8 +13,8 @@
     </div>
     <div id="todos-os-pedidos">
       <div class="detalhes-pedido" *ngFor="let item of pedido.itens">
-        <h3 class="texto-preto" id="titulo-h3">{{ item.nomePrato }}</h3>
-        <p class="texto-cinza">{{ item.descricao }}</p>
+        <h3 class="texto-preto" id="titulo-h3">{{ item.name }}</h3>
+        <p class="texto-cinza">{{ item.description }}</p>
       </div>
     </div>
     <div id="botao">

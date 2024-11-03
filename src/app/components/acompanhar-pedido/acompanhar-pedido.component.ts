@@ -4,6 +4,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { PedidoStatusService } from '../pedido-status.service';
 import { ClienteConfirmarEntregaComponent } from '../cliente-confirmar-entrega/cliente-confirmar-entrega.component';
 import { NgIf } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-acompanhar-pedido',
@@ -17,7 +18,7 @@ export class AcompanharPedidoComponent {
   statusAtual: string = '';
   entregaConfirmada: boolean = false;
 
-  constructor(private pedidoStatusService: PedidoStatusService) {}
+  constructor(private pedidoStatusService: PedidoStatusService, private router: Router) {}
 
   ngOnInit(): void {
     this.pedidoStatusService.status$.subscribe((status) => {
@@ -35,5 +36,9 @@ export class AcompanharPedidoComponent {
 
   pedidoEnviado() {
     this.pedidoStatusService.atualizarStatus('Pedido enviado para entrega');
+  }
+
+  voltar() {
+    this.router.navigate(['inicio']);
   }
 }

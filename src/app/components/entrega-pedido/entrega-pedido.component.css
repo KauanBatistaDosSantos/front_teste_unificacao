@@ -40,6 +40,7 @@
     margin-top: 0;
     margin-bottom: 4px; /* Espaçamento mínimo entre os parágrafos */
     font-size: 12px;
+    margin-right: 15px;
 }
 
 .detalhes-pedido h3 {
