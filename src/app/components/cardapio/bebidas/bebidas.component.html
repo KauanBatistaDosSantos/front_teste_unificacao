@@ -21,7 +21,13 @@
             </button>
             <div *ngIf="!last" class="linha-separadora"></div>
         </div>
-          
+        
+        <footer class="carrinho" (click)="irParaCarrinho()">
+            <button id="botao-carrinho">
+                <span>Carrinho</span>
+                <mat-icon matBadge="{{ totalItens }}" matBadgeColor="accent" matBadgeOverlap="false">shopping_cart</mat-icon>
+            </button>
+        </footer>
     </main>
     
 </body>

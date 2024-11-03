@@ -4,19 +4,30 @@ import { Dish } from '../../../services/dish.service';
 import { CommonModule } from '@angular/common';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
+import { PedidosService } from '../../../services/pedidos.service';
+import { PedidoService } from '../../pedido.service';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-bebidas',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MatIcon, MatBadgeModule],
   templateUrl: './bebidas.component.html',
   styleUrl: './bebidas.component.css'
 })
 export class BebidasComponent implements OnInit {
   dishes: any[] = [];
   loading = true;
+  cartHasItems = false;
+  totalItens: number = 0;
 
-  constructor(private dishService: DishService, private location: Location, private router: Router) {}
+  constructor(private dishService: DishService, 
+    private location: Location, 
+    private router: Router, 
+    private pedidosService: PedidosService,
+    private pedidoService: PedidoService
+  ) {}
 
   ngOnInit() {
     this.dishService.getDishesByCategory('bebidas').subscribe(data => {
@@ -25,6 +36,16 @@ export class BebidasComponent implements OnInit {
     }, error => {
       console.error('Erro ao carregar pratos', error);
       this.loading = false;
+    });
+    this.checkCartItems();
+    this.pedidoService.getCarrinhoItens().subscribe((itens) => {
+      this.totalItens = itens.length;
+    });
+  }
+
+  checkCartItems() {
+    this.pedidosService.getCartItems().subscribe(cartItems => {
+      this.cartHasItems = cartItems.length > 0;
     });
   }
   
@@ -39,4 +60,8 @@ export class BebidasComponent implements OnInit {
   voltar() {
     this.location.back();
   }
+
+  irParaCarrinho() {
+    this.router.navigate(['/carrinho']);
+   }
 }
