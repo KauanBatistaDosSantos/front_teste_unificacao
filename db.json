@@ -297,7 +297,7 @@
       "observacao": "sem maionese",
       "numeroPedido": 16,
       "horario": "2024-10-30T00:33:02.321Z",
-      "status": "pedido enviado para entrega",
+      "status": "pedido finalizado",
       "tempo": "0 min",
       "entregador": "Claudinei Santos"
     },
@@ -311,10 +311,11 @@
       "observacao": "sal, por favor",
       "numeroPedido": 17,
       "horario": "2024-11-04T02:06:57.700Z",
-      "status": "aguardando entrega",
+      "status": "pedido finalizado",
       "tempo": "7 min",
-      "entregador": "",
-      "codigoCpf": "49088"
+      "entregador": "Hugo Prado",
+      "codigoCpf": "49088",
+      "tempoEstimado": 10
     },
     {
       "id": "18",
@@ -325,8 +326,8 @@
       "cpf": "490.883.748-13",
       "observacao": "",
       "numeroPedido": 18,
-      "horario": "2024-11-01T15:41:28.738Z",
-      "status": "não aceito",
+      "horario": "2024-11-04T02:19:32.944Z",
+      "status": "em preparo",
       "tempo": "",
       "entregador": "",
       "codigoCpf": "49088"
@@ -341,9 +342,10 @@
       "observacao": "",
       "numeroPedido": 19,
       "horario": "2024-11-01T16:09:43.362Z",
-      "status": "aguardando entrega",
+      "status": "pedido finalizado",
       "tempo": "3479 min",
-      "entregador": ""
+      "entregador": "Claudinei Santos",
+      "tempoEstimado": 12
     },
     {
       "id": "20",
@@ -676,7 +678,7 @@
       "observacao": "",
       "numeroPedido": 28,
       "horario": "2024-11-04T02:00:54.803Z",
-      "status": "pedido enviado para entrega",
+      "status": "pedido finalizado",
       "tempo": "0 min",
       "entregador": "Hugo Prado",
       "tempoEstimado": 20
@@ -732,9 +734,10 @@
       "observacao": "",
       "numeroPedido": 29,
       "horario": "2024-11-03T16:44:21.695Z",
-      "status": "aguardando entrega",
+      "status": "pedido finalizado",
       "tempo": "562 min",
-      "entregador": ""
+      "entregador": "Hugo Prado",
+      "tempoEstimado": 45
     },
     {
       "id": "30",
@@ -935,8 +938,8 @@
       "cpf": "258.189.438-52",
       "observacao": "",
       "numeroPedido": 33,
-      "horario": "2024-11-03T17:06:50.762Z",
-      "status": "não aceito",
+      "horario": "2024-11-04T02:19:35.941Z",
+      "status": "em preparo",
       "tempo": "",
       "entregador": ""
     },
@@ -1054,7 +1057,7 @@
       "observacao": "",
       "numeroPedido": 37,
       "horario": "2024-11-03T22:49:13.202Z",
-      "status": "pedido enviado para entrega",
+      "status": "pedido finalizado",
       "tempo": "0 min",
       "entregador": "Hugo Prado",
       "tempoEstimado": 15
@@ -1141,7 +1144,7 @@
       "price": 50,
       "image": "https://s2-receitas.glbimg.com/tHeJvrKQVeIin3PTeGf6AaUcbag=/0x0:1280x805/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2020/9/E/l4TseUQAqVp32qAFW2AQ/bife-a-cavalo.jpeg",
       "category": "executivos",
-      "status": "inativo"
+      "status": "ativo"
     },
     {
       "id": "13",

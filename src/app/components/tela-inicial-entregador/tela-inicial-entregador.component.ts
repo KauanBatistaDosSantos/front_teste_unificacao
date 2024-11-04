@@ -6,6 +6,7 @@ import { PedidoService } from '../pedido.service';
 import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogEntregadorPedidoAtribuidoComponent } from '../dialog-entregador-pedido-atribuido/dialog-entregador-pedido-atribuido.component';
+import { FinalizarEntregaComponent } from '../finalizar-entrega/finalizar-entrega.component';
 
 @Component({
   selector: 'app-tela-inicial-entregador',
@@ -15,11 +16,16 @@ import { DialogEntregadorPedidoAtribuidoComponent } from '../dialog-entregador-p
   styleUrl: './tela-inicial-entregador.component.css'
 })
 export class TelaInicialEntregadorComponent implements OnInit {
-  nome: boolean = true;  // Simula se há ou não pedidos
+  nome: boolean = true;
   pedidoSelecionado: any;
   entregadorNome: string = '';
+  mostrarPedido: boolean = false;
 
-  constructor(private entregaService: EntregaService, private pedidoService: PedidoService, private route: ActivatedRoute, private dialog: MatDialog) {}
+  constructor(
+    private entregaService: EntregaService, 
+    private pedidoService: PedidoService, 
+    private route: ActivatedRoute, 
+    private dialog: MatDialog) {}
 
   ngOnInit(): void {
     const nomeRota = this.route.snapshot.paramMap.get('nome');
@@ -28,19 +34,18 @@ export class TelaInicialEntregadorComponent implements OnInit {
     }
 
     this.buscarPedidoMaisAntigo();
-    this.pedidoService.getNovoPedidoAtribuido().subscribe(() => {
-      this.abrirDialogNovoPedido();
-    });
   }
 
   abrirDialogNovoPedido(): void {
-    const dialogRef = this.dialog.open(DialogEntregadorPedidoAtribuidoComponent);
+    if (!this.mostrarPedido) {
+      const dialogRef = this.dialog.open(DialogEntregadorPedidoAtribuidoComponent);
 
-    dialogRef.afterClosed().subscribe(result => {
-      if (result === 'iniciar') {
-        this.buscarPedidoMaisAntigo(); // Reinicia o processo de busca
-      }
-    });
+      dialogRef.afterClosed().subscribe(result => {
+        if (result === 'iniciar') {
+          this.mostrarPedido = true;
+        }
+      });
+    }
   }
 
   buscarPedidoMaisAntigo(): void {
@@ -48,7 +53,10 @@ export class TelaInicialEntregadorComponent implements OnInit {
       if (pedido) {
         this.pedidoSelecionado = pedido;
         this.nome = true;
+        this.mostrarPedido = false;
+        this.abrirDialogNovoPedido();
       } else {
+        this.pedidoSelecionado = null;
         this.nome = false;
       }
     });
@@ -56,8 +64,17 @@ export class TelaInicialEntregadorComponent implements OnInit {
 
   finalizarEntrega(): void {
     if (this.pedidoSelecionado) {
-      this.pedidoService.finalizarPedido(this.pedidoSelecionado.id).subscribe(() => {
-        this.buscarPedidoMaisAntigo(); // Atualiza a lista de entregas após finalização
+      const dialogRef = this.dialog.open(FinalizarEntregaComponent);
+      
+      dialogRef.componentInstance.entregaFinalizada.subscribe(() => {
+
+        this.buscarPedidoMaisAntigo();
+      });
+
+      dialogRef.afterClosed().subscribe((result) => {
+        if (result === 'entregaFinalizada') {
+          this.buscarPedidoMaisAntigo();
+        }
       });
     }
   }

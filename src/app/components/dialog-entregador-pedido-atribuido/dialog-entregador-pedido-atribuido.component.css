@@ -1,0 +1,32 @@
+section {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--cinza-figma);
+    color: white;
+    align-items: center;
+    min-height: 80px;
+    font-size: 24px;
+    max-width: 300px;
+}
+
+button {
+    background-color: var(--laranja-figma);
+    color: white;
+    width: 80px;
+    height: 40px;
+    font-size: 18px;
+    border-radius: 10px;
+    border: none;
+    margin: 30px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+h1 {
+    padding: 30px;
+    padding-top: 40px;
+    padding-bottom: 0;
+    text-align: center;
+    font-weight: 600;
+}

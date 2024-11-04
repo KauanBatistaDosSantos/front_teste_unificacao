@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { NgIf } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MatDialogModule, MatDialog } from '@angular/material/dialog';
@@ -26,6 +26,7 @@ import { PedidoService } from '../pedido.service';
 })
 export class EntregaRecebidaComponent {
   @Input() pedido: any;
+  @Output() entregaFinalizada = new EventEmitter<void>();
   
   mostrarPrevisaoEntrega: boolean = true;
   mostrarDiaPagamento: boolean = false;
@@ -88,6 +89,7 @@ export class EntregaRecebidaComponent {
     this.esconderH2 = true;
 
     this.atualizarStatusPedidoFinalizado();
+    this.entregaFinalizada.emit();
   }
 
   atualizarStatusPedidoFinalizado(): void {
@@ -95,10 +97,9 @@ export class EntregaRecebidaComponent {
       this.pedidoService.finalizarPedido(this.pedido.id).subscribe({
         next: () => {
           console.log('Status do pedido atualizado para "pedido finalizado"');
-          // Verifica se há mais pedidos pendentes para o entregador atual
           this.pedidoService.getPedidoMaisAntigoParaEntregador(this.pedido.entregador).subscribe(pedidoMaisAntigo => {
             if (!pedidoMaisAntigo) {
-              this.entregaService.finalizarEntrega(); // Atualiza o estado para "sem entrega"
+              this.entregaService.finalizarEntrega();
             }
           });
         },
