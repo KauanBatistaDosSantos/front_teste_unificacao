@@ -1,11 +1,9 @@
 header {
-    display: flex;
-    justify-content: end;
-    align-items: center;
+    width: 100%;
     padding: 16px 24px;
-    max-width: 100%;
-    box-sizing: border-box;
-    padding-right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 h1 {
@@ -237,14 +235,6 @@ input:checked + .slider:before {
     margin-top: 10px;
 }
 
-#botao-seta-voltar {
-    position: absolute;
-    left: 28px;
-    background-color: var(--fundo-telas);
-    border: none;
-    padding-top: 25px;
-    color: #ffffff;
-}
 
 #adicionar-new-dish {
     padding: 8px 16px;

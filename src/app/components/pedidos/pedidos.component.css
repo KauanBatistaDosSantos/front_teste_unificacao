@@ -4,9 +4,13 @@
     padding: 20px;
   }
   
-  h2 {
-    text-align: center;
-    color: #333;
+  h1 {
+    color: #ffffff;
+    font: 32px Mulish, sans-serif;
+    margin: 21.44px 0px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
   }
   
   ul {
@@ -20,7 +24,13 @@
     margin: 10px 0;
     border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    background: var(--laranja-figma);
+    border-radius: 10px;
+    transition: border-radius 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1),
+                  0 0  0 2px rgb(190, 190, 190),
+                  0.3em 0.3em 1em rgba(0,0,0,0.3);
+     
   }
   
   .pedido-item:hover {

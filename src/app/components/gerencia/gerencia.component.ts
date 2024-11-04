@@ -20,6 +20,10 @@ export class GerenciaComponent {
     this.router.navigate(['/tela-dir-entrega']);
   }
 
+  irParaMeusPedidos() {
+    this.router.navigate(['meus-pedidos']);
+  }
+
   voltar() {
     this.router.navigate(['/inicio']);
   }

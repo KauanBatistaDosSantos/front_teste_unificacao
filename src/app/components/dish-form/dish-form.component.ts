@@ -10,22 +10,26 @@ import { MatIcon } from '@angular/material/icon';
   standalone: true,
   imports: [CommonModule, FormsModule, MatIcon],
   templateUrl: './dish-form.component.html',
-  styleUrl: './dish-form.component.css'
+  styleUrls: ['./dish-form.component.css']
 })
 export class DishFormComponent implements OnInit {
   
-  dish: Dish = { id: "", 
+  dish: Dish = { 
+    id: "", 
     name: '', 
     description: '', 
     price: 0, 
-    image: '', category: '',
-    status: 'ativo' };
+    image: '', 
+    category: '',
+    status: 'ativo' 
+  };
   isEdit = false;
 
   constructor( 
     private dishService: DishService,
     private route: ActivatedRoute,
-    private router: Router) {}
+    private router: Router
+  ) {}
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
@@ -49,21 +53,17 @@ export class DishFormComponent implements OnInit {
       alert('Preencha todos os campos!');
       return;
     }
-  
+
     if (this.isEdit) {
-      if (this.dish.id) {
-        this.dishService.updateDish(this.dish.id, this.dish).subscribe(
-          () => {
-            alert('Prato atualizado com sucesso');
-            this.router.navigate(['/dishes']);
-          },
-          (error) => {
-            alert('Erro ao atualizar prato: ' + error);
-          }
-        );
-      } else {
-        alert('ID do prato não encontrado para atualização.');
-      }
+      this.dishService.updateDish(this.dish.id, this.dish).subscribe(
+        () => {
+          alert('Prato atualizado com sucesso');
+          this.router.navigate(['/dishes']);
+        },
+        (error) => {
+          alert('Erro ao atualizar prato: ' + error.message);
+        }
+      );
     } else {
       this.dishService.createDish(this.dish).subscribe(
         () => {
@@ -71,7 +71,11 @@ export class DishFormComponent implements OnInit {
           this.router.navigate(['/dish-list']);
         },
         (error) => {
-          alert('Erro ao adicionar prato: ' + error);
+          if (error.message.includes('Dish with ID')) {
+            alert('Já existe um prato com esse ID. Tente outro.');
+          } else {
+            alert('Erro ao adicionar prato: ' + error.message);
+          }
         }
       );
     }
@@ -81,3 +85,5 @@ export class DishFormComponent implements OnInit {
     this.router.navigate(['/dish-list']);
   }
 }
+
+

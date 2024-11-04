@@ -1,11 +1,37 @@
-body {
-    background-color: var(--fundo-telas);
+header {
+    margin: auto;
+    max-width: 414px;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+
+    &
+    #botao-seta-voltar {
+        background-color: var(--fundo-telas);
+        border: none;
+        color: #ffffff;
+    }
+
+
+}
+
+
+
+#corpo {
+    box-sizing: border-box;
+    max-width: 414px;
+    margin: 0 auto;
+    padding: 20px;
+
+}
+
+h1 {
+    color: #ffffff;
+    font: 32px Mulish, sans-serif;
+    margin: 21.44px 0px;
+    font-weight: 700;
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
-    font-family: "Mulish", sans-serif;
-    color: #ffffff;
 }
 
 .gerencia-container {
@@ -14,9 +40,11 @@ body {
     gap: 20px;
     align-items: center;
     margin-top: 20px;
+
+    
 }
 
-.botao-gerencia {
+/* .botao-gerencia {
     background-color: #ff9900;
     color: #ffffff;
     font-size: 18px;
@@ -37,13 +65,39 @@ body {
 .botao-gerencia:focus {
     outline: none;
     box-shadow: 0 0 0 2px rgba(255, 153, 0, 0.5);
-}
+} */
 
-#botao-seta-voltar {
-    position: absolute;
-    left: 28px;
-    background-color: var(--fundo-telas);
-    border: none;
-    padding-top: 25px;
-    color: #ffffff;
-}
+/* From Uiverse.io by portseif */ 
+button {
+    align-items: center;
+    background-color: transparent;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    font-family: ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.5;
+    text-decoration: none;
+    text-transform: uppercase;
+    outline: 0;
+    border: 0;
+    padding: 1rem;
+  }
+  
+  button:before {
+    background-color: #fff;
+    content: "";
+    display: inline-block;
+    height: 1px;
+    margin-right: 10px;
+    transition: all .42s cubic-bezier(.25,.8,.25,1);
+    width: 0;
+  }
+  
+  button:hover:before {
+    background-color: #fff;
+    width: 3rem;
+  }
+
+

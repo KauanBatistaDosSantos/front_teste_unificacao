@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
 export class AcompanharPedidoComponent implements OnInit {
   statusAtual: string = '';
   entregaConfirmada: boolean = false;
-  codigoConfirmacao: string | null = ''; 
+  codigoConfirmacao: string | null = null;
 
   constructor(
     private pedidoStatusService: PedidoStatusService, 
@@ -23,16 +23,25 @@ export class AcompanharPedidoComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-
-    this.codigoConfirmacao = this.pedidoStatusService.obterConfirmacao();
-
- 
-    this.pedidoStatusService.status$.subscribe((status) => {
-      this.statusAtual = status;
-      if (status === 'Pedido concluído') {
-        this.entregaConfirmada = true;
-      }
-    });
+    const pedidoId = localStorage.getItem('pedidoId');
+    this.codigoConfirmacao = localStorage.getItem('codigoConfirmacao');
+  
+    if (pedidoId) {
+      this.pedidoStatusService.status$.subscribe((status) => {
+        this.statusAtual = status;
+  
+        if (status === 'pedido finalizado') {
+          this.entregaConfirmada = true;
+        }
+      });
+  
+      this.pedidoStatusService.obterStatusPedido(pedidoId).subscribe((status) => {
+        this.statusAtual = status;
+        this.pedidoStatusService.atualizarStatus(status);
+      });
+    } else {
+      console.error('Pedido ID não encontrado no localStorage');
+    }
   }
 
   prepararPedido() {

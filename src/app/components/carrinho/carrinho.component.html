@@ -22,15 +22,11 @@
             </div>
             <div *ngIf="!last" class="linha-separadora"></div>
         </div>
-        <div id="carrinho">
+        <footer id="carrinho">
             <h3>Total: {{ total | currency:'BRL' }}</h3>
-
-            <button (click)="finalizar()" id="finalizar">Finalizar</button>
-        </div>
+            <button id="finalizar" (click)="finalizar()" [disabled]="cart.length === 0">Finalizar</button>
+        </footer>
     </main>
 
-    <footer class="botao-rodape">
-        <h3>Total: {{ total | currency:'BRL' }}</h3>
-        <button id="finalizar-pedido" (click)="finalizar()" [disabled]="cart.length === 0">Finalizar</button>
-    </footer>
+    
 </body>

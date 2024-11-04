@@ -19,8 +19,8 @@
       "observacao": "",
       "numeroPedido": 1,
       "horario": "2024-11-03T20:41:50.345Z",
-      "status": "em preparo",
-      "tempo": "",
+      "status": "aguardando entrega",
+      "tempo": "1380 min",
       "entregador": ""
     },
     {
@@ -50,8 +50,8 @@
       "observacao": "teste",
       "numeroPedido": 2,
       "horario": "2024-11-04T01:19:01.347Z",
-      "status": "em preparo",
-      "tempo": "",
+      "status": "aguardando entrega",
+      "tempo": "1103 min",
       "entregador": ""
     },
     {
@@ -96,28 +96,43 @@
       "tempo": "0 min",
       "entregador": "Hugo Prado",
       "tempoEstimado": 20
-    }
-  ],
-  "cart": [
-    {
-      "id": "dde8a055-6692-4c22-849a-3e7895c1424a",
-      "name": "Salada Caesar",
-      "description": "Salada com alface, croutons e molho Caesar.",
-      "price": 30,
-      "image": "https://assets.unileversolutions.com/recipes-v2/179515.jpg",
-      "category": "executivos",
-      "status": "ativo"
     },
     {
-      "id": "437655c5-9c03-40bf-9dc6-17dba515e421",
-      "name": "Bife à Cavalo",
-      "description": "Bife grelhado com ovo frito por cima.",
-      "price": 50,
-      "image": "https://s2-receitas.glbimg.com/tHeJvrKQVeIin3PTeGf6AaUcbag=/0x0:1280x805/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2020/9/E/l4TseUQAqVp32qAFW2AQ/bife-a-cavalo.jpeg",
-      "category": "executivos",
-      "status": "ativo"
+      "id": "4",
+      "nomeCliente": "vitor alvares",
+      "itens": [
+        {
+          "id": "dde8a055-6692-4c22-849a-3e7895c1424a",
+          "name": "Salada Caesar",
+          "description": "Salada com alface, croutons e molho Caesar.",
+          "price": 30,
+          "image": "https://assets.unileversolutions.com/recipes-v2/179515.jpg",
+          "category": "executivos",
+          "status": "ativo"
+        },
+        {
+          "id": "437655c5-9c03-40bf-9dc6-17dba515e421",
+          "name": "Bife à Cavalo",
+          "description": "Bife grelhado com ovo frito por cima.",
+          "price": 50,
+          "image": "https://s2-receitas.glbimg.com/tHeJvrKQVeIin3PTeGf6AaUcbag=/0x0:1280x805/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2020/9/E/l4TseUQAqVp32qAFW2AQ/bife-a-cavalo.jpeg",
+          "category": "executivos",
+          "status": "ativo"
+        }
+      ],
+      "preco": 95,
+      "endereco": "Rua José Martins de Araújo, 12 - Jardim Marmarita",
+      "cpf": "479.765.218-70",
+      "observacao": "",
+      "numeroPedido": 4,
+      "horario": "2024-11-04T16:04:21.593Z",
+      "status": "pedido finalizado",
+      "tempo": "1 min",
+      "entregador": "Hugo Prado",
+      "tempoEstimado": 50
     }
   ],
+  "cart": [],
   "dishes": [
     {
       "id": "4",
@@ -306,6 +321,24 @@
       "price": 30,
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdemp57aT-TAwNYZUcgjULmzpIe6wtAFtAUw&s",
       "category": "executivos",
+      "status": "ativo"
+    },
+    {
+      "id": "3",
+      "name": "teste",
+      "description": "teste",
+      "price": 34,
+      "image": "https://www.temporadaemorlando.com.br/wp-content/uploads/2013/03/Butterbeer-2.jpg",
+      "category": "executivos",
+      "status": "ativo"
+    },
+    {
+      "id": "678578",
+      "name": "teste",
+      "description": "6867",
+      "price": 78,
+      "image": "https://www.temporadaemorlando.com.br/wp-content/uploads/2013/03/Butterbeer-2.jpg",
+      "category": "bebidas",
       "status": "ativo"
     }
   ],

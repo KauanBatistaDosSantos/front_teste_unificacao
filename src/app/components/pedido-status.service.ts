@@ -18,9 +18,6 @@ export class PedidoStatusService {
   
   status$: Observable<string> = this.statusSubject.asObservable();
 
-  // Chave para armazenar e recuperar o número de confirmação no localStorage
-  private confirmacaoKey = 'codigoConfirmacao';
-
   atualizarStatus(novoStatus: string) {
     this.statusSubject.next(novoStatus);
   }

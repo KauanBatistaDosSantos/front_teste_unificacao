@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
+import { catchError, map, switchMap } from 'rxjs/operators';
 
 export interface Dish {
   id: string;
@@ -35,7 +36,17 @@ export class DishService {
 
   createDish(dish: Dish): Observable<Dish> {
     dish.id = String(dish.id);
-    return this.http.post<Dish>(this.apiUrl, dish);
+    return this.getDishes().pipe(
+      map(dishes => {
+        const existingDish = dishes.find(d => d.id === dish.id);
+        if (existingDish) {
+          throw new Error(`Dish with ID ${dish.id} already exists.`);
+        }
+        return dish;
+      }),
+      switchMap(() => this.http.post<Dish>(this.apiUrl, dish)),
+      catchError(error => throwError(() => new Error(error.message)))
+    );
   }
 
   updateDish(id: string, dish: Dish): Observable<Dish> {

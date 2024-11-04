@@ -1,10 +1,15 @@
-<section>
+
+<section class="corpo">
+  <header>
     <button id="botao-seta-voltar" (click)="voltar()"><mat-icon>arrow_back_ios</mat-icon></button>
-</section>
-<body>
+    
+   </header>
     <div class="gerencia-container">
+      <h1>Gerência</h1>
+
       <button (click)="irParaCardapio()" class="botao-gerencia">Gerenciar cardápio</button>
-      <button (click)="irParaPedidos()" class="botao-gerencia">Gerenciar pedidos</button>
+      <button (click)="irParaPedidos()" class="botao-gerencia">Aguardando retirada</button>
+      <button (click)="irParaMeusPedidos()" class="botao-gerencia">Acompanhar pedidos</button>
     </div>
-</body>
+</section>
   

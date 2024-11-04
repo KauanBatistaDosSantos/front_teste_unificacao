@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PedidoService } from '../pedido.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-pedido',
@@ -13,10 +14,9 @@ import { CommonModule } from '@angular/common';
 export class PedidosComponent implements OnInit {
   pedidos: any[] = [];
 
-  constructor(private pedidoService: PedidoService, private router: Router) {}
+  constructor(private pedidoService: PedidoService, private router: Router, private location: Location) {}
 
   ngOnInit(): void {
-    // Obtém a lista de pedidos com apenas os campos necessários
     this.pedidoService.getPedidos().subscribe((pedidos) => {
       this.pedidos = pedidos.map(pedido => ({
         id: pedido.id,
@@ -28,5 +28,9 @@ export class PedidosComponent implements OnInit {
 
   verDetalhes(id: string) {
     this.router.navigate(['/acompanhar-pedido', id]);
+  }
+
+  voltar() {
+    this.location.back();
   }
 }

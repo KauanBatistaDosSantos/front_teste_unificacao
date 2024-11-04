@@ -1,5 +1,11 @@
 <section class="pedido-lista">
-    <h2>Meus Pedidos</h2>
+  <header>
+    <svg (click)="voltar()" class="botao-voltar" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+      <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z"/>
+  </svg>
+  <h1>Pedidos em Andamento</h1>
+  </header>
+    
     <ul>
       <li *ngFor="let pedido of pedidos" (click)="verDetalhes(pedido.id)" class="pedido-item">
         <p><strong>ID:</strong> {{ pedido.id }}</p>
