@@ -5,7 +5,9 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-right: 10px;
 }
+
 #ver-pedidos {
     border: none;
     justify-content: center;
@@ -23,12 +25,11 @@ header {
 }
 
 body {
-
-    max-width: 414px;
     margin: auto;
     text-align: center;
     font-family: "Mulish", sans-serif;
     color: #ffff;
+    max-width: 800px;
 }
 
 .cardapio {
@@ -110,7 +111,7 @@ main {
     height: 1px;
     background-color: #ccc;
     margin: auto;
-    width: 80%;
+    width: 92%;
 }
 
 footer.carrinho {

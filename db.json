@@ -165,6 +165,105 @@
       "status": "aguardando entrega",
       "tempo": "0 min",
       "entregador": ""
+    },
+    {
+      "id": "43",
+      "nomeCliente": "wf",
+      "itens": [
+        {
+          "id": "8",
+          "name": "Margarita",
+          "description": "Bebida refrescante à base de tequila, limão e licor de laranja.",
+          "price": 18,
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmEfi-vrPt3mrLT_cnv0rm2QmncXErIjHifA&s",
+          "category": "bebidas",
+          "status": "ativo"
+        }
+      ],
+      "preco": 33,
+      "endereco": "Rua Brácara, 5859 - Jardim Amália",
+      "cpf": "258.189.438-52",
+      "observacao": "",
+      "numeroPedido": 43,
+      "horario": "2024-11-04T05:29:27.632Z",
+      "status": "pedido enviado para entrega",
+      "tempo": "0 min",
+      "entregador": "Geraldo Cruz",
+      "tempoEstimado": 15
+    },
+    {
+      "id": "44",
+      "nomeCliente": "kaios",
+      "itens": [
+        {
+          "id": "5",
+          "name": "Pepsi",
+          "description": "Refrigerante gelado de cola.",
+          "price": 12,
+          "image": "https://thumbs.dreamstime.com/b/pepsi-cola-bebida-em-fundo-preto-kuala-lumpur-malaysia-march-%C3%A9-concorrente-da-coca-drinque-espa%C3%A7o-de-c%C3%B3pia-174848251.jpg",
+          "category": "bebidas",
+          "status": "ativo"
+        }
+      ],
+      "preco": 27,
+      "endereco": "Rua Rainha Maria Stuart, 139 - Vila Regina",
+      "cpf": "490.883.748-13",
+      "observacao": "",
+      "numeroPedido": 44,
+      "horario": "2024-11-04T06:26:55.751Z",
+      "status": "pedido finalizado",
+      "tempo": "0 min",
+      "entregador": "Hugo Prado",
+      "tempoEstimado": 12
+    },
+    {
+      "id": "45",
+      "nomeCliente": "kaioes",
+      "itens": [
+        {
+          "id": "6",
+          "name": "Risoto de Camarão",
+          "description": "Risoto cremoso com camarões grelhados e ervas.",
+          "price": 45,
+          "image": "https://www.receiteria.com.br/wp-content/uploads/risoto-de-camarao-14.jpg",
+          "category": "porcoes",
+          "status": "ativo"
+        }
+      ],
+      "preco": 60,
+      "endereco": "Rua Rainha Maria Stuart, 168 - Vila Regina",
+      "cpf": "490.883.748-13",
+      "observacao": "",
+      "numeroPedido": 45,
+      "horario": "2024-11-04T06:48:07.763Z",
+      "status": "pedido finalizado",
+      "tempo": "0 min",
+      "entregador": "Hugo Prado",
+      "tempoEstimado": 30
+    },
+    {
+      "id": "46",
+      "nomeCliente": "kauan",
+      "itens": [
+        {
+          "id": "12",
+          "name": "Bife à Cavalo",
+          "description": "Bife grelhado com ovo frito por cima.",
+          "price": 50,
+          "image": "https://s2-receitas.glbimg.com/tHeJvrKQVeIin3PTeGf6AaUcbag=/0x0:1280x805/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2020/9/E/l4TseUQAqVp32qAFW2AQ/bife-a-cavalo.jpeg",
+          "category": "executivos",
+          "status": "ativo"
+        }
+      ],
+      "preco": 65,
+      "endereco": "Rua Rainha Maria Stuart, 139 - Vila Regina",
+      "cpf": "490.883.748-13",
+      "observacao": "sem maionese",
+      "numeroPedido": 46,
+      "horario": "2024-11-04T14:48:18.935Z",
+      "status": "não aceito",
+      "tempo": "",
+      "entregador": ""
     }
   ],
   "cart": [],

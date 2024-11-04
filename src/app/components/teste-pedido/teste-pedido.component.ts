@@ -5,11 +5,12 @@ import { CommonModule } from '@angular/common';
 import { PedidosService } from '../../services/pedidos.service';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-teste-pedido',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MatIcon],
   templateUrl: './teste-pedido.component.html',
   styleUrl: './teste-pedido.component.css'
 })
@@ -65,5 +66,4 @@ export class TestePedidoComponent implements OnInit {
   voltar() {
     this.location.back();
    }
-
 }
