@@ -4,11 +4,12 @@ import { PedidoService } from '../pedido.service';
 import { NgFor, NgForOf } from '@angular/common';
 import { MatIcon } from '@angular/material/icon';
 import { Router } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-tela-inicial-cozinha',
   standalone: true,
-  imports: [CozinhaPedidoComponent, NgFor, NgForOf, MatIcon],
+  imports: [CozinhaPedidoComponent, NgFor, NgForOf, MatIcon, MatIconModule],
   templateUrl: './tela-inicial-cozinha.component.html',
   styleUrl: './tela-inicial-cozinha.component.css'
 })
@@ -34,15 +35,12 @@ export class TelaInicialCozinhaComponent implements OnInit {
           };
         })
         .sort((a, b) => {
-          // Ordena os pedidos "em preparo" por horário (ordem crescente)
           if (a.status === 'em preparo' && b.status === 'em preparo') {
             return new Date(a.horario).getTime() - new Date(b.horario).getTime();
           }
-          // Move pedidos "em preparo" acima dos "não aceito"
           if (a.status === 'em preparo') return -1;
           if (b.status === 'em preparo') return 1;
   
-          // Para os "não aceito", preserva a ordem de horário
           return new Date(a.horario).getTime() - new Date(b.horario).getTime();
         });
     });

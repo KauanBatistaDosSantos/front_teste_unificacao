@@ -35,6 +35,11 @@ export class TelaClienteFinalizarPedidoComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.nomeSalvo = localStorage.getItem('nomeCliente') || '';
+    this.cpfSalvo = localStorage.getItem('cpfCliente') || '';
+    this.enderecoSalvo = JSON.parse(localStorage.getItem('enderecoCliente') || 'null');
+    this.observacao = localStorage.getItem('observacaoCliente') || '';
+
     this.pedidoService.getSubtotal().subscribe(subtotal => {
       this.subtotal = subtotal;
       this.calcularTotal();
@@ -44,6 +49,7 @@ export class TelaClienteFinalizarPedidoComponent implements OnInit {
       this.cartItems = items;
       this.calcularTotal();
     });
+    this.verificarCampos();
   }
 
   abrirDialogoInserirNome(): void {
@@ -54,6 +60,7 @@ export class TelaClienteFinalizarPedidoComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.nomeSalvo = result;
+        localStorage.setItem('nomeCliente', this.nomeSalvo);
         this.verificarCampos();
       }
     });
@@ -67,6 +74,7 @@ export class TelaClienteFinalizarPedidoComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.cpfSalvo = result;
+        localStorage.setItem('cpfCliente', this.cpfSalvo);
         this.verificarCampos();
       }
     });
@@ -80,6 +88,7 @@ export class TelaClienteFinalizarPedidoComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.enderecoSalvo = result;
+        localStorage.setItem('enderecoCliente', JSON.stringify(this.enderecoSalvo));
         this.verificarCampos();
       }
     });
@@ -108,14 +117,22 @@ export class TelaClienteFinalizarPedidoComponent implements OnInit {
         observacao: this.observacao
       };
   
-      this.pedidoService.fazerPedido(novoPedido).pipe(
-        switchMap((pedidoCriado) => this.pedidoService.limparCarrinho().pipe(
-          switchMap(() => {
-            this.pedidoService.setCodigoConfirmacao(this.cpfSalvo, pedidoCriado.id);
-            return this.router.navigate(['/acompanhar-pedido']);
-          })
-        ))
-      ).subscribe();
+      this.pedidoService.fazerPedido(novoPedido).subscribe(pedidoCriado => {
+        this.pedidoService.limparCarrinho().subscribe(() => {
+          this.pedidoService.setCodigoConfirmacao(this.cpfSalvo, pedidoCriado.id);
+  
+          // Salva o ID do pedido e o código de confirmação no localStorage
+          localStorage.setItem('pedidoId', pedidoCriado.id);
+          localStorage.setItem('codigoConfirmacao', this.pedidoService.getCodigoConfirmacao());
+  
+          localStorage.removeItem('nomeCliente');
+          localStorage.removeItem('cpfCliente');
+          localStorage.removeItem('enderecoCliente');
+          localStorage.removeItem('observacaoCliente');
+  
+          this.router.navigate(['/acompanhar-pedido']);
+        });
+      });
     }
   }
 
@@ -123,6 +140,9 @@ export class TelaClienteFinalizarPedidoComponent implements OnInit {
     const textarea = event.target as HTMLTextAreaElement;
     textarea.style.height = 'auto';
     textarea.style.height = `${textarea.scrollHeight}px`;
+
+    this.observacao = textarea.value;
+    localStorage.setItem('observacaoCliente', this.observacao);
   }
 
   voltar() {

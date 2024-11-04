@@ -110,14 +110,30 @@ export class PedidoService {
     return this.getPedidos().pipe(
       map(pedidos => 
         pedidos
-          .filter(pedido => pedido.entregador === entregador && pedido.status === 'pedido enviado para entrega')
+          .filter(pedido => pedido.entregador === entregador && pedido.status === 'pedido enviado para entrega' || pedido.status === 'aguardando confirmação do entregador')
           .sort((a, b) => new Date(a.horario).getTime() - new Date(b.horario).getTime())
       ),
       map(pedidosOrdenados => pedidosOrdenados.length ? pedidosOrdenados[0] : null)
     );
   }
 
-  finalizarPedido(id: number): Observable<any> {
+  // finalizarPedido(id: number): Observable<any> {
+  //   return this.http.patch(`${this.apiUrl}/${id}`, { status: 'pedido finalizado' }).pipe(
+  //     map(() => {
+  //       this.pedidosAtualizados.next();
+  //     })
+  //   );
+  // }
+
+  finalizarPedidoCliente(id: number): Observable<any> {
+    return this.http.patch(`${this.apiUrl}/${id}`, { status: 'aguardando confirmação do entregador' }).pipe(
+      map(() => {
+        this.pedidosAtualizados.next();
+      })
+    );
+  }
+  
+  finalizarPedidoEntregador(id: number): Observable<any> {
     return this.http.patch(`${this.apiUrl}/${id}`, { status: 'pedido finalizado' }).pipe(
       map(() => {
         this.pedidosAtualizados.next();

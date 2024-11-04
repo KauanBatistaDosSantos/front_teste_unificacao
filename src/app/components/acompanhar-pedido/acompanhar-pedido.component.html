@@ -26,6 +26,22 @@
         <!-- Etapa 3: Pedido concluído -->
         <div class="circle" [class.completed]="statusAtual === 'Pedido concluído'">
           <mat-icon>check_circle</mat-icon>
+        <p>Status</p>
+        <div class="progress-bar">
+            <div class="circle" 
+                 [class.completed]="statusAtual === 'em preparo' || statusAtual === 'aguardando entrega' || statusAtual === 'pedido enviado para entrega' || statusAtual === 'pedido finalizado' || statusAtual === 'aguardando confirmação do entregador'"></div>
+            <div class="line" 
+                 [class.completed]="statusAtual === 'aguardando entrega' || statusAtual === 'pedido enviado para entrega' || statusAtual === 'pedido finalizado' || statusAtual === 'aguardando confirmação do entregador'"></div>
+            <div class="circle" 
+                 [class.completed]="statusAtual === 'aguardando entrega' || statusAtual === 'pedido enviado para entrega' || statusAtual === 'pedido finalizado' || statusAtual === 'aguardando confirmação do entregador'"></div>
+            <div class="line" 
+                 [class.completed]="statusAtual === 'pedido enviado para entrega' || statusAtual === 'pedido finalizado' || statusAtual === 'aguardando confirmação do entregador'"></div>
+            <div class="circle" 
+                 [class.completed]="statusAtual === 'pedido enviado para entrega' || statusAtual === 'pedido finalizado' || statusAtual === 'aguardando confirmação do entregador'"></div>
+            <div class="line" 
+                 [class.completed]="statusAtual === 'pedido finalizado' || statusAtual === 'aguardando confirmação do entregador'"></div>
+            <div class="circle" 
+                 [class.completed]="statusAtual === 'pedido finalizado' || statusAtual === 'aguardando confirmação do entregador'"></div>
         </div>
       </div>
   
@@ -34,6 +50,15 @@
   
       <!-- Componente de confirmação de entrega, exibido apenas se a entrega ainda não foi confirmada -->
       <app-cliente-confirmar-entrega *ngIf="!entregaConfirmada"></app-cliente-confirmar-entrega>
+        <p class="status-text" 
+           [class.finalizado]="statusAtual === 'pedido finalizado' || statusAtual === 'aguardando confirmação do entregador'">
+           {{ statusAtual }}
+        </p>
+        <app-cliente-confirmar-entrega 
+            *ngIf="!entregaConfirmada" 
+            [codigoConfirmacao]="codigoConfirmacao ?? ''">
+        </app-cliente-confirmar-entrega>
     </div>
+</section>
   </section>
   

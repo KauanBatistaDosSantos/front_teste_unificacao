@@ -11,20 +11,29 @@ import { PedidoStatusService } from '../pedido-status.service';
 })
 export class ClienteConfirmarEntregaComponent implements OnInit {
   @Input() pedidoId!: string;
-  codigoConfirmacao: string = '';
+  @Input() codigoConfirmacao!: string;
 
   constructor(private pedidoService: PedidoService) {}
 
   ngOnInit(): void {
-    this.codigoConfirmacao = this.pedidoService.getCodigoConfirmacao();
-    this.pedidoId = this.pedidoService.getPedidoId();
+    if (!this.codigoConfirmacao) {
+      this.codigoConfirmacao = this.pedidoService.getCodigoConfirmacao();
+    }
+
+    if (!this.pedidoId) {
+      this.pedidoId = this.pedidoService.getPedidoId() || localStorage.getItem('pedidoId') || '';
+    }
+
+    if (!this.pedidoId) {
+      console.error('ID do pedido não está definido após todas as tentativas');
+    }
   }
 
   pedidoConcluido() {
     if (this.pedidoId) {
       this.pedidoService.getPedidoById(+this.pedidoId).subscribe(pedido => {
         if (pedido.status === 'pedido enviado para entrega') {
-          this.pedidoService.finalizarPedido(+this.pedidoId).subscribe(() => {
+          this.pedidoService.finalizarPedidoCliente(+this.pedidoId).subscribe(() => {
             console.log('Pedido concluído');
           });
         } else {
