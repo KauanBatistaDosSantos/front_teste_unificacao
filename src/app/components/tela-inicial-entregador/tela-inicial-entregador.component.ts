@@ -1,17 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { EntregaRecebidaComponent } from '../entrega-recebida/entrega-recebida.component';
 import { NgIf } from '@angular/common';
-import { EntregaService } from '../../entrega.service';  // Importa o service
+import { EntregaService } from '../../entrega.service';
 import { PedidoService } from '../pedido.service';
 import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogEntregadorPedidoAtribuidoComponent } from '../dialog-entregador-pedido-atribuido/dialog-entregador-pedido-atribuido.component';
 import { FinalizarEntregaComponent } from '../finalizar-entrega/finalizar-entrega.component';
+import { Router } from '@angular/router';
+import { MatIcon, MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-tela-inicial-entregador',
   standalone: true,
-  imports: [EntregaRecebidaComponent, NgIf],
+  imports: [EntregaRecebidaComponent, NgIf, MatIcon, MatIconModule],
   templateUrl: './tela-inicial-entregador.component.html',
   styleUrl: './tela-inicial-entregador.component.css'
 })
@@ -25,7 +27,8 @@ export class TelaInicialEntregadorComponent implements OnInit {
     private entregaService: EntregaService, 
     private pedidoService: PedidoService, 
     private route: ActivatedRoute, 
-    private dialog: MatDialog) {}
+    private dialog: MatDialog, private router: Router
+  ) {}
 
   ngOnInit(): void {
     const nomeRota = this.route.snapshot.paramMap.get('nome');
@@ -84,5 +87,9 @@ export class TelaInicialEntregadorComponent implements OnInit {
       .split('-')
       .map(parte => parte.charAt(0).toUpperCase() + parte.slice(1))
       .join(' ');
+  }
+
+  voltar() {
+    this.router.navigate(['painel-entregadores']);
   }
 }

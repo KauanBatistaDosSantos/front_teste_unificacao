@@ -25,3 +25,12 @@ p {
     justify-content: center;
     padding-top: 38px;
 }
+
+#botao-seta-voltar {
+    position: absolute;
+    left: 28px;
+    background-color: var(--fundo-telas);
+    border: none;
+    padding-top: 25px;
+    color: #ffffff;
+}

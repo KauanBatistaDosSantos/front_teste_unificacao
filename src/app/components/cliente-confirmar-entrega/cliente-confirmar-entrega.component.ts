@@ -11,13 +11,18 @@ import { PedidoStatusService } from '../pedido-status.service';
 })
 export class ClienteConfirmarEntregaComponent implements OnInit {
   @Input() pedidoId!: string;
-  codigoConfirmacao: string = '';
+  @Input() codigoConfirmacao!: string;
 
   constructor(private pedidoService: PedidoService) {}
 
   ngOnInit(): void {
-    this.codigoConfirmacao = this.pedidoService.getCodigoConfirmacao();
-    this.pedidoId = this.pedidoService.getPedidoId();
+    if (!this.codigoConfirmacao) {
+      // Carrega o código de confirmação do PedidoService, caso não tenha sido passado como input
+      this.codigoConfirmacao = this.pedidoService.getCodigoConfirmacao();
+    }
+    if (!this.pedidoId) {
+      this.pedidoId = this.pedidoService.getPedidoId();
+    }
   }
 
   pedidoConcluido() {

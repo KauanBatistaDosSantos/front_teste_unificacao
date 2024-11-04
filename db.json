@@ -1061,6 +1061,195 @@
       "tempo": "0 min",
       "entregador": "Hugo Prado",
       "tempoEstimado": 15
+    },
+    {
+      "id": "38",
+      "nomeCliente": "Mauai",
+      "itens": [
+        {
+          "id": "10",
+          "name": "Tacos",
+          "description": "Tortilhas recheadas com carne, guacamole e salsa.",
+          "price": 28,
+          "image": "https://www.comidaereceitas.com.br/wp-content/uploads/2008/10/Tacos-de-carne-moida.jpg",
+          "category": "porcoes",
+          "status": "ativo"
+        },
+        {
+          "id": "7",
+          "name": "Espetinho de Frango",
+          "description": "Espetinho grelhado de frango marinado.",
+          "price": 25,
+          "image": "https://i.panelinha.com.br/i1/228-q-2731-espetinho.webp",
+          "category": "porcoes",
+          "status": "ativo"
+        },
+        {
+          "id": "5",
+          "name": "Pepsi",
+          "description": "Refrigerante gelado de cola.",
+          "price": 12,
+          "image": "https://thumbs.dreamstime.com/b/pepsi-cola-bebida-em-fundo-preto-kuala-lumpur-malaysia-march-%C3%A9-concorrente-da-coca-drinque-espa%C3%A7o-de-c%C3%B3pia-174848251.jpg",
+          "category": "bebidas",
+          "status": "ativo"
+        }
+      ],
+      "preco": 80,
+      "endereco": "Rua Rainha Maria Stuart, 139 - Vila Regina",
+      "cpf": "258.189.438-52",
+      "observacao": "",
+      "numeroPedido": 38,
+      "horario": "2024-11-04T04:05:18.294Z",
+      "status": "pedido finalizado",
+      "tempo": "0 min",
+      "entregador": "Hugo Prado",
+      "tempoEstimado": 15
+    },
+    {
+      "id": "39",
+      "nomeCliente": "Hugo",
+      "itens": [
+        {
+          "id": "5",
+          "name": "Pepsi",
+          "description": "Refrigerante gelado de cola.",
+          "price": 12,
+          "image": "https://thumbs.dreamstime.com/b/pepsi-cola-bebida-em-fundo-preto-kuala-lumpur-malaysia-march-%C3%A9-concorrente-da-coca-drinque-espa%C3%A7o-de-c%C3%B3pia-174848251.jpg",
+          "category": "bebidas",
+          "status": "ativo"
+        }
+      ],
+      "preco": 27,
+      "endereco": "Rua Rainha Maria Stuart, 139 - Vila Regina",
+      "cpf": "490.883.748-13",
+      "observacao": "sem maionese",
+      "numeroPedido": 39,
+      "horario": "2024-11-04T04:20:48.902Z",
+      "status": "não aceito",
+      "tempo": "",
+      "entregador": ""
+    },
+    {
+      "id": "40",
+      "nomeCliente": "Thiago",
+      "itens": [
+        {
+          "id": "9",
+          "name": "Salada Caesar",
+          "description": "Salada com alface, croutons e molho Caesar.",
+          "price": 30,
+          "image": "https://assets.unileversolutions.com/recipes-v2/179515.jpg",
+          "category": "executivos",
+          "status": "ativo"
+        }
+      ],
+      "preco": 45,
+      "endereco": "Rua Rainha Maria Stuart, 139 - Vila Regina",
+      "cpf": "258.189.438-52",
+      "observacao": "",
+      "numeroPedido": 40,
+      "horario": "2024-11-04T04:35:28.709Z",
+      "status": "não aceito",
+      "tempo": "",
+      "entregador": ""
+    },
+    {
+      "id": "41",
+      "nomeCliente": "Hiago",
+      "itens": [
+        {
+          "id": "10",
+          "name": "Tacos",
+          "description": "Tortilhas recheadas com carne, guacamole e salsa.",
+          "price": 28,
+          "image": "https://www.comidaereceitas.com.br/wp-content/uploads/2008/10/Tacos-de-carne-moida.jpg",
+          "category": "porcoes",
+          "status": "ativo"
+        }
+      ],
+      "preco": 43,
+      "endereco": "Rua Rainha Maria Stuart, 139 - Vila Regina",
+      "cpf": "253.890.878-79",
+      "observacao": "",
+      "numeroPedido": 41,
+      "horario": "2024-11-04T04:45:58.282Z",
+      "status": "pedido enviado para entrega",
+      "tempo": "0 min",
+      "entregador": "Claudinei Santos",
+      "tempoEstimado": 14
+    },
+    {
+      "id": "42",
+      "nomeCliente": "hujo",
+      "itens": [
+        {
+          "id": "10",
+          "name": "Tacos",
+          "description": "Tortilhas recheadas com carne, guacamole e salsa.",
+          "price": 28,
+          "image": "https://www.comidaereceitas.com.br/wp-content/uploads/2008/10/Tacos-de-carne-moida.jpg",
+          "category": "porcoes",
+          "status": "ativo"
+        }
+      ],
+      "preco": 43,
+      "endereco": "Rua Rainha Maria Stuart, 139 - Vila Regina",
+      "cpf": "258.189.438-52",
+      "observacao": "",
+      "numeroPedido": 42,
+      "horario": "2024-11-04T05:22:51.416Z",
+      "status": "aguardando entrega",
+      "tempo": "0 min",
+      "entregador": ""
+    },
+    {
+      "id": "43",
+      "nomeCliente": "wf",
+      "itens": [
+        {
+          "id": "8",
+          "name": "Margarita",
+          "description": "Bebida refrescante à base de tequila, limão e licor de laranja.",
+          "price": 18,
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmEfi-vrPt3mrLT_cnv0rm2QmncXErIjHifA&s",
+          "category": "bebidas",
+          "status": "ativo"
+        }
+      ],
+      "preco": 33,
+      "endereco": "Rua Brácara, 5859 - Jardim Amália",
+      "cpf": "258.189.438-52",
+      "observacao": "",
+      "numeroPedido": 43,
+      "horario": "2024-11-04T05:29:27.632Z",
+      "status": "pedido enviado para entrega",
+      "tempo": "0 min",
+      "entregador": "Geraldo Cruz",
+      "tempoEstimado": 15
+    },
+    {
+      "id": "44",
+      "nomeCliente": "kaios",
+      "itens": [
+        {
+          "id": "5",
+          "name": "Pepsi",
+          "description": "Refrigerante gelado de cola.",
+          "price": 12,
+          "image": "https://thumbs.dreamstime.com/b/pepsi-cola-bebida-em-fundo-preto-kuala-lumpur-malaysia-march-%C3%A9-concorrente-da-coca-drinque-espa%C3%A7o-de-c%C3%B3pia-174848251.jpg",
+          "category": "bebidas",
+          "status": "ativo"
+        }
+      ],
+      "preco": 27,
+      "endereco": "Rua Rainha Maria Stuart, 139 - Vila Regina",
+      "cpf": "490.883.748-13",
+      "observacao": "",
+      "numeroPedido": 44,
+      "horario": "2024-11-04T05:36:56.509Z",
+      "status": "não aceito",
+      "tempo": "0 min",
+      "entregador": ""
     }
   ],
   "cart": [],

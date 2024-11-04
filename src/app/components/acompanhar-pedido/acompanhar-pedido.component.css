@@ -65,3 +65,7 @@ h1 {
     font-size: 14px;
     margin-top: 10px;
 }
+
+.status-text.finalizado {
+    color: #00ff1e; /* Verde para o texto quando finalizado */
+}
