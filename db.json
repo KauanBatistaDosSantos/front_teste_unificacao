@@ -310,9 +310,9 @@
       "cpf": "490.883.748-13",
       "observacao": "sal, por favor",
       "numeroPedido": 17,
-      "horario": "2024-11-01T15:40:53.471Z",
-      "status": "não aceito",
-      "tempo": "",
+      "horario": "2024-11-04T02:06:57.700Z",
+      "status": "aguardando entrega",
+      "tempo": "7 min",
       "entregador": "",
       "codigoCpf": "49088"
     },
@@ -341,8 +341,8 @@
       "observacao": "",
       "numeroPedido": 19,
       "horario": "2024-11-01T16:09:43.362Z",
-      "status": "não aceito",
-      "tempo": "",
+      "status": "aguardando entrega",
+      "tempo": "3479 min",
       "entregador": ""
     },
     {
@@ -354,8 +354,8 @@
       "cpf": "253.890.878-79",
       "observacao": "",
       "numeroPedido": 20,
-      "horario": "2024-11-01T16:19:08.531Z",
-      "status": "não aceito",
+      "horario": "2024-11-04T02:10:12.316Z",
+      "status": "em preparo",
       "tempo": "",
       "entregador": ""
     },
@@ -565,8 +565,8 @@
       "cpf": "258.189.438-52",
       "observacao": "",
       "numeroPedido": 26,
-      "horario": "2024-11-03T16:32:33.164Z",
-      "status": "não aceito",
+      "horario": "2024-11-04T02:11:52.190Z",
+      "status": "em preparo",
       "tempo": "",
       "entregador": ""
     },
@@ -620,8 +620,8 @@
       "cpf": "258.189.438-52",
       "observacao": "",
       "numeroPedido": 27,
-      "horario": "2024-11-03T16:37:23.493Z",
-      "status": "não aceito",
+      "horario": "2024-11-04T02:10:37.722Z",
+      "status": "em preparo",
       "tempo": "",
       "entregador": ""
     },
@@ -675,10 +675,11 @@
       "cpf": "258.189.438-52",
       "observacao": "",
       "numeroPedido": 28,
-      "horario": "2024-11-03T16:42:16.897Z",
-      "status": "não aceito",
-      "tempo": "",
-      "entregador": ""
+      "horario": "2024-11-04T02:00:54.803Z",
+      "status": "pedido enviado para entrega",
+      "tempo": "0 min",
+      "entregador": "Hugo Prado",
+      "tempoEstimado": 20
     },
     {
       "id": "29",
@@ -731,8 +732,8 @@
       "observacao": "",
       "numeroPedido": 29,
       "horario": "2024-11-03T16:44:21.695Z",
-      "status": "não aceito",
-      "tempo": "",
+      "status": "aguardando entrega",
+      "tempo": "562 min",
       "entregador": ""
     },
     {
@@ -785,8 +786,8 @@
       "cpf": "258.189.438-52",
       "observacao": "",
       "numeroPedido": 30,
-      "horario": "2024-11-03T16:55:38.058Z",
-      "status": "não aceito",
+      "horario": "2024-11-04T02:10:17.617Z",
+      "status": "em preparo",
       "tempo": "",
       "entregador": ""
     },
@@ -840,8 +841,8 @@
       "cpf": "258.189.438-52",
       "observacao": "",
       "numeroPedido": 31,
-      "horario": "2024-11-03T16:59:43.536Z",
-      "status": "não aceito",
+      "horario": "2024-11-04T02:12:07.263Z",
+      "status": "em preparo",
       "tempo": "",
       "entregador": ""
     },

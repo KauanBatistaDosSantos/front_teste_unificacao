@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogConfirmarFinalizacaoDoPedidoComponent } from '../dialog-confirmar-finalizacao-do-pedido/dialog-confirmar-finalizacao-do-pedido.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cozinha-pedido',
@@ -16,13 +17,16 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 export class CozinhaPedidoComponent {
   @Input() pedido: any;
 
-  constructor(private pedidoService: PedidoService, public dialog: MatDialog) {}
+  constructor(private pedidoService: PedidoService, public dialog: MatDialog, private router: Router) {}
 
   aceitarPedido(id: number): void {
     this.pedidoService.aceitarPedido(id).subscribe(() => {
       this.pedido.status = 'em preparo';
       console.log('Pedido aceito com sucesso:', this.pedido);
     });
+    setTimeout(() => {
+    window.location.reload(); 
+    }, 100);
   }
 
   finalizarPedido(id: number): void {
@@ -35,6 +39,9 @@ export class CozinhaPedidoComponent {
 
         this.pedidoService.updatePedido(id, this.pedido).subscribe(() => {
           console.log('Pedido atualizado com sucesso:', this.pedido);
+          setTimeout(() => {
+            window.location.reload(); 
+            }, 100);
         }, (error) => {
           console.error('Erro ao atualizar o pedido:', error);
         });
