@@ -94,7 +94,7 @@ export class EntregaRecebidaComponent {
 
   atualizarStatusPedidoFinalizado(): void {
     if (this.pedido && this.pedido.id) {
-      this.pedidoService.finalizarPedido(this.pedido.id).subscribe({
+      this.pedidoService.finalizarPedidoEntregador(this.pedido.id).subscribe({
         next: () => {
           console.log('Status do pedido atualizado para "pedido finalizado"');
           this.pedidoService.getPedidoMaisAntigoParaEntregador(this.pedido.entregador).subscribe(pedidoMaisAntigo => {

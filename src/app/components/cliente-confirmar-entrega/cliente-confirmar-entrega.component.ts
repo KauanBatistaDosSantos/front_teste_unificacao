@@ -17,11 +17,15 @@ export class ClienteConfirmarEntregaComponent implements OnInit {
 
   ngOnInit(): void {
     if (!this.codigoConfirmacao) {
-      // Carrega o código de confirmação do PedidoService, caso não tenha sido passado como input
       this.codigoConfirmacao = this.pedidoService.getCodigoConfirmacao();
     }
+
     if (!this.pedidoId) {
-      this.pedidoId = this.pedidoService.getPedidoId();
+      this.pedidoId = this.pedidoService.getPedidoId() || localStorage.getItem('pedidoId') || '';
+    }
+
+    if (!this.pedidoId) {
+      console.error('ID do pedido não está definido após todas as tentativas');
     }
   }
 
@@ -29,7 +33,7 @@ export class ClienteConfirmarEntregaComponent implements OnInit {
     if (this.pedidoId) {
       this.pedidoService.getPedidoById(+this.pedidoId).subscribe(pedido => {
         if (pedido.status === 'pedido enviado para entrega') {
-          this.pedidoService.finalizarPedido(+this.pedidoId).subscribe(() => {
+          this.pedidoService.finalizarPedidoCliente(+this.pedidoId).subscribe(() => {
             console.log('Pedido concluído');
           });
         } else {

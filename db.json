@@ -1173,7 +1173,7 @@
       "observacao": "",
       "numeroPedido": 41,
       "horario": "2024-11-04T04:45:58.282Z",
-      "status": "pedido enviado para entrega",
+      "status": "pedido finalizado",
       "tempo": "0 min",
       "entregador": "Claudinei Santos",
       "tempoEstimado": 14
@@ -1246,10 +1246,11 @@
       "cpf": "490.883.748-13",
       "observacao": "",
       "numeroPedido": 44,
-      "horario": "2024-11-04T05:36:56.509Z",
-      "status": "não aceito",
+      "horario": "2024-11-04T06:26:55.751Z",
+      "status": "aguardando confirmação do entregador",
       "tempo": "0 min",
-      "entregador": ""
+      "entregador": "Hugo Prado",
+      "tempoEstimado": 12
     }
   ],
   "cart": [],
