@@ -19,9 +19,10 @@
       "observacao": "",
       "numeroPedido": 1,
       "horario": "2024-11-03T20:41:50.345Z",
-      "status": "aguardando entrega",
+      "status": "pedido finalizado",
       "tempo": "1380 min",
-      "entregador": ""
+      "entregador": "Hugo Prado",
+      "tempoEstimado": null
     },
     {
       "id": "2",
@@ -50,9 +51,10 @@
       "observacao": "teste",
       "numeroPedido": 2,
       "horario": "2024-11-04T01:19:01.347Z",
-      "status": "aguardando entrega",
+      "status": "pedido finalizado",
       "tempo": "1103 min",
-      "entregador": ""
+      "entregador": "Hugo Prado",
+      "tempoEstimado": null
     },
     {
       "id": "3",
@@ -130,6 +132,39 @@
       "tempo": "1 min",
       "entregador": "Hugo Prado",
       "tempoEstimado": 50
+    },
+    {
+      "id": "5",
+      "nomeCliente": "vitor alvares",
+      "itens": [
+        {
+          "id": "c95e779e-2618-4107-a1ff-deb00bca38f1",
+          "name": "Bife à Cavalo",
+          "description": "Bife grelhado com ovo frito por cima.",
+          "price": 50,
+          "image": "https://s2-receitas.glbimg.com/tHeJvrKQVeIin3PTeGf6AaUcbag=/0x0:1280x805/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2020/9/E/l4TseUQAqVp32qAFW2AQ/bife-a-cavalo.jpeg",
+          "category": "executivos",
+          "status": "ativo"
+        },
+        {
+          "id": "94539ab6-843c-4667-8714-9d3fa8231f47",
+          "name": "Sangria",
+          "description": "Bebida à base de vinho tinto, frutas e especiarias.",
+          "price": 22,
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRX8hVpFM7P2XwyS9mgkG2-8wST16H00ET92A&s",
+          "category": "bebidas",
+          "status": "ativo"
+        }
+      ],
+      "preco": 87,
+      "endereco": "Rua José Martins de Araújo, 12 - Jardim Marmarita",
+      "cpf": "479.765.218-70",
+      "observacao": "",
+      "numeroPedido": 5,
+      "horario": "2024-11-04T19:57:36.381Z",
+      "status": "aguardando entrega",
+      "tempo": "0 min",
+      "entregador": ""
     }
   ],
   "cart": [],
