@@ -1,20 +1,39 @@
 <section class="pedido-container">
     <header>
-        <button id="botao-voltar" (click)="voltar()"><mat-icon>arrow_back_ios</mat-icon></button>
-        <h1>Acompanhe o seu pedido</h1>
+      <button id="botao-voltar" (click)="voltar()">
+        <mat-icon>arrow_back_ios</mat-icon>
+      </button>
+      <h1>Acompanhe o seu pedido</h1>
     </header>
-
+  
     <div class="status-container">
-        <p>Status</p>
-        <div class="progress-bar">
-            <div class="circle" [class.completed]="statusAtual === 'Pedido sendo preparado' || statusAtual === 'Pedido enviado para entrega' || statusAtual === 'Pedido concluído'"></div>
-            <div class="line" [class.completed]="statusAtual === 'Pedido enviado para entrega' || statusAtual === 'Pedido concluído'"></div>
-            <div class="circle" [class.completed]="statusAtual === 'Pedido enviado para entrega' || statusAtual === 'Pedido concluído'"></div>
-            <div class="line" [class.completed]="statusAtual === 'Pedido concluído'"></div>
-            <div class="circle" [class.completed]="statusAtual === 'Pedido concluído'"></div>
+      <p>Status</p>
+      
+      <!-- Barra de progresso com três etapas: Preparando, Enviado e Concluído -->
+      <div class="progress-bar">
+        <!-- Etapa 1: Pedido sendo preparado -->
+        <div class="circle" [class.completed]="statusAtual === 'Pedido sendo preparado' || statusAtual === 'Pedido enviado para entrega' || statusAtual === 'Pedido concluído'">
+          <mat-icon>restaurant_menu</mat-icon>
         </div>
-        <p class="status-text">{{ statusAtual }}</p>
-        <app-cliente-confirmar-entrega *ngIf="!entregaConfirmada"></app-cliente-confirmar-entrega>
+        <div class="line" [class.completed]="statusAtual === 'Pedido enviado para entrega' || statusAtual === 'Pedido concluído'"></div>
+  
+        <!-- Etapa 2: Pedido enviado para entrega -->
+        <div class="circle" [class.completed]="statusAtual === 'Pedido enviado para entrega' || statusAtual === 'Pedido concluído'">
+          <mat-icon>local_shipping</mat-icon>
+        </div>
+        <div class="line" [class.completed]="statusAtual === 'Pedido concluído'"></div>
+  
+        <!-- Etapa 3: Pedido concluído -->
+        <div class="circle" [class.completed]="statusAtual === 'Pedido concluído'">
+          <mat-icon>check_circle</mat-icon>
+        </div>
+      </div>
+  
+      <!-- Texto do status atual -->
+      <p class="status-text">{{ statusAtual }}</p>
+  
+      <!-- Componente de confirmação de entrega, exibido apenas se a entrega ainda não foi confirmada -->
+      <app-cliente-confirmar-entrega *ngIf="!entregaConfirmada"></app-cliente-confirmar-entrega>
     </div>
-</section>
-    
+  </section>
+  

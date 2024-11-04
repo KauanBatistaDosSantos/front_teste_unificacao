@@ -15,6 +15,7 @@ import { BebidasComponent } from './components/cardapio/bebidas/bebidas.componen
 import { PorcoesComponent } from './components/cardapio/porcoes/porcoes.component';
 import { TestePedidoComponent } from './components/teste-pedido/teste-pedido.component';
 import { CarrinhoComponent } from './components/carrinho/carrinho.component';
+import { PedidosComponent } from './components/pedidos/pedidos.component';
 
 export const routes: Routes = [
     { path: '', component: InicioComponent},
@@ -38,5 +39,6 @@ export const routes: Routes = [
     { path: 'cardapio/porcoes', component: PorcoesComponent },
     { path: 'cardapio/fazer-pedido/:id', component: TestePedidoComponent },
     { path: 'dish-list/edit-dish/:id', component: DishFormComponent },
-    { path: 'carrinho', component: CarrinhoComponent }
+    { path: 'carrinho', component: CarrinhoComponent },
+    { path: 'meus-pedidos', component: PedidosComponent}
 ];

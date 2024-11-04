@@ -1,0 +1,11 @@
+<section class="pedido-lista">
+    <h2>Meus Pedidos</h2>
+    <ul>
+      <li *ngFor="let pedido of pedidos" (click)="verDetalhes(pedido.id)" class="pedido-item">
+        <p><strong>ID:</strong> {{ pedido.id }}</p>
+        <p><strong>Cliente:</strong> {{ pedido.nomeCliente }}</p>
+        <p><strong>Status:</strong> {{ pedido.status }}</p>
+      </li>
+    </ul>
+  </section>
+  

@@ -41,4 +41,12 @@ export class ExecutivosComponent implements OnInit {
  voltar() {
   this.location.back();
  }
+
+ verPedidos() {
+  this.router.navigate(['acompanhar-pedido']);
+}
+
+meusPedidos() {
+  this.router.navigate(['meus-pedidos']);
+}
 }

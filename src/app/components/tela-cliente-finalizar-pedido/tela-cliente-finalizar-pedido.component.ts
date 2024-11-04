@@ -8,6 +8,7 @@ import { PedidoService } from '../pedido.service';
 import { NgClass, CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { InserirNomeComponent } from '../inserir-nome/inserir-nome.component';
+import { switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-tela-cliente-finalizar-pedido',
@@ -106,13 +107,15 @@ export class TelaClienteFinalizarPedidoComponent implements OnInit {
         cpf: this.cpfSalvo,
         observacao: this.observacao
       };
-
-      this.pedidoService.fazerPedido(novoPedido).subscribe(pedidoCriado => {
-        this.pedidoService.limparCarrinho().subscribe(() => {
-          this.pedidoService.setCodigoConfirmacao(this.cpfSalvo, pedidoCriado.id);
-          this.router.navigate(['/acompanhar-pedido']);
-        });
-      });
+  
+      this.pedidoService.fazerPedido(novoPedido).pipe(
+        switchMap((pedidoCriado) => this.pedidoService.limparCarrinho().pipe(
+          switchMap(() => {
+            this.pedidoService.setCodigoConfirmacao(this.cpfSalvo, pedidoCriado.id);
+            return this.router.navigate(['/acompanhar-pedido']);
+          })
+        ))
+      ).subscribe();
     }
   }
 

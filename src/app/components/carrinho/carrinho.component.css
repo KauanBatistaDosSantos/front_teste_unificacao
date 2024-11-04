@@ -69,6 +69,7 @@ body {
 
 .cardapio div {
     align-items: flex-start;
+    text-transform: capitalize;
 }
 
 .mulish-fonte {
@@ -95,10 +96,26 @@ body {
     width: 80%;
 }
 
-h3 {
-    font-size: 30px;
-}
-
 #carrinho {
     margin-bottom: 40px;
+
+    &
+    h3 {
+        font-size: 15px;
+        text-decoration-line: underline;
+    }
+    &
+
+    #finalizar {
+        background-color: var(--laranja-figma);
+        color: white;
+        font-size: 25px;
+        border: none;
+        width: 250px;
+        height: auto;
+        font-weight: bold;
+    }
+
+
 }
+

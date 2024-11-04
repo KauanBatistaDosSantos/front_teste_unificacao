@@ -2,18 +2,52 @@
     color: var(--branco-figma);
 }
 
-#cardapio h1 {
-    text-align: center;
-    margin-top: 40px;
-    font-size: 60px;
+#cardapio {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: auto;
+    & 
+    #cardapio h1 {
+        text-align: center;
+        margin-top: 40px;
+        font-size: 60px;
+    }
+}
+
+header {
+    margin: auto;
+    max-width: 414px;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+
+    &
+    #botao-seta-voltar {
+        background-color: var(--fundo-telas);
+        border: none;
+        color: #ffffff;
+
+    
+    }
 }
 
 #corpo {
     box-sizing: border-box;
-    max-width: 850px;
+    max-width: 414px;
     margin: 0 auto;
     padding: 20px;
 }
+
+h1 {
+    color: #ffffff;
+    font: 32px Mulish, sans-serif;
+    margin: 21.44px 0px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+}
+
 
 #botoes {
     margin: auto;
@@ -31,25 +65,17 @@
     justify-content: space-between;
     display: flex;
     align-items: center;
+    color: white;
+    font-size: 40px;
     border: none;
+    padding: 10px 20px;
     cursor: pointer;
     border-radius:10px;
     gap: 20px;
-    padding: 10px 0;
 }
 
-#botao h1 {
-    font-size: 40px;
-}
 
-#botao-seta-voltar {
-    position: absolute;
-    left: 28px;
-    background-color: var(--fundo-telas);
-    border: none;
-    padding-top: 15px;
-    color: #ffffff;
-}
+
 
 img {
     max-width: 100px;
@@ -62,17 +88,17 @@ img {
     background-color: var(--cinza-figma);
 
     height: auto;
-    max-width: 386px;
-    min-width: 386px;
+    min-width: 300px;
     margin: 14px;
     display: block;
     align-items: center;
     color: white;
-    font-size: 25px;
+    font-size: 30px;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
     gap: 20px;
+
 }
 
 .carrinho {

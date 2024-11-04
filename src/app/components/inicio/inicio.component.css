@@ -26,6 +26,7 @@ section {
 #botoes {
     align-items: center;
     padding-bottom: 31px;
+    justify-content: space-between;
 }
 
 header h1 {
@@ -47,7 +48,7 @@ img {
 }
 
 button {
-    max-width: 850px;
+    max-width: 414px;
     width: 100%;
     background-color: var(--fundo-secundario-cinza);
     border: none;

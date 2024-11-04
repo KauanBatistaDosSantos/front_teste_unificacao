@@ -11,6 +11,7 @@
     <div *ngFor="let dish of dishes; let last = last" class="Item">
           <div class="id">
             <h2>#{{dish.id}}</h2>
+           
             <button (click)="deleteDish(dish.id!)" class="deletar">🗑️</button>
           </div>
           <div class="nome">

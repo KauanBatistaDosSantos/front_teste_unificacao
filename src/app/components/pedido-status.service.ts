@@ -1,19 +1,33 @@
-// pedido-status.service.ts
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'  // Isso permite que o serviço seja injetado em toda a aplicação
+  providedIn: 'root'
 })
 export class PedidoStatusService {
-  // O estado do pedido
   private statusSubject = new BehaviorSubject<string>('Pedido sendo preparado');
-  
-  // Observable que os componentes podem se inscrever para acompanhar o status
   status$: Observable<string> = this.statusSubject.asObservable();
 
+  // Chave para armazenar e recuperar o número de confirmação no localStorage
+  private confirmacaoKey = 'codigoConfirmacao';
+
   // Função para atualizar o status
-  atualizarStatus(novoStatus: string) {
-    this.statusSubject.next(novoStatus);  // Atualiza o status com o novo valor
+  atualizarStatus(novoStatus: string): void {
+    this.statusSubject.next(novoStatus);
+  }
+
+  // Função para salvar o número de confirmação no localStorage
+  salvarConfirmacao(codigoConfirmacao: string): void {
+    localStorage.setItem(this.confirmacaoKey, codigoConfirmacao);
+  }
+
+  // Função para obter o número de confirmação do localStorage
+  obterConfirmacao(): string | null {
+    return localStorage.getItem(this.confirmacaoKey);
+  }
+
+  // Função para limpar o número de confirmação do localStorage
+  limparConfirmacao(): void {
+    localStorage.removeItem(this.confirmacaoKey);
   }
 }

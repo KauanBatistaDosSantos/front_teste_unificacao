@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { MatIcon } from '@angular/material/icon';
+import { Component, OnInit } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { PedidoStatusService } from '../pedido-status.service';
 import { ClienteConfirmarEntregaComponent } from '../cliente-confirmar-entrega/cliente-confirmar-entrega.component';
@@ -9,21 +8,27 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-acompanhar-pedido',
   standalone: true,
-  imports: [MatIconModule, ClienteConfirmarEntregaComponent, NgIf
-  ],
+  imports: [MatIconModule, ClienteConfirmarEntregaComponent, NgIf],
   templateUrl: './acompanhar-pedido.component.html',
-  styleUrl: './acompanhar-pedido.component.css'
+  styleUrls: ['./acompanhar-pedido.component.css']
 })
-export class AcompanharPedidoComponent {
+export class AcompanharPedidoComponent implements OnInit {
   statusAtual: string = '';
   entregaConfirmada: boolean = false;
+  codigoConfirmacao: string | null = ''; 
 
-  constructor(private pedidoStatusService: PedidoStatusService, private router: Router) {}
+  constructor(
+    private pedidoStatusService: PedidoStatusService, 
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
+
+    this.codigoConfirmacao = this.pedidoStatusService.obterConfirmacao();
+
+ 
     this.pedidoStatusService.status$.subscribe((status) => {
       this.statusAtual = status;
-
       if (status === 'Pedido concluído') {
         this.entregaConfirmada = true;
       }
