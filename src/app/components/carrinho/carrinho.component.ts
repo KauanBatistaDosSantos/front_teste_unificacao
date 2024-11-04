@@ -51,7 +51,7 @@ export class CarrinhoComponent implements OnInit {
   }
 
   voltar() {
-    this.location.back();
+    this.router.navigate(['/cardapio']);
   }
 
   finalizar() {

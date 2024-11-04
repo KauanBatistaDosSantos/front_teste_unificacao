@@ -146,4 +146,8 @@ export class PedidoService {
         map(() => undefined)
     );
   }
+
+  getCarrinhoItens(): Observable<any[]> {
+    return this.http.get<any[]>(this.cartUrl);
+  }
 }

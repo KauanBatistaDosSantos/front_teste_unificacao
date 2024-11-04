@@ -28,4 +28,9 @@
             <button (click)="finalizar()" id="finalizar">Finalizar</button>
         </div>
     </main>
+
+    <footer class="botao-rodape">
+        <h3>Total: {{ total | currency:'BRL' }}</h3>
+        <button id="finalizar-pedido" (click)="finalizar()" [disabled]="cart.length === 0">Finalizar</button>
+    </footer>
 </body>

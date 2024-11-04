@@ -2,18 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { EntregaPedidoComponent } from '../entrega-pedido/entrega-pedido.component';
 import { PedidoService } from '../pedido.service';
 import { NgFor, NgForOf } from '@angular/common';
+import { MatIcon } from '@angular/material/icon';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tela-inicial-direcionamento-entrega',
   standalone: true,
-  imports: [EntregaPedidoComponent, NgFor, NgForOf],
+  imports: [EntregaPedidoComponent, NgFor, NgForOf, MatIcon],
   templateUrl: './tela-inicial-direcionamento-entrega.component.html',
   styleUrl: './tela-inicial-direcionamento-entrega.component.css'
 })
 export class TelaInicialDirecionamentoEntregaComponent implements OnInit {
   pedidos: any[] = [];
 
-  constructor(private pedidoService: PedidoService) {}
+  constructor(private pedidoService: PedidoService, private router: Router) {}
 
   ngOnInit(): void {
     this.getPedidos();
@@ -43,5 +45,9 @@ export class TelaInicialDirecionamentoEntregaComponent implements OnInit {
     const diferenca = agora.getTime() - horario.getTime();
     const minutos = Math.floor(diferenca / 60000);
     return `${minutos} min`;
+  }
+
+  voltar() {
+    this.router.navigate(['gerencia']);
   }
 }

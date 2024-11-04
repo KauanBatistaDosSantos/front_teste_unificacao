@@ -9,6 +9,7 @@ export interface Dish {
   price: number;
   image: string;
   category: string;
+  status: string;
 }
 
 export interface Category  {
@@ -27,7 +28,6 @@ export class DishService {
   getDishes(): Observable<Dish[]> {
     return this.http.get<Dish[]>(this.apiUrl);
   }
-
 
   getDish(id: string): Observable<Dish> {
     return this.http.get<Dish>(`${this.apiUrl}/${id}`);

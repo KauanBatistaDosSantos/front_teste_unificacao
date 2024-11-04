@@ -1,0 +1,49 @@
+body {
+    background-color: var(--fundo-telas);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: "Mulish", sans-serif;
+    color: #ffffff;
+}
+
+.gerencia-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.botao-gerencia {
+    background-color: #ff9900;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 20px;
+    cursor: pointer;
+    width: 210px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.botao-gerencia:hover {
+    background-color: #e08500;
+}
+
+.botao-gerencia:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255, 153, 0, 0.5);
+}
+
+#botao-seta-voltar {
+    position: absolute;
+    left: 28px;
+    background-color: var(--fundo-telas);
+    border: none;
+    padding-top: 25px;
+    color: #ffffff;
+}

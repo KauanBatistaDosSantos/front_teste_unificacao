@@ -59,6 +59,7 @@ export class TestePedidoComponent implements OnInit {
     } else {
       console.error('Prato não encontrado para adicionar ao carrinho');
     }
+    this.router.navigate(['/cardapio'])
   }
 
   voltar() {
