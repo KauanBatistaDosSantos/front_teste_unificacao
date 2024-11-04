@@ -5,7 +5,6 @@ header {
     display: flex;
     justify-content: end;
     align-items: center;
-
 }
 #ver-pedidos {
     border: none;
@@ -36,6 +35,11 @@ body {
     margin: 0;
     display: flex;
     flex-direction: column;
+}
+
+main {
+    padding-bottom: 90px;
+    font-size: 24px;
 }
 
 .dish-nome h2{

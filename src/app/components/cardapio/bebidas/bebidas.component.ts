@@ -31,7 +31,7 @@ export class BebidasComponent implements OnInit {
 
   ngOnInit() {
     this.dishService.getDishesByCategory('bebidas').subscribe(data => {
-      this.dishes = data;
+      this.dishes = data.filter(dish => dish.status === 'ativo');
       this.loading = false;
     }, error => {
       console.error('Erro ao carregar pratos', error);

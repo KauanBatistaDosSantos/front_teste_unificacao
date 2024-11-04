@@ -17,8 +17,11 @@ export class PrevisaoDeEntregaComponent implements OnInit {
   ngOnInit(): void {
     if (this.pedido && this.pedido.tempoEstimado) {
       const agora = new Date();
-      const estimativa = new Date(agora.getTime() + this.pedido.tempoEstimado * 60000); // Adiciona o tempo em minutos
+      const estimativa = new Date(agora.getTime() + this.pedido.tempoEstimado * 60000);
       this.previsaoChegada = estimativa.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      console.log('Tempo estimado de chegada calculado:', this.previsaoChegada);
+    } else {
+      console.warn('Pedido ou tempoEstimado não fornecido.');
     }
   }
 }

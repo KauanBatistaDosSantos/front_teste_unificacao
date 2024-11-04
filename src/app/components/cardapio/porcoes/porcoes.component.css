@@ -3,9 +3,8 @@ header {
     max-width: 414px;
     padding: 16px 24px;
     display: flex;
-    justify-content: space-between;
+    justify-content: end;
     align-items: center;
-
 }
 
 .voltar {
@@ -157,4 +156,17 @@ footer.carrinho mat-icon {
     font-size: 30px;
     display: inline-block;
     vertical-align: middle;
+}
+
+main {
+    padding-bottom: 90px;
+}
+
+#botao-seta-voltar {
+    position: absolute;
+    left: 28px;
+    background-color: var(--fundo-telas);
+    border: none;
+    padding-top: 25px;
+    color: #ffffff;
 }

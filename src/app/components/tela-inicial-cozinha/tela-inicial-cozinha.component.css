@@ -21,6 +21,7 @@ h1 {
     flex-wrap: wrap;
     padding: 41px 15px 0 19px;
     gap: 13px;
+    justify-content: center;
 }
 
 #botao-seta-voltar {

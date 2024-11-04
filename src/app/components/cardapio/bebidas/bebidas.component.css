@@ -3,10 +3,16 @@ header {
     max-width: 414px;
     padding: 16px 24px;
     display: flex;
-    justify-content: space-between;
+    justify-content: end;
     align-items: center;
 
 }
+
+main {
+    padding-bottom: 90px;
+    font-size: 24px;
+}
+
 #ver-pedidos {
     border: none;
     justify-content: center;
@@ -60,6 +66,7 @@ body {
     width: 100%;
     height: auto;
     object-fit: cover;
+    max-height: 134px;
 }
 
 .botao-item-cardapio {
@@ -140,4 +147,13 @@ footer.carrinho mat-icon {
     font-size: 30px;
     display: inline-block;
     vertical-align: middle;
+}
+
+#botao-seta-voltar {
+    position: absolute;
+    left: 28px;
+    background-color: var(--fundo-telas);
+    border: none;
+    padding-top: 25px;
+    color: #ffffff;
 }

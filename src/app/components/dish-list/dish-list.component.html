@@ -1,34 +1,59 @@
 <body>
-    <header>
-      <button id="botao-seta-voltar" (click)="voltar()"><mat-icon>arrow_back_ios</mat-icon></button>
-      <a routerLink="/dish-form" id="adicionar-new-dish">Adicionar novo item</a>
-    </header>
+  <header>
+    <button id="botao-seta-voltar" (click)="voltar()">
+      <mat-icon>arrow_back_ios</mat-icon>
+    </button>
+    <a routerLink="/dish-form" id="adicionar-new-dish">Adicionar novo item</a>
+  </header>
 
-    <div>
-      <h1>Adicionar Item</h1>
+  <div>
+    <h1>Adicionar Item</h1>
+  </div>
+
+  <h2>Itens Ativos</h2>
+  <div *ngFor="let dish of activeDishes; let last = last" class="Item">
+    <div class="id">
+      <h2>#{{dish.id}}</h2>
+      <button (click)="deleteDish(dish.id!)" class="deletar">🗑️</button>
     </div>
+    <div class="nome">
+      <div class="dish-details">
+        <div class="nome-dish">{{dish.name}}</div>
+        <div class="dish-category">Categoria: {{dish.category}}</div> <!-- Aqui é onde colocamos a categoria -->
+      </div>
+      <div class="container">
+        <span>Ativo:</span>
+        <label class="toggle-switch">
+          <input type="checkbox" [checked]="dish.status === 'ativo'" (change)="toggleStatus(dish)">
+          <span class="slider"></span>
+        </label>
+      </div>
+      <button id="editar">
+        <a [routerLink]="['/dish-list/edit-dish', dish.id]">Edit</a>
+      </button>
+    </div>
+    <div *ngIf="!last" class="linha-separadora"></div>
+  </div>
 
-    <div *ngFor="let dish of dishes; let last = last" class="Item">
-          <div class="id">
-            <h2>#{{dish.id}}</h2>
-            <button (click)="deleteDish(dish.id!)" class="deletar">🗑️</button>
-          </div>
-          <div class="nome">
-            <div class="nome-dish">{{dish.name}}</div>
-            <div class="container">
-              <span >Ativo:</span>
-              <label class="toggle-switch"> 
-                  <input type="checkbox" checked>
-                  <span class="slider"></span>
-              </label>
-             
-          </div>
-          
-            <button id="editar">
-              <a [routerLink]="['/dish-list/edit-dish', dish.id]">Edit</a> 
-            </button>
-            
-          </div>
-      <div *ngIf="!last" class="linha-separadora"></div>
-    </div>      
+  <h2>Itens Inativos</h2>
+  <div *ngFor="let dish of inactiveDishes; let last = last" class="Item">
+    <div class="id">
+      <h2>#{{dish.id}}</h2>
+      <button (click)="deleteDish(dish.id!)" class="deletar">🗑️</button>
+    </div>
+    <div class="nome">
+      <div class="nome-dish">{{dish.name}}</div>
+      <div class="container">
+        <span>Ativo:</span>
+        <label class="toggle-switch">
+          <input type="checkbox" [checked]="dish.status === 'ativo'" (change)="toggleStatus(dish)">
+          <span class="slider"></span>
+        </label>
+      </div>
+      <button id="editar">
+        <a [routerLink]="['/dish-list/edit-dish', dish.id]">Edit</a>
+      </button>
+    </div>
+    <div *ngIf="!last" class="linha-separadora"></div>
+  </div>
 </body>

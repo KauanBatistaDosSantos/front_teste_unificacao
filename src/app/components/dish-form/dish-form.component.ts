@@ -14,7 +14,12 @@ import { MatIcon } from '@angular/material/icon';
 })
 export class DishFormComponent implements OnInit {
   
-  dish: Dish = { id: "", name: '', description: '', price: 0, image: '', category: '' };
+  dish: Dish = { id: "", 
+    name: '', 
+    description: '', 
+    price: 0, 
+    image: '', category: '',
+    status: 'ativo' };
   isEdit = false;
 
   constructor( 

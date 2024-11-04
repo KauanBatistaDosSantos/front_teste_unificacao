@@ -14,6 +14,8 @@ import { MatIcon } from '@angular/material/icon';
 })
 export class DishListComponent implements OnInit {
   dishes: Dish[] = [];
+  activeDishes: Dish[] = [];
+  inactiveDishes: Dish[] = [];
 
   constructor(private dishService: DishService, private router: Router, private location:Location) {}
 
@@ -24,6 +26,22 @@ export class DishListComponent implements OnInit {
   loadDishes() {
     this.dishService.getDishes().subscribe((data: Dish[]) => {
       this.dishes = data;
+      this.filterDishes();
+    });
+  }
+
+  filterDishes() {
+    this.activeDishes = this.dishes.filter(dish => dish.status === 'ativo');
+    this.inactiveDishes = this.dishes.filter(dish => dish.status === 'inativo');
+  }
+
+  toggleStatus(dish: Dish) {
+    const updatedStatus = dish.status === 'ativo' ? 'inativo' : 'ativo';
+    const updatedDish = { ...dish, status: updatedStatus };
+    
+    this.dishService.updateDish(dish.id, updatedDish).subscribe(() => {
+      dish.status = updatedStatus;
+      this.filterDishes(); // Atualizar listas de pratos
     });
   }
 
