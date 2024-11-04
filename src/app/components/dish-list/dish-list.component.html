@@ -19,7 +19,7 @@
     <div class="nome">
       <div class="dish-details">
         <div class="nome-dish">{{dish.name}}</div>
-        <div class="dish-category">Categoria: {{dish.category}}</div> <!-- Aqui é onde colocamos a categoria -->
+        <div class="dish-category">Categoria: {{dish.category}}</div>
       </div>
       <div class="container">
         <span>Ativo:</span>
@@ -42,7 +42,10 @@
       <button (click)="deleteDish(dish.id!)" class="deletar">🗑️</button>
     </div>
     <div class="nome">
-      <div class="nome-dish">{{dish.name}}</div>
+      <div class="dish-details">
+        <div class="nome-dish">{{dish.name}}</div>
+        <div class="dish-category">Categoria: {{dish.category}}</div>
+    </div>
       <div class="container">
         <span>Ativo:</span>
         <label class="toggle-switch">

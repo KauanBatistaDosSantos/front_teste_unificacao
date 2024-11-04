@@ -2,9 +2,11 @@ header {
     display: flex;
     justify-content: end;
     align-items: center;
+    width: 100%;
     padding: 16px 24px;
-    max-width: 100%;
     box-sizing: border-box;
+    margin-bottom: 20px;
+    max-width: 800px;
     padding-right: 0;
 }
 
@@ -30,13 +32,15 @@ h1 {
 }
 
 body {
-    max-width: 414px;
+    max-width: 800px;
     margin: auto;
     text-align: center;
     font-family: "Mulish", sans-serif;
     color: #ffff;
     padding-left: 20px;
     padding-right: 20px;
+    padding-bottom: 30px;
+    height: auto;
 }
 
 #editar {
@@ -80,17 +84,17 @@ a {
     margin: auto;
     width: 100%;
     gap: 16px;
+    max-width: 100%;
 }
 
 .nome-dish {
     font-size: 20px;
     font-weight: bold;
-    flex: 1;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     text-align: left;
-    max-width: 180px;
+    max-width: 100%;;
 }
 
 .dish-details {
@@ -118,9 +122,6 @@ main{
     position: relative;
     gap: 10px;
     align-items: center;
-    margin-right: 50px;
-    text-align: center;
-    margin: 10px auto; 
 }
 
     .toggle-switch span{
@@ -286,6 +287,8 @@ input:checked + .slider:before {
     background-color: #ccc;
     transition: 0.4s;
     border-radius: 24px;
+    box-sizing: border-box;
+    padding: 2px;
   }
   
   .slider:before {
@@ -293,7 +296,7 @@ input:checked + .slider:before {
     content: "";
     height: 20px;
     width: 20px;
-    left: 0px;
+    left: 2px;
     bottom: 2px;
     background-color: white;
     transition: 0.4s;
@@ -305,12 +308,38 @@ input:checked + .slider:before {
   }
   
   input:checked + .slider:before {
-    transform: translateX(26px);
+    transform: translateX(21px);
   }
 
-@media (min-width: 768px) {
+.pedido-container {
+    background-color: #1f2027;
+    padding: 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+    max-width: 800px;
+    margin: auto;
+}
+
+  @media (max-width: 460px) {
+    body {
+        max-width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .pedido-container {
+        max-width: 100%;
+    }
+
     header {
-        max-width: 750px;
-        margin: auto;
+        max-width: 100%;
+    }
+
+    .nome-dish {
+        max-width: 180px;
     }
 }

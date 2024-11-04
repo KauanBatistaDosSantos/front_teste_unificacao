@@ -1,7 +1,7 @@
 
 header {
     margin: auto;
-    max-width: 414px;
+    max-width: auto;
     padding: 16px 24px;
     display: flex;
     flex-direction: column; 
@@ -10,11 +10,11 @@ header {
 }
 
 body {
-    max-width: 414px;
     margin: auto;
     text-align: center;
     font-family: "Mulish", sans-serif;
     color: #ffff;
+    max-width: 800px;
 }
 
 h2{
@@ -64,5 +64,16 @@ footer.botao-rodape {
     justify-content: center;
     padding: 20px 0;
     width: 100%;
-    background-color: var(--fundo-telas); /* ajuste conforme o necessário */
+    background-color: var(--fundo-telas);
+}
+
+#botao-seta-voltar {
+    position: absolute;
+    left: 28px;
+    background-color: var(--fundo-telas);
+    border: none;
+    padding-top: 16px;
+    color: #ffffff;
+    width: fit-content;
+    height: fit-content;
 }

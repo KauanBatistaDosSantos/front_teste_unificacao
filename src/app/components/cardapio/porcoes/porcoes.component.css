@@ -5,6 +5,7 @@ header {
     display: flex;
     justify-content: end;
     align-items: center;
+    margin-right: 10px;
 }
 
 .voltar {
@@ -40,12 +41,11 @@ header {
 }
 
 body {
-
-    max-width: 414px;
     margin: auto;
     text-align: center;
     font-family: "Mulish", sans-serif;
     color: #ffff;
+    max-width: 800px;
 }
 
 .cardapio {
@@ -119,7 +119,7 @@ body {
     height: 1px;
     background-color: #ccc;
     margin: auto;
-    width: 80%;
+    width: 92%;
 }
 
 footer.carrinho {
@@ -160,6 +160,9 @@ footer.carrinho mat-icon {
 
 main {
     padding-bottom: 90px;
+    font-size: 24px;
+    max-width: 850px;
+    margin: auto;
 }
 
 #botao-seta-voltar {
