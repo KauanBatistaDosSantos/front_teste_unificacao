@@ -68,4 +68,8 @@ export class ExecutivosComponent implements OnInit {
 meusPedidos() {
   this.router.navigate(['meus-pedidos']);
 }
+
+irParaCarrinho(){
+  this.router.navigate(['/carrinho']);
+ }
 }

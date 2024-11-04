@@ -136,8 +136,7 @@ footer.carrinho {
     padding: 15px 20px;
     cursor: pointer;
     border-radius: 5px;
-    width: 100%;
-    max-width: 850px;
+    max-width: 414px;
     text-align: center;
     box-sizing: border-box;
     gap: 10px;

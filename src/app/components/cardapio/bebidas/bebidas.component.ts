@@ -68,4 +68,8 @@ export class BebidasComponent implements OnInit {
   meusPedidos() {
     this.router.navigate(['meus-pedidos']);
   }
+
+  irParaCarrinho(){
+    this.router.navigate(['/carrinho']);
+   }
 }

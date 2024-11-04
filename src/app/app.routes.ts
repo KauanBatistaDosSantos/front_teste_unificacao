@@ -42,7 +42,7 @@ export const routes: Routes = [
     { path: 'dish-list/edit-dish/:id', component: DishFormComponent },
     { path: 'carrinho', component: CarrinhoComponent },
 
-    { path: 'gerencia', component: GerenciaComponent}
+    { path: 'gerencia', component: GerenciaComponent},
     { path: 'carrinho', component: CarrinhoComponent },
     { path: 'meus-pedidos', component: PedidosComponent}
 ];
