@@ -162,9 +162,10 @@
       "observacao": "",
       "numeroPedido": 5,
       "horario": "2024-11-04T19:57:36.381Z",
-      "status": "aguardando entrega",
+      "status": "pedido enviado para entrega",
       "tempo": "0 min",
-      "entregador": ""
+      "entregador": "Hugo Prado",
+      "tempoEstimado": 30
     },
     {
       "id": "43",
@@ -269,30 +270,12 @@
   "cart": [],
   "dishes": [
     {
-      "id": "4",
-      "name": "Cerveja Artesanal",
-      "description": "Cerveja artesanal feita com ingredientes selecionados.",
-      "price": 12,
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSobh2ySv1Tb8IQ__Fgq1nt97xXljAWcc7Klg&s",
-      "category": "bebidas",
-      "status": "ativo"
-    },
-    {
       "id": "5",
       "name": "Pepsi",
       "description": "Refrigerante gelado de cola.",
       "price": 12,
       "image": "https://thumbs.dreamstime.com/b/pepsi-cola-bebida-em-fundo-preto-kuala-lumpur-malaysia-march-%C3%A9-concorrente-da-coca-drinque-espa%C3%A7o-de-c%C3%B3pia-174848251.jpg",
       "category": "bebidas",
-      "status": "ativo"
-    },
-    {
-      "id": "6",
-      "name": "Risoto de Camarão",
-      "description": "Risoto cremoso com camarões grelhados e ervas.",
-      "price": 45,
-      "image": "https://www.receiteria.com.br/wp-content/uploads/risoto-de-camarao-14.jpg",
-      "category": "porcoes",
       "status": "ativo"
     },
     {
