@@ -1,6 +1,8 @@
 * {
     background-color: var(--fundo-telas);
     box-sizing: border-box;
+    padding: 0px;
+    
 }
 
 
@@ -17,7 +19,6 @@ header {
         left: 28px;
         background-color: var(--fundo-telas);
         border: none;
-        padding-top: 25px;
         color: #ffffff;
     }
 

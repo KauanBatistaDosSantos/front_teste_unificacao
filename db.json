@@ -261,9 +261,67 @@
       "cpf": "490.883.748-13",
       "observacao": "sem maionese",
       "numeroPedido": 46,
-      "horario": "2024-11-04T14:48:18.935Z",
-      "status": "não aceito",
-      "tempo": "",
+      "horario": "2024-11-05T01:38:17.388Z",
+      "status": "aguardando entrega",
+      "tempo": "0 min",
+      "entregador": ""
+    },
+    {
+      "id": "47",
+      "nomeCliente": "vitor schneiker",
+      "itens": [
+        {
+          "id": "d5aa251e-3973-4ba0-bef1-49523ddba7fc",
+          "name": "Bife à Cavalo",
+          "description": "Bife grelhado com ovo frito por cima.",
+          "price": 50,
+          "image": "https://s2-receitas.glbimg.com/tHeJvrKQVeIin3PTeGf6AaUcbag=/0x0:1280x805/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2020/9/E/l4TseUQAqVp32qAFW2AQ/bife-a-cavalo.jpeg",
+          "category": "executivos",
+          "status": "ativo"
+        },
+        {
+          "id": "70798381-cf92-43dd-9e61-e38a9b9cd443",
+          "name": "Bife à Cavalo",
+          "description": "Bife grelhado com ovo frito por cima.",
+          "price": 50,
+          "image": "https://s2-receitas.glbimg.com/tHeJvrKQVeIin3PTeGf6AaUcbag=/0x0:1280x805/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2020/9/E/l4TseUQAqVp32qAFW2AQ/bife-a-cavalo.jpeg",
+          "category": "executivos",
+          "status": "ativo"
+        }
+      ],
+      "preco": 115,
+      "endereco": "Rua José Martins de Araújo, 13 - Jardim Marmarita",
+      "cpf": "479.765.218-70",
+      "observacao": "teste",
+      "numeroPedido": 47,
+      "horario": "2024-11-05T01:35:54.444Z",
+      "status": "pedido finalizado",
+      "tempo": "0 min",
+      "entregador": "Claudinei Santos",
+      "tempoEstimado": 20
+    },
+    {
+      "id": "48",
+      "nomeCliente": "vtor",
+      "itens": [
+        {
+          "id": "e72c1392-2ff8-43b1-b803-f3eacbccda06",
+          "name": "Bife à Cavalo",
+          "description": "Bife grelhado com ovo frito por cima.",
+          "price": 50,
+          "image": "https://s2-receitas.glbimg.com/tHeJvrKQVeIin3PTeGf6AaUcbag=/0x0:1280x805/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2020/9/E/l4TseUQAqVp32qAFW2AQ/bife-a-cavalo.jpeg",
+          "category": "executivos",
+          "status": "ativo"
+        }
+      ],
+      "preco": 65,
+      "endereco": "Rua José Martins de Araújo, 13 - Jardim Marmarita",
+      "cpf": "479.765.218-70",
+      "observacao": "teste",
+      "numeroPedido": 48,
+      "horario": "2024-11-05T01:38:15.219Z",
+      "status": "aguardando entrega",
+      "tempo": "0 min",
       "entregador": ""
     }
   ],
@@ -276,7 +334,7 @@
       "price": 12,
       "image": "https://thumbs.dreamstime.com/b/pepsi-cola-bebida-em-fundo-preto-kuala-lumpur-malaysia-march-%C3%A9-concorrente-da-coca-drinque-espa%C3%A7o-de-c%C3%B3pia-174848251.jpg",
       "category": "bebidas",
-      "status": "ativo"
+      "status": "inativo"
     },
     {
       "id": "7",
