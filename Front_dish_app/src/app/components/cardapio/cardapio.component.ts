@@ -33,7 +33,7 @@ export class CardapioComponent implements OnInit {
       this.dishes = data; 
     });
 
-    this.totalItens = this.carrinhoService.getCartItems().length; // Obtém a quantidade de itens do carrinho
+    this.totalItens = this.carrinhoService.getCartItems().length;
   }
 
   irParaExecutivo() {

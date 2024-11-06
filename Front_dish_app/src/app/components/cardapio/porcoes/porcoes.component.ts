@@ -8,6 +8,7 @@ import { PedidosService } from '../../../services/pedidos.service';
 import { PedidoService } from '../../pedido.service';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatIcon } from '@angular/material/icon';
+import { CarrinhoService } from '../../../services/carrinho.service';
 
 @Component({
   selector: 'app-porcoes',
@@ -25,7 +26,8 @@ export class PorcoesComponent implements OnInit {
   constructor(private dishService: DishService, 
     private location: Location, private router: Router, 
     private pedidosService: PedidosService, 
-    private pedidoService: PedidoService
+    private pedidoService: PedidoService, 
+    private carrinhoService: CarrinhoService
   ) {}
 
   ngOnInit() {
@@ -36,16 +38,14 @@ export class PorcoesComponent implements OnInit {
       console.error('Erro ao carregar pratos', error);
       this.loading = false;
     });
-    this.checkCartItems();
-    this.pedidoService.getCarrinhoItens().subscribe((itens) => {
-      this.totalItens = itens.length;
-    });
+    
+    this.atualizarTotalItens();
   }
-
-  checkCartItems() {
-    this.pedidosService.getCartItems().subscribe(cartItems => {
-      this.cartHasItems = cartItems.length > 0;
-    });
+  
+  atualizarTotalItens() {
+    const itensCarrinho = this.carrinhoService.getCartItems();
+    this.totalItens = itensCarrinho.length;
+    this.cartHasItems = this.totalItens > 0;
   }
   
   verDetalhes(id: number | undefined) {
