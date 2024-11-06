@@ -4,6 +4,7 @@ import { PedidosService } from '../../services/pedidos.service';
 import { CommonModule, Location } from '@angular/common';
 import { Dish } from '../../services/dish.service';
 import { CurrencyPipe } from '@angular/common';
+import { CarrinhoService } from '../../services/carrinho.service';
 
 @Component({
   selector: 'app-carrinho',
@@ -17,33 +18,23 @@ export class CarrinhoComponent implements OnInit {
   loading: boolean = true;
 
   constructor(
-    private pedidosService: PedidosService, 
+    private carrinhoService: CarrinhoService,
     private router: Router, 
     private location: Location
   ) {}
 
   ngOnInit() {
-    this.pedidosService.getCartItems().subscribe(
-      data => {
-        this.cart = data;
-        this.loading = false; 
-      },
-      (error) => {
-        console.error('Erro ao carregar os itens do carrinho', error);
-        this.loading = false; 
-      }
-    );
+    this.loadCartItems();
+    this.loading = false;
+  }
+
+  loadCartItems() {
+    this.cart = this.carrinhoService.getCartItems();
   }
 
   removeFromCart(id: string) {
-    this.pedidosService.removeFromCart(id).subscribe(
-      () => {
-        this.cart = this.cart.filter(dish => dish.id !== id);
-      },
-      (error) => {
-        console.error('Erro ao remover o item do carrinho', error);
-      }
-    );
+    this.carrinhoService.removeFromCart(id);
+    this.cart = this.cart.filter(dish => dish.id !== id);
   }
 
   get total(): number {

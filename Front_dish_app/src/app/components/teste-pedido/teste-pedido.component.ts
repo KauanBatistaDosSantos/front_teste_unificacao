@@ -6,6 +6,7 @@ import { PedidosService } from '../../services/pedidos.service';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 import { MatIcon } from '@angular/material/icon';
+import { CarrinhoService } from '../../services/carrinho.service';
 
 @Component({
   selector: 'app-teste-pedido',
@@ -21,7 +22,7 @@ export class TestePedidoComponent implements OnInit {
 
   constructor(
     private dishService: DishService,
-    private pedidosService: PedidosService,
+    private carrinhoService: CarrinhoService,
     private route: ActivatedRoute, 
     private location: Location,
     private router: Router,
@@ -49,18 +50,12 @@ export class TestePedidoComponent implements OnInit {
 
   addToCart(): void {
     if (this.dish) {
-      this.pedidosService.addToCart(this.dish).subscribe(
-        (response) => {
-          console.log('Prato adicionado ao carrinho:', response);
-        },
-        (error) => {
-          console.error('Erro ao adicionar prato ao carrinho:', error);
-        }
-      );
+      this.carrinhoService.addToCart(this.dish);
+      console.log('Prato adicionado ao carrinho (local):', this.dish);
     } else {
       console.error('Prato não encontrado para adicionar ao carrinho');
     }
-    this.router.navigate(['/cardapio'])
+    this.router.navigate(['/cardapio']);
   }
 
   voltar() {

@@ -6,6 +6,7 @@ import { Location } from '@angular/common';
 import { MatIcon } from '@angular/material/icon';
 import { PedidoService } from '../pedido.service';
 import { MatBadgeModule } from '@angular/material/badge';
+import { CarrinhoService } from '../../services/carrinho.service';
 
 @Component({
   selector: 'app-cardapio',
@@ -23,7 +24,8 @@ export class CardapioComponent implements OnInit {
     private dishService: DishService, 
     private router: Router, 
     private location: Location,
-    private pedidoService: PedidoService
+    private pedidoService: PedidoService,
+    private carrinhoService: CarrinhoService
   ) {}
 
   ngOnInit() {
@@ -31,10 +33,8 @@ export class CardapioComponent implements OnInit {
       this.dishes = data; 
     });
 
-    this.pedidoService.getCarrinhoItens().subscribe((itens) => {
-      this.totalItens = itens.length;
-  });
-}
+    this.totalItens = this.carrinhoService.getCartItems().length; // Obtém a quantidade de itens do carrinho
+  }
 
   irParaExecutivo() {
     this.router.navigate(['/cardapio/executivos']);
