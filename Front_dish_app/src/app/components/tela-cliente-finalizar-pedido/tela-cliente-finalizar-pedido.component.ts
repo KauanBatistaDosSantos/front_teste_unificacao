@@ -39,15 +39,8 @@ export class TelaClienteFinalizarPedidoComponent implements OnInit {
     this.enderecoSalvo = JSON.parse(localStorage.getItem('enderecoCliente') || 'null');
     this.observacao = localStorage.getItem('observacaoCliente') || '';
 
-    this.pedidoService.getSubtotal().subscribe(subtotal => {
-      this.subtotal = subtotal;
-      this.calcularTotal();
-    });
-  
-    this.pedidoService.getCartItems().subscribe(items => {
-      this.cartItems = items;
-      this.calcularTotal();
-    });
+    this.cartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
+    this.calcularTotal();
     this.verificarCampos();
   }
 
@@ -122,7 +115,8 @@ export class TelaClienteFinalizarPedidoComponent implements OnInit {
   
           localStorage.setItem('pedidoId', pedidoCriado.id);
           localStorage.setItem('codigoConfirmacao', this.pedidoService.getCodigoConfirmacao());
-  
+          
+          localStorage.removeItem('cartItems');
           localStorage.removeItem('nomeCliente');
           localStorage.removeItem('cpfCliente');
           localStorage.removeItem('enderecoCliente');

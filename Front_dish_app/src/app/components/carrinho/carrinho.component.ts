@@ -46,6 +46,7 @@ export class CarrinhoComponent implements OnInit {
   }
 
   finalizar() {
+    localStorage.setItem('cartItems', JSON.stringify(this.cart));
     this.router.navigate(['/finalizar-pedido']);
   }
 }
