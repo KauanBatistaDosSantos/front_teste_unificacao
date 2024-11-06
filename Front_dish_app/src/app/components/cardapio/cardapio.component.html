@@ -1,0 +1,32 @@
+<section id="corpo">
+    <header>
+        <button id="botao-seta-voltar" (click)="voltar()"><mat-icon>arrow_back_ios</mat-icon></button>
+    </header>
+
+    <section id="cardapio">
+        <h1>CARDÁPIO</h1>
+        <div id="botoes">
+            <button id="botao" (click)="irParaExecutivo()">
+                <h1>Executivos</h1>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxLaIOnxWtO__gsAA96sn6xLHtqfE7KbUGug&s" alt="icone-executivos">
+            </button>
+    
+            <button id="botao" (click)="irParaBebidas()">
+                <h1>Bebidas</h1>
+                <img src="https://confeiteiro.agilecdn.com.br/47418.png" alt="icone-bebidas">
+            </button>
+    
+            <button id="botao" (click)="irParaPorcoes()">
+                <h1>Porções</h1>
+                <img src="https://cdn.awsli.com.br/600x450/951/951689/produto/41460414/d32c5c0d05.jpg" alt="icone-porcoes">
+            </button>
+        </div>
+
+        <footer class="carrinho" (click)="irParaCarrinho()">
+            <button id="botao-carrinho">
+                <span>Carrinho</span>
+                <mat-icon matBadge="{{ totalItens }}" matBadgeColor="accent" matBadgeOverlap="false">shopping_cart</mat-icon>
+            </button>
+        </footer>
+    </section>
+</section>

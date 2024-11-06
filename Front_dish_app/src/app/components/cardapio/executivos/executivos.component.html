@@ -1,0 +1,32 @@
+<body class="mulish-fonte">
+    <header>
+        <button id="botao-seta-voltar" (click)="voltar()"><mat-icon>arrow_back_ios</mat-icon></button>
+        <button id="ver-pedidos">
+            VER PEDIDOS
+        </button>
+    </header>
+
+    <main>
+        EXECUTIVOS
+        <div *ngFor="let dish of dishes; let last = last" class="cardapio">
+            <button (click)="verDetalhes(dish.id)" class="botao-item-cardapio">
+                <div class="dish-nome">
+                    <h2>{{ dish.name }}</h2>
+                    <div class="dish-info">
+                        <p class="dish-descricao">{{ dish.description }}</p>
+                        <p class="dish-preco">{{ dish.price | currency:'BRL'}}</p>
+                    </div>
+                </div>
+                <img [src]="dish.image" alt="{{ dish.name }}" class="dish-image" />
+            </button>
+            <div *ngIf="!last" class="linha-separadora"></div>
+        </div>
+
+        <footer *ngIf="cartHasItems" class="carrinho" (click)="irParaCarrinho()">
+            <button id="botao-carrinho">
+                <span>Carrinho</span>
+                <mat-icon matBadge="{{ totalItens }}" matBadgeColor="accent" matBadgeOverlap="false">shopping_cart</mat-icon>
+            </button>
+        </footer>
+    </main>
+</body>

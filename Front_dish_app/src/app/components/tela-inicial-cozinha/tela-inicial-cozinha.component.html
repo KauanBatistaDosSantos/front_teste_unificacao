@@ -1,0 +1,11 @@
+<section>
+    <header>
+        <button id="botao-seta-voltar" (click)="voltar()"><mat-icon>arrow_back_ios</mat-icon></button>
+        <h1>Pedidos</h1>
+    </header>
+    <div class="pedidos">
+        <div *ngFor="let pedido of pedidos">
+            <app-cozinha-pedido [pedido]="pedido"></app-cozinha-pedido>
+        </div>
+    </div>
+</section>

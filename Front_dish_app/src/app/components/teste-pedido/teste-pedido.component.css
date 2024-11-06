@@ -1,0 +1,79 @@
+
+header {
+    margin: auto;
+    max-width: auto;
+    padding: 16px 24px;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    position: relative;
+}
+
+body {
+    margin: auto;
+    text-align: center;
+    font-family: "Mulish", sans-serif;
+    color: #ffff;
+    max-width: 800px;
+}
+
+h2{
+    font-size: 22px;
+    margin: 0;
+    text-align: center;
+}
+
+.botao-voltar{
+    position: absolute;
+    left: 24px;
+}
+
+img {
+    max-width: 150px;
+    margin-top:86px;
+}
+
+.nome{
+    margin-top:90px;
+    width: 100%;
+}
+
+.descricao {
+    margin-top:16px;
+}
+
+.preco {
+    margin-top:16px;
+    margin-bottom: 50px;
+}
+
+button{
+    cursor: pointer;
+    background-color: #FF9A00;
+    color: #fff;
+    width: 144px;
+    height: 42px;
+    border: 0;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+footer.botao-rodape {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    width: 100%;
+    background-color: var(--fundo-telas);
+}
+
+#botao-seta-voltar {
+    position: absolute;
+    left: 28px;
+    background-color: var(--fundo-telas);
+    border: none;
+    padding-top: 16px;
+    color: #ffffff;
+    width: fit-content;
+    height: fit-content;
+}

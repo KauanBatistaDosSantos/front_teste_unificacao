@@ -1,0 +1,49 @@
+<body>
+  <header>
+    <button id="botao-seta-voltar" (click)="voltar()"><mat-icon>arrow_back_ios</mat-icon></button>
+    <h2>{{ isEdit ? 'Editar Prato' : 'Adicionar um Prato' }}</h2>
+  </header>
+  <div class="item">
+    <form (ngSubmit)="saveDish()">
+      <div class="id">
+        <label for="id">ID:</label>
+        <div class="input-id"><input type="number" id="id" [(ngModel)]="dish.id" name="id" required></div>
+      </div>
+    
+      <div class="nome">
+        <label for="name">Nome:</label>
+        <div class="input-name"><input type="text" id="name" [(ngModel)]="dish.name" name="name" required></div>
+      </div>
+    
+      <div class="descricao">
+        <label for="description">Descrição:</label>
+        <div class="input-decricao"><input type="text" id="description" [(ngModel)]="dish.description" name="description" required></div>
+      </div>
+    
+      <div class="preco">
+        <label for="price">Preço:</label>
+        <div class="input-preco"><input type="number" id="price" [(ngModel)]="dish.price" name="price" required></div>
+      </div>
+    
+      <div class="categoria">
+        <label for="categoria">Categoria:</label>
+        <div class="categoria-opcao">
+          <select id="categoria" [(ngModel)]="dish.category" name="categoria" required>
+            <option value="">Selecione uma categoria</option>
+            <option value="executivos">Executivos</option>
+            <option value="porções">Porções</option>
+            <option value="bebidas">Bebidas</option>
+          </select>
+        </div>
+      </div>
+  
+      <div class="img">
+        <label for="image">Imagem URL:</label>
+        <div class="input-img"><input type="text" id="image" [(ngModel)]="dish.image" name="image" placeholder="Insira a URL da imagem" required></div>
+      </div>
+
+      <div id="botao" >
+        <button class="adicionar" type="submit">{{ isEdit ? 'Atualizar' : 'Adicionar' }}</button>
+      </div>
+    </form>
+</div>

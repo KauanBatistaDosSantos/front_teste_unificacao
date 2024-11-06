@@ -1,0 +1,10 @@
+<section>
+  <button id="botao-seta-voltar" (click)="voltar()"><mat-icon>arrow_back_ios</mat-icon></button>
+  <header>Entrega</header>
+  <p *ngIf="!mostrarPedido || !pedidoSelecionado">Sem entregas no momento</p>
+  <app-entrega-recebida 
+    [pedido]="pedidoSelecionado" 
+    *ngIf="mostrarPedido && pedidoSelecionado" 
+    (entregaFinalizada)="buscarPedidoMaisAntigo()">
+  </app-entrega-recebida>
+</section>

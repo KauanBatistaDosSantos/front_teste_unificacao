@@ -1,0 +1,27 @@
+<body class="mulish-fonte">
+    <header>
+        <button id="botao-seta-voltar" (click)="voltar()"><mat-icon>arrow_back_ios</mat-icon></button>       
+        <h2>EXECUTIVOS</h2>
+    </header>
+
+    <main>
+
+        <div *ngIf="loading">Carregando...</div>
+        <div *ngIf="!loading && !dish">
+            <h1>ERRO</h1>
+            <p>Prato não encontrado.</p>
+        </div>
+
+        <div *ngIf="!loading && dish">
+            <img src={{dish.image}} alt="icone-cardapio">
+            <h1 class="nome">{{dish.name}}</h1>
+            <p class="descricao">{{dish.description}}</p>
+            <p class="preco">{{ dish.price | currency:'BRL' }}</p>
+        </div>
+
+        <footer class="botao-rodape">
+            <button (click)="addToCart()">Adicionar</button>
+        </footer>
+    </main>
+    
+</body>

@@ -1,0 +1,108 @@
+* {
+    color: var(--branco-figma);
+    box-sizing: border-box;
+}
+
+#cardapio {
+    max-width: 850px;
+    width: 100%;
+}
+
+#cardapio h1 {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 60px;
+    margin-bottom: 38px;
+}
+
+#corpo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    padding: 20px;
+    padding-bottom: 100px;
+}
+
+#botoes {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+    max-width: 850px;
+}
+
+#botao {
+    background-color: var(--fundo-telas);
+    height: auto;
+    width: 100%;
+    max-width: 850px;
+    min-width: 300px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    gap: 20px;
+    padding: 10px 20px;
+    box-sizing: border-box;
+}
+
+#botao h1 {
+    font-size: 40px;
+    margin: 0;
+}
+
+#botao-seta-voltar {
+    position: absolute;
+    left: 20px;
+    background-color: var(--fundo-telas);
+    border: none;
+    padding: 10px;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+img {
+    max-width: 100px;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+}
+
+footer.carrinho {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--cinza-figma);
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+}
+
+#botao-carrinho {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--cinza-figma);
+    color: white;
+    font-size: 25px;
+    border: none;
+    padding: 15px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 850px;
+    text-align: center;
+    box-sizing: border-box;
+    gap: 10px;
+}
+
+footer.carrinho mat-icon {
+    font-size: 30px;
+    display: inline-block;
+    vertical-align: middle;
+}

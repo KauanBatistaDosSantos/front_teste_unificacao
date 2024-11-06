@@ -1,0 +1,41 @@
+section {
+    height: 100svh;
+    background-color: var(--fundo-telas);
+}
+
+h1 {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    margin-bottom: 0;
+    margin-top: 0;
+    font-family: "Mulish", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    color: var(--branco-figma);
+}
+
+.pedidos {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 41px 15px 0 19px;
+    gap: 13px;
+    justify-content: center;
+}
+
+#botao-seta-voltar {
+    position: absolute;
+    left: 28px;
+    background-color: var(--fundo-telas);
+    border: none;
+    padding-top: 25px;
+    color: #ffffff;
+}
+
+header {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    margin: 0 0 15px 0px;
+}
