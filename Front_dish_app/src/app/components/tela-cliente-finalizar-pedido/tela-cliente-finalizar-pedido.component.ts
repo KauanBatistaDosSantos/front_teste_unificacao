@@ -95,6 +95,8 @@ export class TelaClienteFinalizarPedidoComponent implements OnInit {
   }
 
   calcularTotal(): void {
+    // Calcular o subtotal somando os preços dos itens no carrinho
+    this.subtotal = this.cartItems.reduce((sum, item) => sum + (item.price || 0), 0);
     this.total = this.subtotal + this.taxaEntrega;
   }
 
