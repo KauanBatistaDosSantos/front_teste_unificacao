@@ -97,7 +97,7 @@ export class PedidoService {
           ...pedido,
           id: String(novoId),
           numeroPedido: numeroPedido,
-          horario: horarioAtual,
+          data: horarioAtual,
           status: 'não aceito',
           tempo: '',
           entregador: ''

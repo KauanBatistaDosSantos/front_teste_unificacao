@@ -95,7 +95,6 @@ export class TelaClienteFinalizarPedidoComponent implements OnInit {
   }
 
   calcularTotal(): void {
-    // Calcular o subtotal somando os preços dos itens no carrinho
     this.subtotal = this.cartItems.reduce((sum, item) => sum + (item.price || 0), 0);
     this.total = this.subtotal + this.taxaEntrega;
   }
@@ -112,7 +111,7 @@ export class TelaClienteFinalizarPedidoComponent implements OnInit {
       };
   
       this.pedidoService.fazerPedido(novoPedido).subscribe(pedidoCriado => {
-        this.pedidoService.limparCarrinho().subscribe(() => {
+        // this.pedidoService.limparCarrinho().subscribe(() => {
           this.pedidoService.setCodigoConfirmacao(this.cpfSalvo, pedidoCriado.id);
   
           localStorage.setItem('pedidoId', pedidoCriado.id);
@@ -126,7 +125,7 @@ export class TelaClienteFinalizarPedidoComponent implements OnInit {
   
           this.router.navigate(['/acompanhar-pedido']);
         });
-      });
+      // });
     }
   }
 
