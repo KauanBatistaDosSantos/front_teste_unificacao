@@ -36,11 +36,11 @@
     </div>
   
     <button 
-    id="button"
+      id="button"
       (click)="cadastrarEntregador()" 
       [disabled]="!validarCpf(cpf)" 
       [class.clicavel]="validarCpf(cpf)">
-      Cadastrar
+      {{ isEditMode ? 'Atualizar' : 'Cadastrar' }}
     </button>
     
     <p *ngIf="erro" class="erro">{{ erro }}</p>

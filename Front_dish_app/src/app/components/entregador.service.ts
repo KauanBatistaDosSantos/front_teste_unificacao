@@ -48,4 +48,8 @@ export class EntregadorService {
       params: { cpfInicio }
     });
   }
+
+  getEntregadorById(id: number): Observable<Entregador> {
+    return this.http.get<Entregador>(`${this.apiUrl}/${id}`);
+  }
 }

@@ -9,8 +9,8 @@
         <p>Status: {{ entregador.status === 1 ? 'Disponível' : 'Indisponível' }}</p>
         
         <div class="botoes">
-            <button id="buttonEditar" (click)="editarEntregador()">Editar</button>
-            <button id="buttonExcluir" (click)="excluirEntregador()">Excluir</button>
+          <button id="buttonEditar" *ngIf="entregador.id !== undefined" (click)="editar(entregador.id)">Editar</button>
+          <button id="buttonExcluir" (click)="excluirEntregador()">Excluir</button>
         </div>
     </div>
   </div>

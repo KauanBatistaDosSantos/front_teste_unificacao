@@ -45,5 +45,6 @@ export const routes: Routes = [
 
     { path: 'gerencia', component: GerenciaComponent},
     { path: 'cadastro-entregadores', component: CadastroEntregadorComponent},
+    { path: 'cadastro-entregadores/:id', component: CadastroEntregadorComponent },
     { path: 'lista-entregadores', component: ListaEntregadoresComponent}
 ];

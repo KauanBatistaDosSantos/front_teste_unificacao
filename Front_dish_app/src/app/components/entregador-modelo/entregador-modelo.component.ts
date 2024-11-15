@@ -1,10 +1,12 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { EntregadorService, Entregador } from '../entregador.service';
+import { Router } from '@angular/router';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-entregador-modelo',
   standalone: true,
-  imports: [],
+  imports: [NgIf],
   templateUrl: './entregador-modelo.component.html',
   styleUrl: './entregador-modelo.component.css'
 })
@@ -15,17 +17,16 @@ export class EntregadorModeloComponent {
 
   erro: string = '';
 
-  constructor(private entregadorService: EntregadorService) {}
+  constructor(
+    private entregadorService: EntregadorService,
+    private router: Router,
+  ) {}
 
-  editarEntregador(): void {
-    if (this.entregador.id !== undefined) {
-      this.entregador.status = this.entregador.status === 1 ? 0 : 1;
-      this.entregadorService.updateEntregador(this.entregador).subscribe(
-        () => this.statusAlterado.emit(),
-        (error) => this.erro = 'Erro ao editar entregador'
-      );
+  editar(entregadorId?: number) {
+    if (entregadorId !== undefined) {
+      this.router.navigate(['/cadastro-entregadores', entregadorId]);
     } else {
-      this.erro = 'ID do entregador não está definido';
+      this.erro = 'ID do entregador não está definido para edição';
     }
   }
 
