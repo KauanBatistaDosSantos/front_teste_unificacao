@@ -1,0 +1,60 @@
+header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--fundo-telas);
+    padding: 20px 0;
+    margin-top: 20px;
+}
+
+#botao-seta-voltar {
+    position: absolute;
+    left: 28px;
+    background-color: var(--fundo-telas);
+    border: none;
+    color: #ffffff;
+}
+
+#botao-cadastrar {
+    position: absolute;
+    right: 16px;
+    border: none;
+
+    padding: 8px 16px;
+    background-color: #ff9900;
+    color: #ffffff;
+    text-decoration: none;
+    font-family: "Mulish", sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 4px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+section {
+    height: 100svh;
+    background-color: var(--fundo-telas);
+}
+
+h1 {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    margin-bottom: 0;
+    margin-top: 0;
+    font-family: "Mulish", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    color: var(--branco-figma);
+}
+
+.entregadores {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 41px 15px 0 19px;
+    gap: 13px;
+    justify-content: center;
+}

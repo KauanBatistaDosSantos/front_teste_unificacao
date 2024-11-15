@@ -99,15 +99,15 @@ a {
 
 .dish-details {
     display: flex;
-    flex-direction: column; /* Organiza nome e categoria verticalmente */
+    flex-direction: column;
     text-align: left;
     flex: 1; 
 }
 
 .dish-category {
-    font-size: 14px; /* Tamanho menor para diferenciar do nome */
-    color: #bbbbbb; /* Cor mais clara para destacar menos que o nome */
-    margin-top: 4px; /* Espaço entre nome e categoria */
+    font-size: 14px;
+    color: #bbbbbb;
+    margin-top: 4px;
 }
 
 main{
@@ -261,7 +261,7 @@ input:checked + .slider:before {
 }
 
 #adicionar-new-dish:hover {
-    background-color: #e57e00; /* Cor mais escura ao passar o mouse */
+    background-color: #e57e00;
 }
 
 .toggle-switch {

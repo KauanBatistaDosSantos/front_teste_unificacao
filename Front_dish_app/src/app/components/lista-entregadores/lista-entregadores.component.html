@@ -1,0 +1,25 @@
+<section>
+    <header>
+      <button id="botao-seta-voltar" (click)="voltar()">
+        <mat-icon>arrow_back_ios</mat-icon>
+      </button>
+      <button id="botao-cadastrar" (click)="cadastrar()">Cadastrar entregador</button>
+    </header>
+
+    <h1>Entregadores</h1>
+  
+    <div class="entregadores" *ngIf="entregadores.length > 0; else semEntregadores">
+      <app-entregador-modelo
+        *ngFor="let entregador of entregadores"
+        [entregador]="entregador"
+        (statusAlterado)="carregarEntregadores()"
+        (excluido)="carregarEntregadores()">
+      </app-entregador-modelo>
+    </div>
+  
+    <ng-template #semEntregadores>
+      <p>Não há entregadores cadastrados.</p>
+    </ng-template>
+  
+    <p *ngIf="erro" class="erro">{{ erro }}</p>
+  </section>

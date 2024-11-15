@@ -1,0 +1,17 @@
+  <div>
+    <div class="id">
+        <p>ID: {{ entregador.id }}</p>
+    </div>
+
+    <div class="entregador">
+        <h1>Nome: {{ entregador.nome }}</h1>
+        <p>CPF: {{ entregador.cpf }}</p>
+        <p>Status: {{ entregador.status === 1 ? 'Disponível' : 'Indisponível' }}</p>
+        
+        <div class="botoes">
+            <button id="buttonEditar" (click)="editarEntregador()">Editar</button>
+            <button id="buttonExcluir" (click)="excluirEntregador()">Excluir</button>
+        </div>
+    </div>
+  </div>
+  

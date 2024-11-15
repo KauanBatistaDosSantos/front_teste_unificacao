@@ -20,6 +20,10 @@ export class GerenciaComponent {
     this.router.navigate(['/tela-dir-entrega']);
   }
 
+  irParaEntregadores() {
+    this.router.navigate(['/lista-entregadores']);
+  }
+
   voltar() {
     this.router.navigate(['/inicio']);
   }

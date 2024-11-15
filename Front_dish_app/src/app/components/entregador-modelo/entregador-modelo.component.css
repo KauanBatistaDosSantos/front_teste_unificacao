@@ -1,0 +1,44 @@
+.entregador {
+    background-color: var(--branco-figma);
+    padding: 15px;
+}
+
+.botoes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+#buttonEditar {
+    padding: 5px;
+    font-size: 17px;
+    color: var(--branco-figma);
+    background-color: var(--amarelo-figma);
+    border: none;
+    width: 100px;
+    height: 37px;
+    font-family: "Mulish", sans-serif;
+    font-weight: 700;
+}
+
+#buttonExcluir {
+    padding: 5px;
+    font-size: 17px;
+    color: var(--branco-figma);
+    background-color: var(--vermelho-figma);
+    border: none;
+    width: 100px;
+    height: 37px;
+    font-family: "Mulish", sans-serif;
+    font-weight: 700;
+}
+
+.id {
+    display: flex;
+    background-color: var(--cinza-figma);
+    color: var(--branco-figma);
+    box-sizing: border-box;
+    padding: 15px;
+    padding-bottom: 0;
+}

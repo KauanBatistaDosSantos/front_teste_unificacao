@@ -16,6 +16,8 @@ import { PorcoesComponent } from './components/cardapio/porcoes/porcoes.componen
 import { TestePedidoComponent } from './components/teste-pedido/teste-pedido.component';
 import { CarrinhoComponent } from './components/carrinho/carrinho.component';
 import { GerenciaComponent } from './components/gerencia/gerencia.component';
+import { CadastroEntregadorComponent } from './components/cadastro-entregador/cadastro-entregador.component';
+import { ListaEntregadoresComponent } from './components/lista-entregadores/lista-entregadores.component';
 
 export const routes: Routes = [
     { path: '', component: InicioComponent},
@@ -41,5 +43,7 @@ export const routes: Routes = [
     { path: 'dish-list/edit-dish/:id', component: DishFormComponent },
     { path: 'carrinho', component: CarrinhoComponent },
 
-    { path: 'gerencia', component: GerenciaComponent}
+    { path: 'gerencia', component: GerenciaComponent},
+    { path: 'cadastro-entregadores', component: CadastroEntregadorComponent},
+    { path: 'lista-entregadores', component: ListaEntregadoresComponent}
 ];
