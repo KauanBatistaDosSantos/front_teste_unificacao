@@ -58,10 +58,16 @@ export class PedidoService {
       map(pedido => ({
         ...pedido,
         status: 'em preparo',
-        horario: horarioAtual
+        data: horarioAtual
       })),
       switchMap(pedidoAtualizado => this.updatePedido(id, pedidoAtualizado))
     );
+  }
+
+  atualizarStatusPedido(id: number, status: string): Observable<any> {
+    return this.http.patch<any>(`${this.apiUrl}/${id}/status`, null, {
+      params: { status }
+    });
   }
   
   getPedidoById(id: number): Observable<any> {
@@ -72,13 +78,8 @@ export class PedidoService {
     return this.http.delete(`${this.apiUrl}/${id}`);
   }
 
-  atribuirEntregadorAoPedido(id: number, entregadorNome: string, tempoEstimado: number): Observable<any> {
-    const pedidoAtualizado = {
-      entregador: entregadorNome,
-      status: 'pedido enviado para entrega',
-      tempoEstimado: tempoEstimado
-    };
-    return this.http.patch(`${this.apiUrl}/${id}`, pedidoAtualizado).pipe(
+  atribuirEntregadorAoPedido(id: number, motoboyId: number, tempoEstimado: number): Observable<any> {
+    return this.http.patch(`${this.apiUrl}/${id}/atribuirMotoboy/${motoboyId}?tempoEstimado=${tempoEstimado}`, null).pipe(
       map(() => {
         this.novoPedidoAtribuido.next();
       })

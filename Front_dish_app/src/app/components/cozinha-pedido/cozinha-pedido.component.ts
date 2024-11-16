@@ -20,7 +20,7 @@ export class CozinhaPedidoComponent {
   constructor(private pedidoService: PedidoService, public dialog: MatDialog, private router: Router) {}
 
   aceitarPedido(id: number): void {
-    this.pedidoService.aceitarPedido(id).subscribe(() => {
+    this.pedidoService.atualizarStatusPedido(id, 'em preparo').subscribe(() => {
       this.pedido.status = 'em preparo';
       console.log('Pedido aceito com sucesso:', this.pedido);
     });
@@ -29,21 +29,45 @@ export class CozinhaPedidoComponent {
     }, 100);
   }
 
+  // finalizarPedido(id: number): void {
+  //   const dialogRef = this.dialog.open(DialogConfirmarFinalizacaoDoPedidoComponent);
+
+  //   dialogRef.afterClosed().subscribe((confirmado) => {
+  //     if (confirmado && this.pedido && this.pedido.id === id) {
+  //       this.pedido.status = 'aguardando entrega';
+  //       console.log('Finalizando pedido com ID:', id);
+
+  //       this.pedidoService.updatePedido(id, this.pedido).subscribe(() => {
+  //         console.log('Pedido atualizado com sucesso:', this.pedido);
+  //         setTimeout(() => {
+  //           window.location.reload(); 
+  //           }, 100);
+  //       }, (error) => {
+  //         console.error('Erro ao atualizar o pedido:', error);
+  //       });
+  //     }
+  //   });
+  // }
+
   finalizarPedido(id: number): void {
     const dialogRef = this.dialog.open(DialogConfirmarFinalizacaoDoPedidoComponent);
-
+  
     dialogRef.afterClosed().subscribe((confirmado) => {
-      if (confirmado && this.pedido && this.pedido.id === id) {
-        this.pedido.status = 'aguardando entrega';
+      if (confirmado) {
         console.log('Finalizando pedido com ID:', id);
-
-        this.pedidoService.updatePedido(id, this.pedido).subscribe(() => {
-          console.log('Pedido atualizado com sucesso:', this.pedido);
+  
+        this.pedidoService.atualizarStatusPedido(id, 'aguardando entrega').subscribe(() => {
+          console.log('Status do pedido atualizado com sucesso para "aguardando entrega"');
+  
+          if (this.pedido && this.pedido.id === id) {
+            this.pedido.status = 'aguardando entrega';
+          }
+  
           setTimeout(() => {
-            window.location.reload(); 
-            }, 100);
+            window.location.reload();
+          }, 100);
         }, (error) => {
-          console.error('Erro ao atualizar o pedido:', error);
+          console.error('Erro ao atualizar o status do pedido:', error);
         });
       }
     });

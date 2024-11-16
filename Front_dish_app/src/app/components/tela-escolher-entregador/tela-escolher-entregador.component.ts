@@ -1,15 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { EntregadoresComponent } from '../entregadores/entregadores.component';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
-import { MatIconModule } from '@angular/material/icon';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { RouterLink, RouterOutlet } from '@angular/router';
 import { NgFor } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { ActivatedRoute, RouterLink, RouterOutlet } from '@angular/router';
 import { EntregadorService } from '../entregador.service';
-import { ActivatedRoute } from '@angular/router';
+import { EntregadoresComponent } from '../entregadores/entregadores.component';
 
 @Component({
   selector: 'app-tela-escolher-entregador',
@@ -21,7 +20,7 @@ import { ActivatedRoute } from '@angular/router';
     MatNativeDateModule,
     MatIconModule,
     MatSlideToggleModule,
-    RouterLink, RouterOutlet,
+    RouterLink,
     NgFor
   ],
   templateUrl: './tela-escolher-entregador.component.html',
@@ -29,12 +28,12 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class TelaEscolherEntregadorComponent implements OnInit {
   entregadores: any[] = [];
-  numeroPedido: number | null = null;
+  id: number | null = null;
 
   constructor(private entregadorService: EntregadorService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.numeroPedido = +this.route.snapshot.paramMap.get('numeroPedido')!;
+    this.id = +this.route.snapshot.paramMap.get('id')!;
     this.loadEntregadoresDisponiveis();
   }
 

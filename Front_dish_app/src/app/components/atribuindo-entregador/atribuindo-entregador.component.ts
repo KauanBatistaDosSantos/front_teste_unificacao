@@ -27,8 +27,8 @@ import { NgIf } from '@angular/common';
 })
 export class AtribuindoEntregadorComponent {
   entregador: any;
-  numeroPedido: number;
-  tempoEstimado: string = ''; // String para suportar a máscara "hh:mm"
+  id: number;
+  tempoEstimado: string = '';
   erroFormato: boolean = false;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
@@ -36,7 +36,7 @@ export class AtribuindoEntregadorComponent {
   private pedidoService: PedidoService,
   private router: Router) {
     this.entregador = data.entregador;
-    this.numeroPedido = data.numeroPedido;
+    this.id = data.id;
   }
 
   formatarTempo(): void {
@@ -66,17 +66,17 @@ export class AtribuindoEntregadorComponent {
     this.erroFormato = false;
     const minutos = parseInt(this.tempoEstimado.split(':')[0]) * 60 + parseInt(this.tempoEstimado.split(':')[1]);
 
-    this.pedidoService.atribuirEntregadorAoPedido(this.numeroPedido, this.entregador.nome, minutos).subscribe({
+    this.pedidoService.atribuirEntregadorAoPedido(this.id, this.entregador.id, minutos).subscribe({
       next: () => {
-        console.log(`Pedido ${this.numeroPedido} atribuído ao entregador ${this.entregador.nome}`);
-        this.dialogRef.close();
-        setTimeout(() => {
-          this.router.navigate(['/tela-dir-entrega']);
-        }, 100);
+          console.log(`Pedido ${this.id} atribuído ao entregador ${this.entregador.nome}`);
+          this.dialogRef.close();
+          setTimeout(() => {
+              this.router.navigate(['/tela-dir-entrega']);
+          }, 100);
       },
       error: (err) => {
-        console.error('Erro ao atribuir entregador ao pedido:', err);
+          console.error('Erro ao atribuir entregador ao pedido:', err);
       }
-    });
-  }
+  });
+}
 }

@@ -27,7 +27,7 @@ export const routes: Routes = [
     { path: 'tela-entregador', component: TelaInicialEntregadorComponent},
     { path: 'finalizar-pedido', component: TelaClienteFinalizarPedidoComponent},
     { path: 'acompanhar-pedido', component: AcompanharPedidoComponent},
-    { path: 'tela-escolher-entregador/:numeroPedido', component: TelaEscolherEntregadorComponent},
+    { path: 'tela-escolher-entregador/:id', component: TelaEscolherEntregadorComponent},
     { path: 'painel-entregadores', component: PainelEntregadorComponent},
     { path: 'tela-inicial-entregador/:nome', component: TelaInicialEntregadorComponent },
     { path: 'inicio', component: InicioComponent },

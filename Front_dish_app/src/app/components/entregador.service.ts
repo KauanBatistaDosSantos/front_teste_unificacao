@@ -23,7 +23,7 @@ export class EntregadorService {
   getEntregadoresDisponiveis(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl)
       .pipe(
-        map(entregadores => entregadores.filter(entregador => entregador.status === 'disponível'))
+        map(entregadores => entregadores.filter(entregador => entregador.status === 1))
       );
   }
 
