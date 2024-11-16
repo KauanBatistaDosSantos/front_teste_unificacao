@@ -86,25 +86,7 @@ export class PedidoService {
   }
 
   fazerPedido(pedido: any): Observable<any> {
-    return this.getPedidos().pipe(
-      map((pedidos) => {
-        const ultimoPedido = pedidos.length ? pedidos[pedidos.length - 1] : null;
-        const novoId = ultimoPedido ? +ultimoPedido.id + 1 : 1;
-        const numeroPedido = ultimoPedido ? ultimoPedido.numeroPedido + 1 : 1;
-        const horarioAtual = new Date().toISOString();
-
-        return {
-          ...pedido,
-          id: String(novoId),
-          numeroPedido: numeroPedido,
-          data: horarioAtual,
-          status: 'não aceito',
-          tempo: '',
-          entregador: ''
-        };
-      }),
-      switchMap((novoPedido) => this.http.post<any>(this.apiUrl, novoPedido))
-    );
+    return this.http.post<any>(this.apiUrl, pedido);
   }
 
   getPedidoMaisAntigoParaEntregador(entregador: string): Observable<any | null> {

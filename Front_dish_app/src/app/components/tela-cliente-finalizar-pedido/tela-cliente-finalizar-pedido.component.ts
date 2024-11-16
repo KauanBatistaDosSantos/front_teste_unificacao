@@ -8,6 +8,7 @@ import { PedidoService } from '../pedido.service';
 import { NgClass, CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { InserirNomeComponent } from '../inserir-nome/inserir-nome.component';
+import { ClienteService } from '../../services/cliente.service';
 
 @Component({
   selector: 'app-tela-cliente-finalizar-pedido',
@@ -30,16 +31,23 @@ export class TelaClienteFinalizarPedidoComponent implements OnInit {
   constructor(
     private dialog: MatDialog,
     private router: Router,
-    private pedidoService: PedidoService
+    private pedidoService: PedidoService,
+    private clienteService: ClienteService
   ) {}
 
   ngOnInit(): void {
-    this.nomeSalvo = localStorage.getItem('nomeCliente') || '';
-    this.cpfSalvo = localStorage.getItem('cpfCliente') || '';
-    this.enderecoSalvo = JSON.parse(localStorage.getItem('enderecoCliente') || 'null');
-    this.observacao = localStorage.getItem('observacaoCliente') || '';
+    // this.nomeSalvo = localStorage.getItem('nomeCliente') || '';
+    // this.cpfSalvo = localStorage.getItem('cpfCliente') || '';
+    // this.enderecoSalvo = JSON.parse(localStorage.getItem('enderecoCliente') || 'null');
 
+    const cliente = this.clienteService.carregarDadosLocais();
+    this.nomeSalvo = cliente.nome;
+    this.cpfSalvo = cliente.cpf;
+    this.enderecoSalvo = cliente.endereco;
+
+    this.observacao = localStorage.getItem('observacaoCliente') || '';
     this.cartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
+
     this.calcularTotal();
     this.verificarCampos();
   }
@@ -101,32 +109,56 @@ export class TelaClienteFinalizarPedidoComponent implements OnInit {
 
   navegarParaOutroComponente() {
     if (this.isButtonEnabled) {
-      const novoPedido = {
-        nomeCliente: this.nomeSalvo,
-        itens: this.cartItems,
-        preco: this.total,
-        endereco: `${this.enderecoSalvo.logradouro}, ${this.enderecoSalvo.numero} - ${this.enderecoSalvo.bairro}`,
-        cpf: this.cpfSalvo,
-        observacao: this.observacao
-      };
-  
-      this.pedidoService.fazerPedido(novoPedido).subscribe(pedidoCriado => {
-        // this.pedidoService.limparCarrinho().subscribe(() => {
-          this.pedidoService.setCodigoConfirmacao(this.cpfSalvo, pedidoCriado.id);
-  
-          localStorage.setItem('pedidoId', pedidoCriado.id);
-          localStorage.setItem('codigoConfirmacao', this.pedidoService.getCodigoConfirmacao());
-          
-          localStorage.removeItem('cartItems');
-          localStorage.removeItem('nomeCliente');
-          localStorage.removeItem('cpfCliente');
-          localStorage.removeItem('enderecoCliente');
-          localStorage.removeItem('observacaoCliente');
-  
-          this.router.navigate(['/acompanhar-pedido']);
+        const cliente = {
+            nome: this.nomeSalvo,
+            cpf: this.cpfSalvo,
+            endereco: `${this.enderecoSalvo.logradouro}, ${this.enderecoSalvo.numero} - ${this.enderecoSalvo.bairro}`
+        };
+
+        this.clienteService.buscarOuCriarCliente(cliente).subscribe({
+            next: (clienteCriadoOuExistente) => {
+                console.log('Cliente processado:', clienteCriadoOuExistente);
+                this.criarPedido(clienteCriadoOuExistente.id);
+            },
+            error: (err) => {
+                console.error('Erro ao processar cliente:', err);
+                alert('Erro ao processar cliente. Tente novamente.');
+            }
         });
-      // });
     }
+}
+
+  private criarPedido(clienteId: number): void {
+    const novoPedido = {
+      cliente:  { id: clienteId },
+      dish: this.cartItems,
+      precoTotal: this.total,
+      observacao: this.observacao,
+      status: 'não aceito',
+      data: new Date().toISOString(),
+    };
+    
+    console.log('Novo Pedido:', novoPedido);
+    this.pedidoService.fazerPedido(novoPedido).subscribe(
+      (pedidoCriado) => {
+        this.pedidoService.setCodigoConfirmacao(this.cpfSalvo, pedidoCriado.id);
+  
+        localStorage.setItem('pedidoId', pedidoCriado.id);
+        localStorage.setItem('codigoConfirmacao', this.pedidoService.getCodigoConfirmacao());
+  
+        localStorage.removeItem('cartItems');
+        localStorage.removeItem('nomeCliente');
+        localStorage.removeItem('cpfCliente');
+        localStorage.removeItem('enderecoCliente');
+        localStorage.removeItem('observacaoCliente');
+  
+        this.router.navigate(['/acompanhar-pedido']);
+      },
+      (error) => {
+        console.error('Erro ao criar pedido:', error);
+        alert('Erro ao processar pedido. Tente novamente.');
+      }
+    );
   }
 
   ajustarAltura(event: Event): void {

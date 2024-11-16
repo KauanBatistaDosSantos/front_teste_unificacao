@@ -24,14 +24,15 @@ export class TelaInicialCozinhaComponent implements OnInit {
 
   getPedidos(): void {
     this.pedidoService.getPedidos().subscribe((data) => {
+      console.log('Pedidos carregados do backend:', data);
       this.pedidos = data
         .filter(pedido => pedido.status === 'não aceito' || pedido.status === 'em preparo')
         .map((pedido) => {
-          const horario = new Date(pedido.horario);
+          const dataPedido = new Date(pedido.data);
           return {
             ...pedido,
-            horario: horario,
-            tempo: this.calcularTempo(horario)
+            horario: dataPedido,
+            tempo: this.calcularTempo(dataPedido)
           };
         })
         .sort((a, b) => {
