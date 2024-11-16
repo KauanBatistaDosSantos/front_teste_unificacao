@@ -52,17 +52,29 @@ export class TelaInicialEntregadorComponent implements OnInit {
   }
 
   buscarPedidoMaisAntigo(): void {
-    this.pedidoService.getPedidoMaisAntigoParaEntregador(this.entregadorNome).subscribe(pedido => {
-      if (pedido) {
-        this.pedidoSelecionado = pedido;
-        this.nome = true;
-        this.mostrarPedido = false;
-        this.abrirDialogNovoPedido();
-      } else {
-        this.pedidoSelecionado = null;
-        this.nome = false;
+    const entregadorId = this.route.snapshot.paramMap.get('id'); // Obtém o ID do entregador da rota
+    if (!entregadorId) {
+      console.error('ID do entregador não encontrado na rota!');
+      return;
+    }
+  
+    this.pedidoService.getPedidoMaisAntigoParaEntregador(+entregadorId).subscribe(
+      (pedido) => {
+        if (pedido) {
+          this.pedidoSelecionado = pedido;
+          this.nome = true;
+          this.mostrarPedido = false;
+          this.abrirDialogNovoPedido();
+        } else {
+          console.log('Nenhum pedido encontrado para o entregador.');
+          this.pedidoSelecionado = null;
+          this.nome = false;
+        }
+      },
+      (error) => {
+        console.error('Erro ao buscar pedido mais antigo:', error);
       }
-    });
+    );
   }
 
   finalizarEntrega(): void {

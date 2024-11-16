@@ -90,14 +90,13 @@ export class PedidoService {
     return this.http.post<any>(this.apiUrl, pedido);
   }
 
-  getPedidoMaisAntigoParaEntregador(entregador: string): Observable<any | null> {
-    return this.getPedidos().pipe(
-      map(pedidos => 
-        pedidos
-          .filter(pedido => pedido.entregador === entregador && pedido.status === 'pedido enviado para entrega' || pedido.status === 'aguardando confirmação do entregador')
-          .sort((a, b) => new Date(a.horario).getTime() - new Date(b.horario).getTime())
-      ),
-      map(pedidosOrdenados => pedidosOrdenados.length ? pedidosOrdenados[0] : null)
+  getPedidosPorEntregador(entregadorId: number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/entregador/${entregadorId}?status=pedido enviado para entrega`);
+  }
+  
+  getPedidoMaisAntigoParaEntregador(entregadorId: number): Observable<any | null> {
+    return this.getPedidosPorEntregador(entregadorId).pipe(
+      map((pedidos) => (pedidos.length ? pedidos[0] : null)) // O mais antigo já será o primeiro
     );
   }
 

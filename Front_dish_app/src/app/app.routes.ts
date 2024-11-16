@@ -29,7 +29,7 @@ export const routes: Routes = [
     { path: 'acompanhar-pedido', component: AcompanharPedidoComponent},
     { path: 'tela-escolher-entregador/:id', component: TelaEscolherEntregadorComponent},
     { path: 'painel-entregadores', component: PainelEntregadorComponent},
-    { path: 'tela-inicial-entregador/:nome', component: TelaInicialEntregadorComponent },
+    { path: 'tela-inicial-entregador/:id', component: TelaInicialEntregadorComponent },
     { path: 'inicio', component: InicioComponent },
 
     { path: 'cardapio', component: CardapioComponent },
