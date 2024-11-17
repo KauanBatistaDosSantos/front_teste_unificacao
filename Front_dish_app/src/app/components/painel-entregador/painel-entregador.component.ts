@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { EntregadorService } from '../entregador.service';
+import { EntregadorService } from '../../services/entregador.service';
 import { FormsModule } from '@angular/forms';
 import { NgIf } from '@angular/common';
 import { MatIcon } from '@angular/material/icon';

@@ -2,7 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { CommonModule } from '@angular/common';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { PedidoService } from '../pedido.service';
+import { PedidoService } from '../../services/pedido.service';
 
 @Component({
   selector: 'app-inserir-codigo-cliente',

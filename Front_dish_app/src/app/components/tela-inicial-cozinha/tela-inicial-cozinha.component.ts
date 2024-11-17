@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CozinhaPedidoComponent } from '../cozinha-pedido/cozinha-pedido.component';
-import { PedidoService } from '../pedido.service';
+import { PedidoService } from '../../services/pedido.service';
 import { NgFor, NgForOf } from '@angular/common';
 import { MatIcon } from '@angular/material/icon';
 import { Router } from '@angular/router';

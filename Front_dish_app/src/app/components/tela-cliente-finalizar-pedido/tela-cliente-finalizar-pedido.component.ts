@@ -4,7 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { InserirCpfComponent } from '../inserir-cpf/inserir-cpf.component';
 import { InserirEnderecoComponent } from '../inserir-endereco/inserir-endereco.component';
-import { PedidoService } from '../pedido.service';
+import { PedidoService } from '../../services/pedido.service';
 import { NgClass, CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { InserirNomeComponent } from '../inserir-nome/inserir-nome.component';

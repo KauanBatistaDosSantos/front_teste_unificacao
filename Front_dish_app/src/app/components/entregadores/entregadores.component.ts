@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AtribuindoEntregadorComponent } from '../atribuindo-entregador/atribuindo-entregador.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { EntregadorService } from '../entregador.service';
+import { EntregadorService } from '../../services/entregador.service';
 import { NgFor } from '@angular/common';
 
 @Component({

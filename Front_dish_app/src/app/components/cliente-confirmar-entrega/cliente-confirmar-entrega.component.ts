@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PedidoService } from '../pedido.service';
-import { PedidoStatusService } from '../pedido-status.service';
+import { PedidoService } from '../../services/pedido.service';
+import { PedidoStatusService } from '../../services/pedido-status.service';
 
 @Component({
   selector: 'app-cliente-confirmar-entrega',

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { EntregadorService, Entregador } from '../entregador.service';
+import { EntregadorService, Entregador } from '../../services/entregador.service';
 import { EntregadorModeloComponent } from '../entregador-modelo/entregador-modelo.component';
 import { MatIcon } from '@angular/material/icon';
 import { NgIf } from '@angular/common';

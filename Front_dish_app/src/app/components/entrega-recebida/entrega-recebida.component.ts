@@ -6,9 +6,9 @@ import { DialogConfirmeOPagamentoComponent } from '../dialog-confirme-o-pagament
 import { InserirCodigoClienteComponent } from '../inserir-codigo-cliente/inserir-codigo-cliente.component';
 import { PrevisaoDeEntregaComponent } from '../previsao-de-entrega/previsao-de-entrega.component';
 import { FinalizarEntregaComponent } from '../finalizar-entrega/finalizar-entrega.component';  // Importação do novo diálogo
-import { EntregaService  } from '../../entrega.service';
+import { EntregaService } from '../../services/entrega.service';
 import { EntregadorInfoClienteEPedidoComponent } from '../entregador-info-cliente-e-pedido/entregador-info-cliente-e-pedido.component';
-import { PedidoService } from '../pedido.service';
+import { PedidoService } from '../../services/pedido.service';
 
 @Component({
   selector: 'app-entrega-recebida',

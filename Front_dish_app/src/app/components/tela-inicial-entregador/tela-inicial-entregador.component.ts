@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { EntregaRecebidaComponent } from '../entrega-recebida/entrega-recebida.component';
 import { NgIf } from '@angular/common';
-import { EntregaService } from '../../entrega.service';
-import { PedidoService } from '../pedido.service';
+import { PedidoService } from '../../services/pedido.service';
 import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogEntregadorPedidoAtribuidoComponent } from '../dialog-entregador-pedido-atribuido/dialog-entregador-pedido-atribuido.component';
 import { FinalizarEntregaComponent } from '../finalizar-entrega/finalizar-entrega.component';
 import { Router } from '@angular/router';
 import { MatIcon, MatIconModule } from '@angular/material/icon';
+import { EntregaService } from '../../services/entrega.service';
 
 @Component({
   selector: 'app-tela-inicial-entregador',

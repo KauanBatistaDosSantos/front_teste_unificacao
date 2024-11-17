@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { EntregadorService, Entregador } from '../entregador.service';
+import { EntregadorService, Entregador } from '../../services/entregador.service';
 import { Router } from '@angular/router';
 import { NgIf } from '@angular/common';
 

@@ -3,7 +3,7 @@ import { MatIcon } from '@angular/material/icon';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { EntregadorService, Entregador } from '../entregador.service';
+import { EntregadorService, Entregador } from '../../services/entregador.service';
 
 @Component({
   selector: 'app-cadastro-entregador',

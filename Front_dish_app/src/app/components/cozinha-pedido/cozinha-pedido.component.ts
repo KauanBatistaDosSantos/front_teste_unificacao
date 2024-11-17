@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PedidoService } from '../pedido.service';
+import { PedidoService } from '../../services/pedido.service';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';

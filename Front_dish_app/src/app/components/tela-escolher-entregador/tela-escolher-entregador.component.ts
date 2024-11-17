@@ -7,7 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ActivatedRoute, RouterLink, RouterOutlet } from '@angular/router';
-import { EntregadorService } from '../entregador.service';
+import { EntregadorService } from '../../services/entregador.service';
 import { EntregadoresComponent } from '../entregadores/entregadores.component';
 
 @Component({

@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { MatIcon } from '@angular/material/icon';
-import { PedidoService } from '../pedido.service';
+import { PedidoService } from '../../services/pedido.service';
 import { MatBadgeModule } from '@angular/material/badge';
 import { CarrinhoService } from '../../services/carrinho.service';
 

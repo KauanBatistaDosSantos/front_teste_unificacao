@@ -5,7 +5,7 @@ import { CommonModule, CurrencyPipe } from '@angular/common';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 import { PedidosService } from '../../../services/pedidos.service';
-import { PedidoService } from '../../pedido.service';
+import { PedidoService } from '../../../services/pedido.service';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatIcon } from '@angular/material/icon';
 import { CarrinhoService } from '../../../services/carrinho.service';

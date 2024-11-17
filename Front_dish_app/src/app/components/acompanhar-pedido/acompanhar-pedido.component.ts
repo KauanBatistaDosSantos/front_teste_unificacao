@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { MatIconModule } from '@angular/material/icon';
-import { PedidoStatusService } from '../pedido-status.service';
+import { PedidoStatusService } from '../../services/pedido-status.service';
 import { ClienteConfirmarEntregaComponent } from '../cliente-confirmar-entrega/cliente-confirmar-entrega.component';
 import { NgIf } from '@angular/common';
 import { Router } from '@angular/router';
