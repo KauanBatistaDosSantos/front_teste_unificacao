@@ -62,6 +62,7 @@ export class TelaInicialEntregadorComponent implements OnInit {
       (pedido) => {
         if (pedido) {
           this.pedidoSelecionado = pedido;
+          console.log('Pedido selecionado:', this.pedidoSelecionado);
           this.nome = true;
           this.mostrarPedido = false;
           this.abrirDialogNovoPedido();

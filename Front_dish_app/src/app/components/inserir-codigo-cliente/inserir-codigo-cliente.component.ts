@@ -2,6 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { CommonModule } from '@angular/common';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { PedidoService } from '../pedido.service';
 
 @Component({
   selector: 'app-inserir-codigo-cliente',
@@ -12,19 +13,27 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class InserirCodigoClienteComponent {
   isButtonActive: boolean = false;
-  codigo: string = '';  // Para armazenar o código inserido pelo entregador
+  codigo: string = '';
 
   nomeCliente: string;
   numeroPedido: number;
   cpfDoCliente: string;
 
-  constructor(public dialogRef: MatDialogRef<InserirCodigoClienteComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: { cpf: string, nomeCliente: string, numeroPedido: number }) 
-    {
-      this.nomeCliente = data.nomeCliente;
-      this.numeroPedido = data.numeroPedido;
-      this.cpfDoCliente = data.cpf;
+  constructor(
+    public dialogRef: MatDialogRef<InserirCodigoClienteComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: { cpf: string, cliente: string, id: number },
+    private pedidoService: PedidoService
+  ) {
+    if (!data.cpf) {
+      console.error('CPF inválido fornecido ao InserirCodigoClienteComponent.');
+    } else {
+      this.pedidoService.setCodigoConfirmacao(data.cpf, String(data.id));
     }
+  
+    this.nomeCliente = data.cliente;
+    this.numeroPedido = data.id;
+    this.cpfDoCliente = data.cpf;
+  }
 
   limitDigits(event: any) {
     const input = event.target;
@@ -39,8 +48,8 @@ export class InserirCodigoClienteComponent {
   }
 
   validarCodigo(): boolean {
-    const cpfNumerico = this.cpfDoCliente.replace(/\D/g, ''); // Remove pontos e traços
-    return this.codigo === cpfNumerico.slice(0, 5); // Compara só os números
+    const codigoEsperado = this.pedidoService.getCodigoConfirmacao(); // Obtendo o código do PedidoService
+    return this.codigo === codigoEsperado;
   }
 
   abrirDiaPagCon(): void {

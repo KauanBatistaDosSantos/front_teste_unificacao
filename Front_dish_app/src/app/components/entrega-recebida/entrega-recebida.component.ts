@@ -14,11 +14,8 @@ import { PedidoService } from '../pedido.service';
   selector: 'app-entrega-recebida',
   standalone: true,
   imports: [NgIf, 
-    RouterModule, 
-    MatDialogModule, 
-    DialogConfirmeOPagamentoComponent, 
+    RouterModule,  
     PrevisaoDeEntregaComponent,
-    FinalizarEntregaComponent,
     EntregadorInfoClienteEPedidoComponent
   ],
   templateUrl: './entrega-recebida.component.html',
@@ -40,7 +37,11 @@ export class EntregaRecebidaComponent {
     if (!this.pagamentoConfirmado) {
       const dialogRef = this.dialog.open(InserirCodigoClienteComponent, {
         width: '396px',
-        data: { cpf: this.pedido?.cpf, nomeCliente: this.pedido?.nomeCliente, numeroPedido: this.pedido?.numeroPedido }
+        data: { 
+          cpf: this.pedido.cliente.cpf,
+          cliente: this.pedido.cliente.nome,
+          id: this.pedido.id 
+        }
       });
 
       dialogRef.afterClosed().subscribe(result => {
@@ -96,15 +97,27 @@ export class EntregaRecebidaComponent {
     if (this.pedido && this.pedido.id) {
       this.pedidoService.finalizarPedidoEntregador(this.pedido.id).subscribe({
         next: () => {
-          console.log('Status do pedido atualizado para "pedido finalizado"');
-          this.pedidoService.getPedidoMaisAntigoParaEntregador(this.pedido.entregador).subscribe(pedidoMaisAntigo => {
-            if (!pedidoMaisAntigo) {
-              this.entregaService.finalizarEntrega();
+          console.log('Status do pedido atualizado para "pedido finalizado".');
+          const entregadorId = this.pedido.entregador?.id;
+          if (!entregadorId) {
+            console.error('ID do entregador não definido.');
+            return;
+          }
+          this.pedidoService.getPedidoMaisAntigoParaEntregador(entregadorId).subscribe({
+            next: (pedidoMaisAntigo) => {
+              if (!pedidoMaisAntigo) {
+                this.entregaService.finalizarEntrega();
+              }
+            },
+            error: (err) => {
+              console.error('Erro ao buscar o pedido mais antigo:', err);
             }
           });
         },
         error: (err) => console.error('Erro ao atualizar o status do pedido:', err)
       });
+    } else {
+      console.error('Pedido inválido ou ID não encontrado.');
     }
   }
 

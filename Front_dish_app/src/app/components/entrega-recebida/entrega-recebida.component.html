@@ -1,9 +1,9 @@
 <section>
     <div id="endereco">
         <div id="dados">
-            <h2 *ngIf="!esconderH2">{{ pedido?.nomeCliente }}</h2>
+            <h2 *ngIf="!esconderH2">{{ pedido?.cliente?.nome }}</h2>
             <p>Endereço de Entrega</p>
-            <p>{{ pedido?.endereco }}</p>
+            <p>{{ pedido?.cliente?.endereco }}</p>
         </div>
         <div class="botao">
             <button id="botao-da-rota" (click)="abrirRota()">
@@ -20,7 +20,7 @@
     <!-- <app-dialog-confirme-o-pagamento *ngIf="mostrarDiaPagamento"></app-dialog-confirme-o-pagamento>           -->
     <app-entregador-info-cliente-e-pedido 
         *ngIf="codigoClienteConfirmado" 
-        [nomeCliente]="pedido?.nomeCliente" 
+        [nomeCliente]="pedido?.cliente.nome" 
         [numeroPedido]="pedido?.numeroPedido">
     </app-entregador-info-cliente-e-pedido>
 

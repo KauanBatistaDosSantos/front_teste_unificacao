@@ -117,7 +117,9 @@ export class PedidoService {
   }
   
   finalizarPedidoEntregador(id: number): Observable<any> {
-    return this.http.patch(`${this.apiUrl}/${id}`, { status: 'pedido finalizado' }).pipe(
+    return this.http.patch(`${this.apiUrl}/${id}/status`, null, {
+      params: { status: 'pedido finalizado' }
+    }).pipe(
       map(() => {
         this.pedidosAtualizados.next();
       })
@@ -125,8 +127,14 @@ export class PedidoService {
   }
 
   setCodigoConfirmacao(cpf: string, id: string): void {
+    if (!cpf) {
+      console.error('CPF inválido fornecido ao método setCodigoConfirmacao.');
+      return;
+    }
+  
     this.codigoConfirmacao = cpf.replace(/\D/g, '').slice(0, 5);
     this.pedidoId = id;
+    console.log(`Código de confirmação configurado: ${this.codigoConfirmacao}`);
   }
   
   getCodigoConfirmacao(): string {
