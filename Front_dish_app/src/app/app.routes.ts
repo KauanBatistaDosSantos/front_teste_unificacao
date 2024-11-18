@@ -40,7 +40,7 @@ export const routes: Routes = [
     { path: 'cardapio/executivos', component: ExecutivosComponent },
     { path: 'cardapio/bebidas', component: BebidasComponent },
     { path: 'cardapio/porcoes', component: PorcoesComponent },
-    { path: 'cardapio/fazer-pedido/:id', component: TestePedidoComponent },
+    { path: 'cardapio/fazer-pedido/:id/:categoria', component: TestePedidoComponent },
     { path: 'dish-list/edit-dish/:id', component: DishFormComponent },
     { path: 'carrinho', component: CarrinhoComponent },
 

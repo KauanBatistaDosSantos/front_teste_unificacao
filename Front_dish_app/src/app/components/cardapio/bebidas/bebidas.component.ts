@@ -50,7 +50,7 @@ export class BebidasComponent implements OnInit {
   
   verDetalhes(id: number | undefined) {
     if (id !== undefined) {
-        this.router.navigate(['/cardapio/fazer-pedido', id.toString()]);
+        this.router.navigate(['/cardapio/fazer-pedido', id.toString(), 'bebidas']);
     } else {
         console.error('ID do prato não encontrado');
     }

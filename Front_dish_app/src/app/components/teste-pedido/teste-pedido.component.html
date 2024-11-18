@@ -1,10 +1,10 @@
 <body class="mulish-fonte">
     <header>
         <button id="botao-seta-voltar" (click)="voltar()"><mat-icon>arrow_back_ios</mat-icon></button>       
-        <h2>EXECUTIVOS</h2>
     </header>
 
     <main>
+        <h2>{{ categoria | uppercase }}</h2>
 
         <div *ngIf="loading">Carregando...</div>
         <div *ngIf="!loading && !dish">

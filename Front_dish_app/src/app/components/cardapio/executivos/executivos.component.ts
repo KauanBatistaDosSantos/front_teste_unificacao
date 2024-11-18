@@ -49,13 +49,13 @@ export class ExecutivosComponent implements OnInit {
     this.cartHasItems = this.totalItens > 0;
   }
 
- verDetalhes(id: number | undefined) {
-  if (id !== undefined) {
-      this.router.navigate(['/cardapio/fazer-pedido', id.toString()]); 
-  } else {
-      console.error('ID do prato não encontrado');
+  verDetalhes(id: number | undefined) {
+    if (id !== undefined) {
+        this.router.navigate(['/cardapio/fazer-pedido', id.toString(), 'executivos']);
+    } else {
+        console.error('ID do prato não encontrado');
+    }
   }
- }
 
  voltar() {
   this.location.back();

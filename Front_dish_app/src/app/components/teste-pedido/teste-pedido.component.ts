@@ -19,6 +19,7 @@ export class TestePedidoComponent implements OnInit {
   dish: Dish | null = null;
   loading = true;
   id: string | null = null;
+  categoria: string | null = null;
 
   constructor(
     private dishService: DishService,
@@ -30,6 +31,7 @@ export class TestePedidoComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
+    this.categoria = this.route.snapshot.paramMap.get('categoria');
 
     if (this.id) {
       this.dishService.getDish(this.id).subscribe( 
