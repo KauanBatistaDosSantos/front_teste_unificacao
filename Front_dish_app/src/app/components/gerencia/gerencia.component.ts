@@ -24,6 +24,10 @@ export class GerenciaComponent {
     this.router.navigate(['/lista-entregadores']);
   }
 
+  irParaTodosOsPedidos() {
+    this.router.navigate(['/todos-os-pedidos'])
+  }
+
   voltar() {
     this.router.navigate(['/inicio']);
   }

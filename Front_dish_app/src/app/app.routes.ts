@@ -18,6 +18,7 @@ import { CarrinhoComponent } from './components/carrinho/carrinho.component';
 import { GerenciaComponent } from './components/gerencia/gerencia.component';
 import { CadastroEntregadorComponent } from './components/cadastro-entregador/cadastro-entregador.component';
 import { ListaEntregadoresComponent } from './components/lista-entregadores/lista-entregadores.component';
+import { PedidoComponent } from './components/main-gerente/pedido/pedido.component';
 
 export const routes: Routes = [
     { path: '', component: InicioComponent},
@@ -46,5 +47,7 @@ export const routes: Routes = [
     { path: 'gerencia', component: GerenciaComponent},
     { path: 'cadastro-entregadores', component: CadastroEntregadorComponent},
     { path: 'cadastro-entregadores/:id', component: CadastroEntregadorComponent },
-    { path: 'lista-entregadores', component: ListaEntregadoresComponent}
+    { path: 'lista-entregadores', component: ListaEntregadoresComponent},
+
+    { path: 'todos-os-pedidos', component: PedidoComponent}
 ];

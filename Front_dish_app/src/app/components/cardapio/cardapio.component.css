@@ -3,6 +3,16 @@
     box-sizing: border-box;
 }
 
+header {
+    margin: auto;
+    max-width: 414px;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-right: 10px;
+}
+
 #cardapio {
     max-width: 850px;
     width: 100%;
@@ -21,6 +31,7 @@
     align-items: center;
     margin: 0 auto;
     padding: 20px;
+    padding-top: 16px;
     padding-bottom: 100px;
 }
 
@@ -39,7 +50,7 @@
     max-width: 850px;
     min-width: 300px;
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
     border: none;
     cursor: pointer;
@@ -49,6 +60,26 @@
     box-sizing: border-box;
 }
 
+#botao img {
+margin-left: auto;
+}
+
+#botao:before {
+    background-color: #fff;
+    content: "";
+    display: inline-block;
+    height: 1px;
+    margin-right: 10px;
+    transition: all .42s cubic-bezier(.25,.8,.25,1);
+    width: 0;
+}
+  
+#botao:hover:before {
+    background-color: #fff;
+    width: 3rem;
+}
+
+
 #botao h1 {
     font-size: 40px;
     margin: 0;
@@ -56,10 +87,10 @@
 
 #botao-seta-voltar {
     position: absolute;
-    left: 20px;
+    left: 28px;
     background-color: var(--fundo-telas);
     border: none;
-    padding: 10px;
+    padding-top: 25px;
     color: #ffffff;
     cursor: pointer;
 }

@@ -1,0 +1,16 @@
+<section class="pedido-lista">
+    <header>
+        <button id="botao-seta-voltar" (click)="voltar()"><mat-icon>arrow_back_ios</mat-icon></button>
+    </header>
+
+    <body>
+        <h1>Pedidos em Andamento</h1>
+        <ul>
+          <li *ngFor="let pedido of pedidos" (click)="verDetalhes(pedido.id)" class="pedido-item">
+            <p><strong>ID:</strong> {{ pedido.id }}</p>
+            <p><strong>Cliente:</strong> {{ pedido.nomeCliente }}</p>
+            <p><strong>Status:</strong> {{ pedido.status }}</p>
+          </li>
+        </ul>
+    </body>
+</section>

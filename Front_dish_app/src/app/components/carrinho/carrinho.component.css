@@ -1,9 +1,11 @@
 header {
-    width: 100%;
+    margin: auto;
+    max-width: 414px;
     padding: 16px 24px;
     display: flex;
-    justify-content: space-between;
+    justify-content: end;
     align-items: center;
+    margin-right: 10px;
 }
 
 main {
@@ -12,6 +14,13 @@ main {
     padding: 20px;
     box-sizing: border-box;
     overflow-y: auto;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden;
 }
 
 body {
@@ -23,7 +32,7 @@ body {
     margin: auto;
     text-align: center;
     font-family: "Mulish", sans-serif;
-    color: #ffff;
+    color: #fff;
     min-height: 100vh;
     box-sizing: border-box;
 }
@@ -86,6 +95,7 @@ body {
 .mulish-fonte {
     font-family: "Mulish", sans-serif;
     font-weight: 700;
+    padding-top: 16px;
 }
 
 .dish-descricao {
@@ -140,5 +150,15 @@ footer.botao-rodape {
     padding: 20px;
     width: 100%;
     gap: 10px;
-    background-color: var(--fundo-telas); /* Ajuste conforme necessário */
+    background-color: var(--fundo-telas);
+}
+
+#botao-seta-voltar {
+    position: absolute;
+    left: 28px;
+    background-color: var(--fundo-telas);
+    border: none;
+    padding-top: 25px;
+    color: #ffffff;
+    cursor: pointer;
 }

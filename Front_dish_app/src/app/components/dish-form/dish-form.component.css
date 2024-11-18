@@ -1,6 +1,5 @@
 * {
     background-color: var(--fundo-telas);
-    box-sizing: border-box;
 }
 
 h2 { 
@@ -11,11 +10,15 @@ h2 {
 }
 
 header {
-    margin: auto;
-    max-width: 414px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    width: 100%;
+    padding: 16px 24px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    max-width: 800px;
+    padding-top: 0;
 }
 
 #botao-seta-voltar {
@@ -41,7 +44,7 @@ input {
     border-radius: 4px;
 }
 
-body {
+/* body {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -49,8 +52,22 @@ body {
     font-family: "Mulish", sans-serif;
     color: #ffff;
     background-color: var(--fundo-telas);
-    overflow: auto; /* Adiciona rolagem para conteúdo maior que a tela */
-    min-height: 100vh;
+    overflow: auto;
+} */
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+    font-family: "Mulish", sans-serif;
+    color: #ffff;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 30px;
+    height: auto;
 }
 
 label{

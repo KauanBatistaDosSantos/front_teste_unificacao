@@ -9,6 +9,7 @@ import { NgClass, CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { InserirNomeComponent } from '../inserir-nome/inserir-nome.component';
 import { ClienteService } from '../../services/cliente.service';
+import { CarrinhoService } from '../../services/carrinho.service';
 
 @Component({
   selector: 'app-tela-cliente-finalizar-pedido',
@@ -32,14 +33,11 @@ export class TelaClienteFinalizarPedidoComponent implements OnInit {
     private dialog: MatDialog,
     private router: Router,
     private pedidoService: PedidoService,
-    private clienteService: ClienteService
+    private clienteService: ClienteService,
+    private carrinhoService: CarrinhoService
   ) {}
 
   ngOnInit(): void {
-    // this.nomeSalvo = localStorage.getItem('nomeCliente') || '';
-    // this.cpfSalvo = localStorage.getItem('cpfCliente') || '';
-    // this.enderecoSalvo = JSON.parse(localStorage.getItem('enderecoCliente') || 'null');
-
     const cliente = this.clienteService.carregarDadosLocais();
     this.nomeSalvo = cliente.nome;
     this.cpfSalvo = cliente.cpf;
@@ -145,14 +143,17 @@ export class TelaClienteFinalizarPedidoComponent implements OnInit {
   
         localStorage.setItem('pedidoId', pedidoCriado.id);
         localStorage.setItem('codigoConfirmacao', this.pedidoService.getCodigoConfirmacao());
-  
+
         localStorage.removeItem('cartItems');
+        this.carrinhoService.clearCart();
         localStorage.removeItem('nomeCliente');
         localStorage.removeItem('cpfCliente');
         localStorage.removeItem('enderecoCliente');
         localStorage.removeItem('observacaoCliente');
-  
-        this.router.navigate(['/acompanhar-pedido']);
+        
+        setTimeout(() => {
+          this.router.navigate(['/acompanhar-pedido']);
+        }, 100);
       },
       (error) => {
         console.error('Erro ao criar pedido:', error);

@@ -5,11 +5,12 @@ import { CommonModule, Location } from '@angular/common';
 import { Dish } from '../../services/dish.service';
 import { CurrencyPipe } from '@angular/common';
 import { CarrinhoService } from '../../services/carrinho.service';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-carrinho',
   standalone: true,
-  imports: [CommonModule, CurrencyPipe],
+  imports: [CommonModule, CurrencyPipe, MatIcon],
   templateUrl: './carrinho.component.html',
   styleUrl: './carrinho.component.css'
 })
@@ -31,10 +32,10 @@ export class CarrinhoComponent implements OnInit {
   loadCartItems() {
     this.cart = this.carrinhoService.getCartItems();
   }
-
+  
   removeFromCart(id: string) {
     this.carrinhoService.removeFromCart(id);
-    this.cart = this.cart.filter(dish => dish.id !== id);
+    this.loadCartItems();
   }
 
   get total(): number {
