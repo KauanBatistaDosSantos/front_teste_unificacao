@@ -61,7 +61,8 @@ header {
 }
 
 #botao img {
-margin-left: auto;
+    margin-left: auto;
+    border-radius: 50%;
 }
 
 #botao:before {

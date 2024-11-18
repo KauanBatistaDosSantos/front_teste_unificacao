@@ -16,6 +16,9 @@ export class DishListComponent implements OnInit {
   dishes: Dish[] = [];
   activeDishes: Dish[] = [];
   inactiveDishes: Dish[] = [];
+  filtroCategoria: string | null = null;
+  mostrarAtivos: boolean = true; // Controla se os pratos ativos são exibidos
+  mostrarInativos: boolean = true;
 
   constructor(private dishService: DishService, private router: Router, private location:Location) {}
 
@@ -31,13 +34,29 @@ export class DishListComponent implements OnInit {
   }
 
   filterDishes() {
-    this.activeDishes = this.dishes.filter(dish => dish.stock === 1);
-    this.inactiveDishes = this.dishes.filter(dish => dish.stock === 0);
+    const categoria = this.filtroCategoria;
+
+    // Filtros aplicados em ativos e inativos separadamente
+    this.activeDishes = this.dishes.filter(
+      (dish) => dish.stock === 1 && (!categoria || dish.category === categoria)
+    );
+    this.inactiveDishes = this.dishes.filter(
+      (dish) => dish.stock === 0 && (!categoria || dish.category === categoria)
+    );
+  }
+
+  aplicarFiltro(categoria: string | null) {
+    this.filtroCategoria = categoria;
+    this.filterDishes();
+  }
+
+  toggleAtivosInativos(mostrarAtivos: boolean, mostrarInativos: boolean) {
+    this.mostrarAtivos = mostrarAtivos;
+    this.mostrarInativos = mostrarInativos;
   }
 
   toggleStatus(dish: Dish) {
     const updatedStock = dish.stock === 1 ? 0 : 1;
-  
     this.dishService.mudarStock(updatedStock, dish.id).subscribe((updatedDish) => {
       dish.stock = updatedDish.stock;
       this.filterDishes();

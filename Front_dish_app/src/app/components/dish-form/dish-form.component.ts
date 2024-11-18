@@ -41,12 +41,25 @@ export class DishFormComponent implements OnInit {
       );
     } else {
       this.isEdit = false;
+      this.dishService.getNextId().subscribe(
+        (nextId) => {
+          this.dish.id = nextId.toString();
+        },
+        (error) => {
+          console.error('Erro ao buscar o próximo ID', error);
+        }
+      );
     }
   }
 
   saveDish() {
     if (!this.dish.image ||!this.dish.description || !this.dish.price || !this.dish.name || !this.dish.category) {
       alert('Preencha todos os campos!');
+      return;
+    }
+
+    if (this.dish.price < 0) {
+      alert('O preço não pode ser negativo!');
       return;
     }
   

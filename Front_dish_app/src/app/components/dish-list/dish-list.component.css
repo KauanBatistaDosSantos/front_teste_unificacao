@@ -324,6 +324,41 @@ input:checked + .slider:before {
     margin: auto;
 }
 
+
+.opcoes {
+    margin: 20px;
+}
+
+.opcoes-botoes {
+    gap: 5px;
+    justify-content: center;
+    display: flex;
+}
+
+.opcoes-botoes button {
+    padding: 10px 15px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f1f1f1;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.opcoes-botoes button:hover {
+    background-color: #ddd;
+}
+
+.opcoes-botoes button.ativo {
+    background-color: var(--laranja-figma);
+    color: #fff;
+    border-color: var(--laranja-figma);
+    /* font-weight: bold; */
+    padding: 10px 15px;
+}
+
   @media (max-width: 460px) {
     body {
         max-width: 100%;

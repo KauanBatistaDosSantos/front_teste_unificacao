@@ -20,6 +20,7 @@
     height: 37px;
     font-family: "Mulish", sans-serif;
     font-weight: 700;
+    border-radius: 10px;
 }
 
 #buttonExcluir {
@@ -32,6 +33,7 @@
     height: 37px;
     font-family: "Mulish", sans-serif;
     font-weight: 700;
+    border-radius: 10px;
 }
 
 .id {

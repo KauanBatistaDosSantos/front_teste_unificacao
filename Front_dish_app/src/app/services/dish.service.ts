@@ -53,5 +53,9 @@ export class DishService {
 
   mudarStock(valor: number, id: string): Observable<Dish> { 
     return this.http.put<Dish>(`${this.apiUrl}/${id}/atualizarEstoque?valor=${valor}`, {});
-  }  
+  }
+
+  getNextId(): Observable<number> {
+    return this.http.get<number>(`${this.apiUrl}/nextId`);
+  }
 }

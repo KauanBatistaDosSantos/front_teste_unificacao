@@ -5,7 +5,7 @@ header {
     left: 0;
 }
 
-html, body {
+html, .body {
     height: 100%;
     margin: 0;
     padding: 0;
@@ -13,7 +13,7 @@ html, body {
     box-sizing: border-box;
 }
 
-body {
+.body {
     background-color: var(--fundo-telas);
     display: flex;
     flex-direction: column;
@@ -24,11 +24,10 @@ body {
     min-height: 100%;
     max-width: 600px;
     margin: auto;
-    padding: 0 20px;
     box-sizing: border-box;
 }
 
-body h1 {
+.body h1 {
     font-size: 30px;
     font-family: Mulish, sans-serif;
     font-weight: 700;
@@ -41,7 +40,7 @@ body h1 {
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 20px 0;
     box-sizing: border-box;
     height: auto;
 }
@@ -62,6 +61,41 @@ ul {
     width: 100%;
     box-sizing: border-box;
 }
+
+.opcoes {
+    margin: 20px;
+}
+
+.opcoes-botoes {
+    gap: 5px;
+    justify-content: center;
+    display: flex;
+}
+
+.opcoes-botoes button {
+    padding: 10px 15px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f1f1f1;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.opcoes-botoes button:hover {
+    background-color: #ddd;
+}
+
+.opcoes-botoes button.ativo {
+    background-color: var(--laranja-figma);
+    color: #fff;
+    border-color: var(--laranja-figma);
+    /* font-weight: bold; */
+    padding: 10px 15px;
+}
+
   
 .pedido-item {
     width: calc(100% - 40px);

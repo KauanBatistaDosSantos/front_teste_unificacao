@@ -7,7 +7,7 @@
     <form (ngSubmit)="saveDish()">
       <div class="id">
         <label for="id">ID:</label>
-        <div class="input-id"><input type="number" id="id" [(ngModel)]="dish.id" name="id" required></div>
+        <div class="input-id"><input type="number" id="id" [(ngModel)]="dish.id" name="id" readonly></div>
       </div>
     
       <div class="nome">
@@ -22,7 +22,7 @@
     
       <div class="preco">
         <label for="price">Preço:</label>
-        <div class="input-preco"><input type="number" id="price" [(ngModel)]="dish.price" name="price" required></div>
+        <div class="input-preco"><input type="number" id="price" [(ngModel)]="dish.price" name="price" min="0" required></div>
       </div>
     
       <div class="categoria">

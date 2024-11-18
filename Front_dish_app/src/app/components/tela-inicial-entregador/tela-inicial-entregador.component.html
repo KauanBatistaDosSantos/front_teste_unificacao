@@ -1,10 +1,14 @@
 <section>
-  <button id="botao-seta-voltar" (click)="voltar()"><mat-icon>arrow_back_ios</mat-icon></button>
-  <header>Entrega</header>
-  <p *ngIf="!mostrarPedido || !pedidoSelecionado">Sem entregas no momento</p>
-  <app-entrega-recebida 
-    [pedido]="pedidoSelecionado" 
-    *ngIf="mostrarPedido && pedidoSelecionado" 
-    (entregaFinalizada)="buscarPedidoMaisAntigo()">
-  </app-entrega-recebida>
+  <header>
+    <button id="botao-seta-voltar" (click)="voltar()"><mat-icon>arrow_back_ios</mat-icon></button>
+    <h1>Entrega</h1>
+  </header>
+  <body>
+    <p *ngIf="!mostrarPedido || !pedidoSelecionado">Sem entregas no momento</p>
+    <app-entrega-recebida 
+      [pedido]="pedidoSelecionado" 
+      *ngIf="mostrarPedido && pedidoSelecionado" 
+      (entregaFinalizada)="buscarPedidoMaisAntigo()">
+    </app-entrega-recebida>
+  </body>
 </section>

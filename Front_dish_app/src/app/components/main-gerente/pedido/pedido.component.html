@@ -3,14 +3,40 @@
         <button id="botao-seta-voltar" (click)="voltar()"><mat-icon>arrow_back_ios</mat-icon></button>
     </header>
 
-    <body>
-        <h1>Pedidos em Andamento</h1>
-        <ul>
-          <li *ngFor="let pedido of pedidos" (click)="verDetalhes(pedido.id)" class="pedido-item">
-            <p><strong>ID:</strong> {{ pedido.id }}</p>
-            <p><strong>Cliente:</strong> {{ pedido.nomeCliente }}</p>
-            <p><strong>Status:</strong> {{ pedido.status }}</p>
-          </li>
-        </ul>
+    <body class="pedido-lista">
+        <h1>Pedidos</h1>
+        <div class="opcoes">
+          <ul class="opcoes-botoes">
+            <button 
+              (click)="filtrarPedidos('todos')" 
+              [class.ativo]="filtroAtual === 'todos'">
+              Todos
+            </button>
+            <button 
+              (click)="filtrarPedidos('finalizados')" 
+              [class.ativo]="filtroAtual === 'finalizados'">
+              Finalizados
+            </button>
+            <button 
+              (click)="filtrarPedidos('em preparo')" 
+              [class.ativo]="filtroAtual === 'em preparo'">
+              Em Preparo
+            </button>
+            <button 
+              (click)="filtrarPedidos('não aceito')" 
+              [class.ativo]="filtroAtual === 'não aceito'">
+              Não Aceitos
+            </button>
+          </ul>
+        </div>
+        <div class="body">
+          <ul>
+            <li *ngFor="let pedido of pedidosFiltrados" (click)="verDetalhes(pedido.id)" class="pedido-item">
+              <p><strong>ID:</strong> {{ pedido.id }}</p>
+              <p><strong>Cliente:</strong> {{ pedido.nomeCliente }}</p>
+              <p><strong>Status:</strong> {{ pedido.status }}</p>
+            </li>
+          </ul>
+        </div>
     </body>
 </section>

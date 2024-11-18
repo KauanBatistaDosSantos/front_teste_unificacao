@@ -7,13 +7,13 @@ import { MatDialog } from '@angular/material/dialog';
 import { DialogEntregadorPedidoAtribuidoComponent } from '../dialog-entregador-pedido-atribuido/dialog-entregador-pedido-atribuido.component';
 import { FinalizarEntregaComponent } from '../finalizar-entrega/finalizar-entrega.component';
 import { Router } from '@angular/router';
-import { MatIcon, MatIconModule } from '@angular/material/icon';
+import { MatIcon } from '@angular/material/icon';
 import { EntregaService } from '../../services/entrega.service';
 
 @Component({
   selector: 'app-tela-inicial-entregador',
   standalone: true,
-  imports: [EntregaRecebidaComponent, NgIf, MatIcon, MatIconModule],
+  imports: [EntregaRecebidaComponent, NgIf, MatIcon],
   templateUrl: './tela-inicial-entregador.component.html',
   styleUrl: './tela-inicial-entregador.component.css'
 })

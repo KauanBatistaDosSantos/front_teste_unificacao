@@ -1,26 +1,25 @@
 header {
-    position: relative;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    justify-content: space-between; /* Espaça os botões adequadamente */
+    align-items: center; /* Centraliza verticalmente os botões */
+    width: 100%;
+    padding: 16px 24px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    max-width: auto;
     background-color: var(--fundo-telas);
-    padding: 20px 0;
-    margin-top: 20px;
 }
 
 #botao-seta-voltar {
-    position: absolute;
-    left: 28px;
     background-color: var(--fundo-telas);
     border: none;
+    padding: 5px 6px 1px;
     color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
 }
 
 #botao-cadastrar {
-    position: absolute;
-    right: 16px;
-    border: none;
-
     padding: 8px 16px;
     background-color: #ff9900;
     color: #ffffff;
@@ -29,7 +28,7 @@ header {
     font-size: 15px;
     font-weight: bold;
     border-radius: 4px;
-    display: inline-block;
+    border: none;
     cursor: pointer;
 }
 

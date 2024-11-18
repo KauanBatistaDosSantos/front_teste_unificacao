@@ -1,12 +1,6 @@
 section {
     background-color: var(--fundo-telas);
-    height: 100svh;
-}
-
-* {
-    font-family: "Mulish", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 600;
+    overflow-y: auto;
 }
 
 header {
@@ -18,7 +12,16 @@ header {
     margin-bottom: 33px;
 }
 
+h1 {
+    font-family: "Mulish", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+}
+
 p {
+    font-family: "Mulish", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
     font-size: 24px ;
     color: var(--cinza-texto-fundo);
     display: flex;
@@ -29,8 +32,19 @@ p {
 #botao-seta-voltar {
     position: absolute;
     left: 28px;
+    top: 20px;
     background-color: var(--fundo-telas);
     border: none;
-    padding-top: 25px;
+    padding: 25px, 6px, 1px;
     color: #ffffff;
+    font-size: 24px;
+    cursor: pointer;
+    margin: 0;
+    width: auto;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
 }
