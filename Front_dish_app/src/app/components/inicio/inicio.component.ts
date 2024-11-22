@@ -5,6 +5,7 @@ import { Dish } from '../../services/dish.service';
 import { CommonModule } from '@angular/common'; 
 import { MatButtonModule } from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { PedidoService } from '../../services/pedido.service';
 
 @Component({
   selector: 'app-inicio',
@@ -16,14 +17,18 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 export class InicioComponent implements OnInit {
   showFiller = false;
   totalDishes: number = 0; 
+  totalOrder: number = 0;
+  pedidosEmPreparo: any[] = [];
   menuOpen: boolean = false; 
   constructor(
     private router: Router,
-    private dishService: DishService
+    private dishService: DishService,
+    private pedidoService: PedidoService
   ) {}
 
   ngOnInit(): void {
     this.carregarQuantidadeDePratos();
+    this.carregarPedidosPreparo();
   }
 
   carregarQuantidadeDePratos(): void {
@@ -38,7 +43,20 @@ export class InicioComponent implements OnInit {
     });
   }
 
-  
+  carregarPedidosPreparo(): void {
+    this.pedidoService.getPedidos().subscribe({
+      next: (pedidos: any[]) => {
+        const pedidosEmPreparo = pedidos.filter(pedido => pedido.status === 'em preparo');
+        this.totalOrder = pedidosEmPreparo.length;
+        this.pedidosEmPreparo = pedidosEmPreparo;
+      },
+      error: (err) => {
+        console.error('Erro ao carregar pedidos em preparo', err);
+        this.totalOrder = 0; 
+        this.pedidosEmPreparo = [];
+      }
+    });
+}
 
   toggleMenu() {
     this.menuOpen = !this.menuOpen; 
