@@ -1,141 +1,132 @@
-body {
+.body {
+    position: relative; /* Necessário para o posicionamento do pseudo-elemento */
     font-family: 'Mulish', sans-serif;
     background-image: url('../../images/restaurante.jpg');
     background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
     box-sizing: border-box;
-    margin: 0 auto;
-    padding: 20px;
+    overflow: hidden;
+}
+
+.body::before {
+    content: "";
+    position: absolute; 
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Camada de sobreposição */
+    z-index: 1; /* Coloca a sobreposição abaixo do header e acima do fundo */
+}
+
+.navbar {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    position: sticky; 
+    top: 0;
+    z-index: 10; /* Garante que o header fique acima da sobreposição */
+    background-color: rgba(0, 0, 0, 0.7); /* Adiciona um fundo semi-transparente ao header para melhor legibilidade */
 }
 
 main {
-    justify-content: space-between;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.nav {
-
     display: flex; 
-    flex-direction: column; 
-    flex-grow: 1; 
-    &
-    .boas-vindas {
-        flex-direction: row;
-        margin-left: 20px;
-        margin-top: 31px;
-    }
-    &
-    .boas-vindas h1 {
-        
-        gap: 5px;
-        font-size: 70px;
-        font-weight: 600;
-        color: #ffffff;
-    }
-    &
-    .boas-vindas p {
-        font-size: 25px;
-        font-weight: 500;
-        color: #ffffff;
-    }
-    &
-    #botoes {
-        width: fit-content;
-        align-items: end;
-        margin-right: 50px;
-        margin-block: 50px;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        border-right: 3px ridge white;
-        padding-right: 30px;
-    }
-    &
-    img {
-        max-width: 100px;
-        max-height: 100px;
-        border-radius: 50%;
-    }
-    &
-    button {
-        min-width: 414px;
-        max-width: 850px;
-        width: 100%;
-        border: 2px solid white;
-        background-color: #ffffff00;
-        backdrop-filter: blur(5px);
-        border-radius: 15px;
-        display: flex;
-        color: #ffffff;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 20px;
-    
-    }
-    &
-    button:before {
-    
-        content: "";
-        display: inline-block;
-        height: 2px;
-        margin-right: 10px;
-        transition: all .42s cubic-bezier(.25,.8,.25,1);
-        width: 0;
-    }
-      &
-    button:hover:before {
-        background-color: #fff;
-        width: 3rem;
-    }
-    &
-    button h1 {
-        font-size: 40px;
-        margin: 0;
-    }
-    
+    justify-content: space-evenly; 
+    align-items: flex-start;
+    padding: 20px;
+    position: relative; /* Garante que o conteúdo fique acima da sobreposição */
+    z-index: 2; /* Coloca o conteúdo acima da sobreposição */
 }
-.dashboard {
-    width: 818px;
+
+.botoes {
     height: auto;
-    margin: 50px 100px 50px 50px;
-    &
-
-    .estoque {
-        border: 1px solid white;
-
-        width: 300px;    
-        height: 200px;
-        margin-top: 75px;
-        justify-content: center;
-        border-radius: 30px;
-        backdrop-filter: blur(5px);
-        align-items: center;
-
-        &
-        h1 {
-            color: white;
-            font-size: 30px;
-            padding: 10px;
-        }
-
-        &
-        h2 {
-            color: #ffffff;
-            font-size: 80px;
-            display: flex;
-            justify-content: center;
-            padding-top: 10px;
-        }
-
-        
-    }
+    min-height: 3rem;
+    border-radius: 10px;
+    backdrop-filter: blur(30px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0px 0px 30px rgba(277, 228, 237, 0.37);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 20px;
 }
 
+.botoes button {
+    padding: 8px 16px;
+    font-size: 14px;
+    background-color: rgba(255, 255, 255, 0); /* Botões transparentes */
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
+}
 
-@media(min-width: 930px) {
-    header {
-        display: flex;
-    }
+.botoes:hover button:not(:hover) {
+    filter: blur(1px);
+    opacity: 0.5;
+}
+
+.dashboard {
+    margin: 8px;
+    max-width: 600px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 40px; 
+    z-index: 2; 
+}
+
+.estoque {
+    min-height: 10rem; 
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    color: white;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.estoque h1 {
+    padding: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.estoque h2 {
+    font-size: 50px;
+    padding-top: 15px;
+}
+
+.longa {
+    margin: 8px;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    z-index: 2;
+}
+
+.retirada {
+    min-height: 25rem; 
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.retirada h1 {
+    padding: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.retirada h2 {
+    margin-left: 10px;
+    text-align: left;
+    font-size: 15px;
+    padding-top: 15px;
 }

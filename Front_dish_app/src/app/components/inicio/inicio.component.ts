@@ -2,16 +2,21 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DishService } from '../../services/dish.service';
 import { Dish } from '../../services/dish.service';
+import { CommonModule } from '@angular/common'; 
+import { MatButtonModule } from '@angular/material/button';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-inicio',
   standalone: true,
   templateUrl: './inicio.component.html',
-  styleUrls: ['./inicio.component.css']
+  styleUrls: ['./inicio.component.css'],
+  imports: [CommonModule, MatSidenavModule, MatButtonModule] 
 })
 export class InicioComponent implements OnInit {
+  showFiller = false;
   totalDishes: number = 0; 
-
+  menuOpen: boolean = false; 
   constructor(
     private router: Router,
     private dishService: DishService
@@ -33,6 +38,12 @@ export class InicioComponent implements OnInit {
     });
   }
 
+  
+
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen; 
+  }
+
   irParaCardapio() {
     this.router.navigate(['/cardapio']);
   }
@@ -48,4 +59,6 @@ export class InicioComponent implements OnInit {
   irParaEntregador() {
     this.router.navigate(['/painel-entregadores']);
   }
+
+
 }
