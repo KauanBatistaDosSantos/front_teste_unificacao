@@ -4,8 +4,9 @@ import { DishService } from '../../services/dish.service';
 import { Dish } from '../../services/dish.service';
 import { CommonModule } from '@angular/common'; 
 import { MatButtonModule } from '@angular/material/button';
-import {MatSidenavModule} from '@angular/material/sidenav';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { PedidoService } from '../../services/pedido.service';
+
 
 @Component({
   selector: 'app-inicio',
@@ -19,7 +20,8 @@ export class InicioComponent implements OnInit {
   totalDishes: number = 0; 
   totalOrder: number = 0;
   pedidosEmPreparo: any[] = [];
-  menuOpen: boolean = false; 
+  pedidosAguardandoEntrega: any[] = []; 
+
   constructor(
     private router: Router,
     private dishService: DishService,
@@ -29,6 +31,7 @@ export class InicioComponent implements OnInit {
   ngOnInit(): void {
     this.carregarQuantidadeDePratos();
     this.carregarPedidosPreparo();
+    this.carregarPedidos(); // loops das funções
   }
 
   carregarQuantidadeDePratos(): void {
@@ -42,7 +45,8 @@ export class InicioComponent implements OnInit {
       }
     });
   }
-
+  
+  //Mostrar pedidos que estão em preparo na cozinha, após aceitar
   carregarPedidosPreparo(): void {
     this.pedidoService.getPedidos().subscribe({
       next: (pedidos: any[]) => {
@@ -56,11 +60,27 @@ export class InicioComponent implements OnInit {
         this.pedidosEmPreparo = [];
       }
     });
-}
-
-  toggleMenu() {
-    this.menuOpen = !this.menuOpen; 
   }
+
+  carregarPedidos(): void {
+    this.pedidoService.getPedidos().subscribe(
+      (pedidos) => {
+        console.log('Pedidos recebidos:', pedidos);
+        this.pedidosAguardandoEntrega = pedidos
+          .filter(pedido => pedido.status === 'aguardando entrega')
+          .map(pedido => ({
+            id: pedido.id,
+            nomeCliente: pedido.cliente.nome, // Ajuste para acessar o nome do cliente
+            status: pedido.status
+          }));
+        console.log('Pedidos aguardando entrega:', this.pedidosAguardandoEntrega);
+      },
+      (error) => {
+        console.error('Erro ao carregar pedidos:', error);
+      }
+    );
+  }
+
 
   irParaCardapio() {
     this.router.navigate(['/cardapio']);
@@ -77,6 +97,4 @@ export class InicioComponent implements OnInit {
   irParaEntregador() {
     this.router.navigate(['/painel-entregadores']);
   }
-
-
 }

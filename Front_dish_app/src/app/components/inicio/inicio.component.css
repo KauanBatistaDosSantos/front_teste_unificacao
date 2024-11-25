@@ -1,5 +1,5 @@
 .body {
-    position: relative; /* Necessário para o posicionamento do pseudo-elemento */
+    position: relative;
     font-family: 'Mulish', sans-serif;
     background-image: url('../../images/restaurante.jpg');
     background-size: cover;
@@ -19,8 +19,8 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5); /* Camada de sobreposição */
-    z-index: 1; /* Coloca a sobreposição abaixo do header e acima do fundo */
+    background-color: rgba(0, 0, 0, 0.2); 
+    z-index: 1; 
 }
 
 .navbar {
@@ -31,7 +31,6 @@
     position: sticky; 
     top: 0;
     z-index: 10;
-    background-color: rgba(0, 0, 0, 0.7); 
 }
 
 main {

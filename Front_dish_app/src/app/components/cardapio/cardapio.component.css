@@ -1,21 +1,84 @@
-* {
-    color: var(--branco-figma);
+
+.corpo {
+    position: relative;
+    font-family: 'Mulish', sans-serif;
+    background-image: url('../../images/restaurante.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
-header {
-    margin: auto;
-    max-width: 414px;
-    padding: 16px 24px;
+.navbar {
+    border: 1px solid red;
+
     display: flex;
-    justify-content: end;
+    justify-content: center;
     align-items: center;
-    margin-right: 10px;
+    padding: 20px 20px;
+    position: sticky; 
+    top: 0;
+    z-index: 10;
+
 }
+
+.itens-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+main {
+    display: flex; 
+    justify-content: space-evenly; 
+    align-items: flex-start;
+    padding: 20px;
+    gap:0px;
+    position: relative;
+    z-index: 2; 
+}
+
+.botoes {
+    height: auto;
+    min-height: 3rem;
+    border-radius: 10px;
+    backdrop-filter: blur(30px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0px 0px 30px rgba(277, 228, 237, 0.37);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
+    justify-content: space-evenly;
+    gap: 20px;
+}
+
+.botoes button {
+    padding: 8px 16px;
+    font-size: 14px;
+    background-color: rgba(255, 255, 255, 0); /* Botões transparentes */
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
+}
+
+.botoes:hover button:not(:hover) {
+    filter: blur(1px);
+    opacity: 0.5;
+}
+
+
 
 #cardapio {
     max-width: 850px;
     width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 50px;
 }
 
 #cardapio h1 {
@@ -35,73 +98,6 @@ header {
     padding-bottom: 100px;
 }
 
-#botoes {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    width: 100%;
-    max-width: 850px;
-}
-
-#botao {
-    background-color: var(--fundo-telas);
-    height: auto;
-    width: 100%;
-    max-width: 850px;
-    min-width: 300px;
-    display: flex;
-    /* justify-content: space-between; */
-    align-items: center;
-    border: none;
-    cursor: pointer;
-    border-radius: 10px;
-    gap: 20px;
-    padding: 10px 20px;
-    box-sizing: border-box;
-}
-
-#botao img {
-    margin-left: auto;
-    border-radius: 50%;
-}
-
-#botao:before {
-    background-color: #fff;
-    content: "";
-    display: inline-block;
-    height: 1px;
-    margin-right: 10px;
-    transition: all .42s cubic-bezier(.25,.8,.25,1);
-    width: 0;
-}
-  
-#botao:hover:before {
-    background-color: #fff;
-    width: 3rem;
-}
-
-
-#botao h1 {
-    font-size: 40px;
-    margin: 0;
-}
-
-#botao-seta-voltar {
-    position: absolute;
-    left: 28px;
-    background-color: var(--fundo-telas);
-    border: none;
-    padding-top: 25px;
-    color: #ffffff;
-    cursor: pointer;
-}
-
-img {
-    max-width: 100px;
-    width: auto;
-    height: auto;
-    object-fit: cover;
-}
 
 footer.carrinho {
     position: fixed;
@@ -138,3 +134,55 @@ footer.carrinho mat-icon {
     display: inline-block;
     vertical-align: middle;
 }
+
+
+.card {
+    width: 300px;
+    height: 200px;
+    perspective: 1000px;
+  }
+  
+  .card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.500s;
+  }
+  
+  .card:hover .card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  .card-front,
+  .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+  }
+  
+  .card-front {
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0px 0px 30px rgba(277, 228, 237, 0.37);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    justify-content: center;
+    font-size: 24px;
+    transform: rotateY(0deg);
+  }
+  
+  .card-back {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.61);
+    box-shadow: 0px 0px 30px rgba(277, 228, 237, 0.871);
+    border-radius: 10px;
+    justify-content: center;
+    font-size: 24px;
+    transform: rotateY(180deg);
+  }
+  

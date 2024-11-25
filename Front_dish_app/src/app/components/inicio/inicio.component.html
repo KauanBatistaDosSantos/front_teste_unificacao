@@ -1,57 +1,54 @@
 <section class="body">
-<header class="navbar">
-    <nav class="botoes">
-        <button (click)="irParaCardapio()">
-            Cardapio
-        </button>
-    
-        <button (click)="irParaCozinha()">
-            Cozinha
-        </button>
-    
-        <button (click)="irParaEntregador()">
-            Entregador
-        </button>
-    
-        <button (click)="irParaGerencia()">
-            Gerência
-        </button>
-    </nav>
-    
-</header>
-<main>
-    <section class="dashboard">
-        <div class="estoque">
-            <h1>Pratos cadastrados:</h1>
-            <h2>{{totalDishes}}</h2>
-        </div>
-        <div class="estoque">
-            <h1>Fora de estoque</h1>
-            <h2>{{totalDishes}}</h2>
-        </div>
-        <div class="estoque">
-            <h1>Em preparo</h1>
-            <h2>{{totalOrder}}</h2>
-        </div>
-        <div class="estoque">
-            <h1>Entregue</h1>
-            <h2>{{totalDishes}}</h2>
-        </div>
-    </section>
-    <section class="longa">
-        <div class="retirada">
-            <h1>Aguardando retirada</h1>
-            <h2>- Pedido de cliente</h2>
-        </div>
-        <div class="retirada">
-            <h1>Motoboy disponível</h1>
-            <h2>nome motoboy</h2>
-        </div>
-    </section>
-</main>
-
-
-</section>
-
-
+    <header class="navbar">
+      <nav class="botoes">
+        <button (click)="irParaCardapio()" aria-label="Ir para o Cardápio">Cardápio</button>
+        <button (click)="irParaCozinha()" aria-label="Ir para a Cozinha">Cozinha</button>
+        <button (click)="irParaEntregador()" aria-label="Ir para o Entregador">Entregador</button>
+        <button (click)="irParaGerencia()" aria-label="Ir para a Gerência">Gerência</button>
+      </nav>
+    </header>
   
+    <main>
+      <section class="dashboard">
+        <div class="estoque">
+          <h1>Pratos Cadastrados:</h1>
+          <h2>{{totalDishes}}</h2>
+        </div>
+        <div class="estoque">
+          <h1>Fora de Estoque</h1>
+          <h2>{{totalDishes}}</h2> <!-- Supondo que você tenha uma variável para pratos fora de estoque -->
+        </div>
+        <div class="estoque">
+          <h1>Em Preparo</h1>
+          <h2>{{totalOrder}}</h2>
+        </div>
+        <div class="estoque">
+          <h1>Entregue</h1>
+          <h2>{{totalDishes}}</h2> <!-- Supondo que você tenha uma variável para pratos entregues -->
+        </div>
+      </section>
+  
+      <section class="longa">
+        <div class="retirada">
+          <h1>Aguardando Retirada</h1>
+          <div *ngIf="pedidosAguardandoEntrega.length > 0; else noPedidos">
+            <ul>
+              <li *ngFor="let pedido of pedidosAguardandoEntrega">
+                <p>ID: {{ pedido.id }} <br>
+                Cliente: {{ pedido.nomeCliente }}</p>
+                
+              </li>
+            </ul>
+          </div>
+          <ng-template #noPedidos>
+            <p>Não há pedidos aguardando entrega.</p>
+          </ng-template>
+        </div>
+  
+        <div class="retirada">
+          <h1>Motoboy Disponível</h1>
+          <h2>Nome do Motoboy</h2> <!-- Considere usar uma variável para o nome do motoboy -->
+        </div>
+      </section>
+    </main>
+  </section>
