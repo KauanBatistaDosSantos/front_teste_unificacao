@@ -7,20 +7,21 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { PedidoService } from '../../services/pedido.service';
 
-
 @Component({
   selector: 'app-inicio',
   standalone: true,
   templateUrl: './inicio.component.html',
   styleUrls: ['./inicio.component.css'],
-  imports: [CommonModule, MatSidenavModule, MatButtonModule] 
+  imports: [CommonModule, MatSidenavModule, MatButtonModule]
 })
 export class InicioComponent implements OnInit {
   showFiller = false;
-  totalDishes: number = 0; 
+  totalDishes: number = 0;
+  totalOutStock: number = 0;
   totalOrder: number = 0;
   pedidosEmPreparo: any[] = [];
-  pedidosAguardandoEntrega: any[] = []; 
+  pedidosAguardandoEntrega: any[] = [];
+  dishes: Dish[] = []; // Declare `dishes` array
 
   constructor(
     private router: Router,
@@ -31,13 +32,15 @@ export class InicioComponent implements OnInit {
   ngOnInit(): void {
     this.carregarQuantidadeDePratos();
     this.carregarPedidosPreparo();
-    this.carregarPedidos(); // loops das funções
+    this.carregarPedidos();
+    this.pratosForaEstoque();
   }
 
   carregarQuantidadeDePratos(): void {
     this.dishService.getDishes().subscribe({
       next: (dishes: Dish[]) => {
-        this.totalDishes = dishes.length; 
+        this.dishes = dishes;
+        this.totalDishes = dishes.length;
       },
       error: (err) => {
         console.error('Erro ao carregar pratos:', err);
@@ -45,8 +48,7 @@ export class InicioComponent implements OnInit {
       }
     });
   }
-  
-  //Mostrar pedidos que estão em preparo na cozinha, após aceitar
+
   carregarPedidosPreparo(): void {
     this.pedidoService.getPedidos().subscribe({
       next: (pedidos: any[]) => {
@@ -55,32 +57,36 @@ export class InicioComponent implements OnInit {
         this.pedidosEmPreparo = pedidosEmPreparo;
       },
       error: (err) => {
-        console.error('Erro ao carregar pedidos em preparo', err);
-        this.totalOrder = 0; 
+        console.error('Erro ao carregar pedidos em preparo:', err);
+        this.totalOrder = 0;
         this.pedidosEmPreparo = [];
       }
     });
   }
 
   carregarPedidos(): void {
-    this.pedidoService.getPedidos().subscribe(
-      (pedidos) => {
-        console.log('Pedidos recebidos:', pedidos);
+    this.pedidoService.getPedidos().subscribe({
+      next: (pedidos: any[]) => {
         this.pedidosAguardandoEntrega = pedidos
           .filter(pedido => pedido.status === 'aguardando entrega')
           .map(pedido => ({
             id: pedido.id,
-            nomeCliente: pedido.cliente.nome, // Ajuste para acessar o nome do cliente
+            nomeCliente: pedido?.cliente?.nome || 'Cliente não identificado',
             status: pedido.status
           }));
         console.log('Pedidos aguardando entrega:', this.pedidosAguardandoEntrega);
       },
-      (error) => {
-        console.error('Erro ao carregar pedidos:', error);
+      error: (err) => {
+        console.error('Erro ao carregar pedidos:', err);
       }
-    );
+    });
   }
 
+  pratosForaEstoque(): void {
+    this.totalOutStock = this.dishes.filter(
+      (dish) => dish.stock === 0
+    ).length;
+  }
 
   irParaCardapio() {
     this.router.navigate(['/cardapio']);

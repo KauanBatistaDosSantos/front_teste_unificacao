@@ -62,7 +62,7 @@ export class DishListComponent implements OnInit {
       this.filterDishes();
     });
   }
-  
+  //
 
   deleteDish(id: string) {
     this.dishService.deleteDish(id).subscribe(() => {
