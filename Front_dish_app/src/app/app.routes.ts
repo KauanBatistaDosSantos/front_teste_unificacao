@@ -25,23 +25,6 @@ export const routes: Routes = [
     { path: 'cardapio', component: CardapioComponent },
     { path: 'dish-form', component: DishFormComponent }, 
     { path: 'dish-list', component: DishListComponent },
-<<<<<<< HEAD
-    { path: 'cardapio/executivos', component: ExecutivosComponent },
-    { path: 'cardapio/bebidas', component: BebidasComponent },
-    { path: 'cardapio/porcoes', component: PorcoesComponent },
-    { path: 'cardapio/fazer-pedido/:id/:categoria', component: TestePedidoComponent },
-    { path: 'dish-list/edit-dish/:id', component: DishFormComponent },
-    { path: 'carrinho', component: CarrinhoComponent },
-
-    { path: 'gerencia', component: GerenciaComponent},
-    { path: 'cadastro-entregadores', component: CadastroEntregadorComponent},
-    { path: 'cadastro-entregadores/:id', component: CadastroEntregadorComponent },
-    { path: 'lista-entregadores', component: ListaEntregadoresComponent},
-
-    { path: 'todos-os-pedidos', component: PedidoComponent},
-    { path: 'ver-detalhes/:id', component: DetalhesPedidoComponent}
-
-=======
     { path: 'todos-os-pedidos', component: PedidoComponent},
     { path: 'acompanhar-pedido', component: AcompanharPedidoComponent},
     { path: '', component: InicioComponent, data: { breadcrumb: 'Início' } },
@@ -72,5 +55,4 @@ export const routes: Routes = [
     { path: 'cadastro-entregadores/:id', component: CadastroEntregadorComponent, data: { breadcrumb: 'Novo entregador'} },
     { path: 'lista-entregadores', component: ListaEntregadoresComponent, data: { breadcrumb: 'Lista de Entregadores' } },
     { path: 'todos-os-pedidos', component: PedidoComponent, data: { breadcrumb: 'Todos os Pedidos' } }
->>>>>>> 12eaf7a51b91c10fbd092047d759a1100d8a6835
 ];
