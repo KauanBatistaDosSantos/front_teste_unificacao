@@ -1,190 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&display=swap');
 
 #corpo {
     position: relative;
     font-family: 'Mulish', sans-serif;
-    /* background-image: url('../../images/restaurante.jpg'); */
-    /* background-size: cover;
+    background-image: url('../../images/background-menu.png');
+    background-size: cover;
     background-position: center;
-    background-repeat: no-repeat; */
+    background-repeat: no-repeat;
     margin: 0;
     padding: 0;
-    height: 100vh;
+    height: 100%;
     box-sizing: border-box;
-    overflow: hidden;
-
-    background-color: #ffff;
+    width: 100%;
 }
 
-.navbar {
-    border: 1px solid red;
-
+header {
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px 20px;
-    position: sticky; 
-    top: 0;
+    padding-top: 50px;
     z-index: 10;
-
 }
 
-.itens-header {
+header h1 {
+    color: rgb(255, 255, 255);
+    
+    font-style: normal;
+    font-optical-sizing: auto;
+    font-family: "Edu AU VIC WA NT Pre", cursive;
+    font-size: 65px;
+}
+
+.cardapio {
+    max-width: 100%;
+    justify-content: center;
     display: flex;
-    justify-content: space-between;
-}
-
-main {
-    display: flex; 
-    justify-content: space-evenly; 
-    align-items: flex-start;
-    padding: 20px;
-    gap:0px;
-    position: relative;
-    z-index: 2; 
-}
-
-.botoes {
-    height: auto;
-    min-height: 3rem;
-    border-radius: 10px;
-    backdrop-filter: blur(30px);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    box-shadow: 0px 0px 30px rgba(277, 228, 237, 0.37);
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap-reverse;
-    justify-content: space-evenly;
-    gap: 20px;
-}
-
-.botoes button {
-    padding: 8px 16px;
-    font-size: 14px;
-    background-color: rgba(255, 255, 255, 0); /* Botões transparentes */
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
-}
-
-.botoes:hover button:not(:hover) {
-    filter: blur(1px);
-    opacity: 0.5;
-}
-
-
-
-#cardapio {
-    max-width: 850px;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    gap: 50px;
-}
-
-#cardapio h1 {
-    text-align: center;
-    margin-top: 40px;
-    font-size: 60px;
-    margin-bottom: 38px;
-}
-
-#corpo {
-    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 20px 20px;
     flex-direction: column;
-    align-items: center;
-    margin: 0 auto;
-    padding: 20px;
-    padding-top: 16px;
-    padding-bottom: 100px;
 }
 
 
-footer.carrinho {
-    position: fixed;
-    bottom: 0;
-    left: 0;
+.botao_cardapio {
+    font-family: "Edu AU VIC WA NT Pre", cursive;
+    max-width: 800px;
     width: 100%;
-    background-color: var(--cinza-figma);
-    display: flex;
-    justify-content: center;
-    padding: 10px 0;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
-}
-
-#botao-carrinho {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--cinza-figma);
-    color: white;
-    font-size: 25px;
-    border: none;
-    padding: 15px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    width: 100%;
-    max-width: 850px;
-    text-align: center;
-    box-sizing: border-box;
-    gap: 10px;
-}
-
-footer.carrinho mat-icon {
-    font-size: 30px;
-    display: inline-block;
-    vertical-align: middle;
-}
-
-
-.card {
-    width: 300px;
-    height: 200px;
-    perspective: 1000px;
-  }
-  
-  .card-inner {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    transform-style: preserve-3d;
-    transition: transform 0.500s;
-  }
-  
-  .card:hover .card-inner {
-    transform: rotateY(180deg);
-  }
-  
-  .card-front,
-  .card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-  }
-  
-  .card-front {
-    border: 1px solid rgba(255, 255, 255, 0.18);
     box-shadow: 0px 0px 30px rgba(277, 228, 237, 0.37);
-    color: #fff;
+    border: 3px groove rgba(255, 255, 255, 0.18);
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 15px;
     display: flex;
+    color: #ffffff;
+    justify-content: space-evenly;
     align-items: center;
-    border-radius: 10px;
-    justify-content: center;
-    font-size: 24px;
-    transform: rotateY(0deg);
-  }
-  
-  .card-back {
-    color: #fff;
+    padding: 10px 20px;
+    font-size: 40px;
+    margin: 0;
+    
+}
+.botao_cardapio2 {
+    font-family: "Edu AU VIC WA NT Pre", cursive;
+    max-width: 800px;
+    width: 100%;
+    box-shadow: 0px 0px 15px rgba(277, 228, 237, 0.37);
+    border: 3px groove rgba(255, 255, 255, 0.18);
+    background-color: rgba(255, 255, 255, 0);
+    backdrop-filter: blur(1px);
+    border-radius: 15px;
     display: flex;
+    color: #ffffff;
+    justify-content: space-evenly;
     align-items: center;
-    border: 1px solid rgba(255, 255, 255, 0.61);
-    box-shadow: 0px 0px 30px rgba(277, 228, 237, 0.871);
+    padding: 10px 20px;
+    font-size: 40px;
+    margin: 0;
+    flex-direction: row-reverse;
+}
+
+
+img {
+    margin: 5px 0px;
+    border: 10px ridge rgba(179, 51, 0, 0.342);
+    max-width: 250px;
+    max-height: 150px;
     border-radius: 10px;
-    justify-content: center;
-    font-size: 24px;
-    transform: rotateY(180deg);
-  }
-  
+}
+
+@media only screen and (max-width: 600px) {
+    header h1 {
+        color: rgb(255, 255, 255);
+        
+        font-style: normal;
+        font-optical-sizing: auto;
+        font-family: "Edu AU VIC WA NT Pre", cursive;
+        font-size: 35px;
+    }
+
+    .cardapio {
+        max-width: 100%;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        padding: 20px 20px;
+        flex-direction: column;
+    }
+    
+    
+    .botao_cardapio {
+        font-family: "Edu AU VIC WA NT Pre", cursive;
+        max-width: 400px;
+        width: 100%;
+        min-height: 130px;
+        box-shadow: 0px 0px 5px rgba(277, 228, 237, 0.37);
+        border: 3px groove rgba(255, 255, 255, 0.18);
+        background-color: rgba(255, 255, 255, 0);
+        border-radius: 15px;
+        display: flex;
+        color: #ffffff;
+        justify-content: space-evenly;
+        align-items: center;
+        padding: 5px 2px;
+        font-size: 30px;
+        margin: 0;
+        
+    }
+
+    .botao_cardapio:hover {
+        cursor: pointer;
+    }
+
+    .botao_cardapio2 {
+        font-family: "Edu AU VIC WA NT Pre", cursive;
+        max-width: 400px;
+        width: 100%;
+        min-height: 130px;
+        box-shadow: 0px 0px 5px rgba(277, 228, 237, 0.37);
+        border: 3px groove rgba(255, 255, 255, 0.18);
+        background-color: rgba(255, 255, 255, 0);
+        backdrop-filter: blur(1px);
+        border-radius: 15px;
+        display: flex;
+        color: #ffffff;
+        justify-content: space-evenly;
+        align-items: center;
+        padding: 5px 2px;
+        font-size: 30px;
+        margin: 0;
+        flex-direction: row-reverse;
+    }
+    
+    .botao_cardapio2:hover {
+        cursor: pointer;
+    }
+    
+    img {
+        margin: 5px 0px;
+        border: 5px ridge rgba(179, 51, 0, 0.342);
+        width: 150px;
+        border-radius: 5px;
+    }
+
+}
