@@ -23,10 +23,9 @@ export class CozinhaPedidoComponent {
     this.pedidoService.atualizarStatusPedido(id, 'em preparo').subscribe(() => {
       this.pedido.status = 'em preparo';
       console.log('Pedido aceito com sucesso:', this.pedido);
+    }, (error) => {
+      console.error('Erro ao aceitar o pedido:', error);
     });
-    setTimeout(() => {
-    window.location.reload(); 
-    }, 100);
   }
 
   // finalizarPedido(id: number): void {
@@ -51,21 +50,17 @@ export class CozinhaPedidoComponent {
 
   finalizarPedido(id: number): void {
     const dialogRef = this.dialog.open(DialogConfirmarFinalizacaoDoPedidoComponent);
-  
+    
     dialogRef.afterClosed().subscribe((confirmado) => {
       if (confirmado) {
         console.log('Finalizando pedido com ID:', id);
-  
+    
         this.pedidoService.atualizarStatusPedido(id, 'aguardando entrega').subscribe(() => {
           console.log('Status do pedido atualizado com sucesso para "aguardando entrega"');
-  
+    
           if (this.pedido && this.pedido.id === id) {
-            this.pedido.status = 'aguardando entrega';
+            this.pedido.status = 'aguardando entrega'; 
           }
-  
-          setTimeout(() => {
-            window.location.reload();
-          }, 100);
         }, (error) => {
           console.error('Erro ao atualizar o status do pedido:', error);
         });

@@ -9,29 +9,39 @@ import { PedidoService } from '../../../services/pedido.service';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatIcon } from '@angular/material/icon';
 import { CarrinhoService } from '../../../services/carrinho.service';
+import { Breadcrumb, BreadcrumbService } from '../../../services/breadcrump.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-executivos',
   standalone: true,
-  imports: [CommonModule, MatIcon, MatBadgeModule],
+  imports: [CommonModule, RouterModule, MatIcon, MatBadgeModule],
   templateUrl: './executivos.component.html',
-  styleUrl: './executivos.component.css'
+  styleUrls: ['./executivos.component.css']
 })
 export class ExecutivosComponent implements OnInit {
+  breadcrumbs: Breadcrumb[] = []; // Array para armazenar os breadcrumbs
   dishes: any[] = [];
   loading = true;
   cartHasItems = false;
   totalItens: number = 0;
 
-  constructor(private dishService: DishService, 
+  constructor(
+    private dishService: DishService, 
     private location: Location, 
     private router: Router, 
     private pedidosService: PedidosService,
     private pedidoService: PedidoService, 
-    private carrinhoService: CarrinhoService
+    private carrinhoService: CarrinhoService,
+    private breadcrumbService: BreadcrumbService // Injeção do serviço de breadcrumbs
   ) {}
 
   ngOnInit() {
+    // Assinar os breadcrumbs
+    this.breadcrumbService.breadcrumbs$.subscribe(breadcrumbs => {
+      this.breadcrumbs = breadcrumbs;
+    });
+
     this.dishService.getDishesByCategory('executivos').subscribe(data => {
       this.dishes = data.filter(dish => dish.stock === 1);
       this.loading = false;

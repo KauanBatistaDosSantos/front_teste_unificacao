@@ -1,48 +1,48 @@
 <section>
-    <header>
-        <button id="botao-seta-voltar" (click)="voltar()"><mat-icon>arrow_back_ios</mat-icon></button>
-    </header>
-  
-  <body id="cpf-entregador">
-    <h1>Insira o nome do entregador:</h1>
-    <input 
-      id="campo-cpf" 
-      type="text" 
-      [(ngModel)]="nome" 
-      placeholder="Digite o Nome" />
-  
-    <h1>Insira o CPF do entregador:</h1>
-    <input 
-      id="campo-cpf" 
-      type="text" 
-      [(ngModel)]="cpf" 
-      placeholder="Digite o CPF" 
-      (keyup)="formatarCpf()" />
-  
-    <h1>Defina a disponibilidade do entregador:</h1>
-    <div class="toggle-container">
-      <button 
-        class="toggle-button" 
-        [class.active]="disponibilidade === 1"
-        (click)="definirDisponibilidade(1)">
-        Disponível
-      </button>
-      <button 
-        class="toggle-button" 
-        [class.active]="disponibilidade === 0"
-        (click)="definirDisponibilidade(0)">
-        Indisponível
-      </button>
-    </div>
-  
+  <header>
+      <button id="botao-seta-voltar" (click)="voltar()"><mat-icon>arrow_back_ios</mat-icon></button>
+  </header>
+
+<body id="cpf-entregador">
+  <h1>Insira o nome do entregador:</h1>
+  <input 
+    id="campo-cpf" 
+    type="text" 
+    [(ngModel)]="nome" 
+    placeholder="Digite o Nome" />
+
+  <h1>Insira o CPF do entregador:</h1>
+  <input 
+    id="campo-cpf" 
+    type="text" 
+    [(ngModel)]="cpf" 
+    placeholder="Digite o CPF" 
+    (keyup)="formatarCpf()" />
+
+  <h1>Defina a disponibilidade do entregador:</h1>
+  <div class="toggle-container">
     <button 
-      id="button"
-      (click)="cadastrarEntregador()" 
-      [disabled]="!validarCpf(cpf)" 
-      [class.clicavel]="validarCpf(cpf)">
-      {{ isEditMode ? 'Atualizar' : 'Cadastrar' }}
+      class="toggle-button" 
+      [class.active]="disponibilidade === 1"
+      (click)="definirDisponibilidade(1)">
+      Disponível
     </button>
-    
-    <p *ngIf="erro" class="erro">{{ erro }}</p>
-  </body>
+    <button 
+      class="toggle-button" 
+      [class.active]="disponibilidade === 0"
+      (click)="definirDisponibilidade(0)">
+      Indisponível
+    </button>
+  </div>
+
+  <button 
+    id="button"
+    (click)="cadastrarEntregador()" 
+    [disabled]="!validarCpf(cpf)" 
+    [class.clicavel]="validarCpf(cpf)">
+    {{ isEditMode ? 'Atualizar' : 'Cadastrar' }}
+  </button>
+  
+  <p *ngIf="erro" class="erro">{{ erro }}</p>
+</body>
 </section>

@@ -1,140 +1,168 @@
-* {
-    color: var(--branco-figma);
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&display=swap');
+
+#corpo {
+    position: relative;
+    font-family: 'Mulish', sans-serif;
+    background-image: url('../../images/background-menu.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    height: 100%;
     box-sizing: border-box;
+    width: 100%;
 }
 
 header {
-    margin: auto;
-    max-width: 414px;
-    padding: 16px 24px;
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    margin-right: 10px;
-}
-
-#cardapio {
-    max-width: 850px;
     width: 100%;
-}
-
-#cardapio h1 {
-    text-align: center;
-    margin-top: 40px;
-    font-size: 60px;
-    margin-bottom: 38px;
-}
-
-#corpo {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    margin: 0 auto;
-    padding: 20px;
-    padding-top: 16px;
-    padding-bottom: 100px;
+    padding: 20px 20px;
+    padding-top: 50px;
+    z-index: 10;
 }
 
-#botoes {
+header h1 {
+    color: rgb(255, 255, 255);
+    
+    font-style: normal;
+    font-optical-sizing: auto;
+    font-family: "Edu AU VIC WA NT Pre", cursive;
+    font-size: 65px;
+}
+
+.cardapio {
+    max-width: 100%;
+    justify-content: center;
     display: flex;
-    flex-direction: column;
+    align-items: center;
     gap: 30px;
-    width: 100%;
-    max-width: 850px;
+    padding: 20px 20px;
+    flex-direction: column;
 }
 
-#botao {
-    background-color: var(--fundo-telas);
-    height: auto;
+
+.botao_cardapio {
+    font-family: "Edu AU VIC WA NT Pre", cursive;
+    max-width: 800px;
     width: 100%;
-    max-width: 850px;
-    min-width: 300px;
+    box-shadow: 0px 0px 30px rgba(277, 228, 237, 0.37);
+    border: 3px groove rgba(255, 255, 255, 0.18);
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 15px;
     display: flex;
-    /* justify-content: space-between; */
+    color: #ffffff;
+    justify-content: space-evenly;
     align-items: center;
-    border: none;
-    cursor: pointer;
-    border-radius: 10px;
-    gap: 20px;
     padding: 10px 20px;
-    box-sizing: border-box;
-}
-
-#botao img {
-    margin-left: auto;
-    border-radius: 50%;
-}
-
-#botao:before {
-    background-color: #fff;
-    content: "";
-    display: inline-block;
-    height: 1px;
-    margin-right: 10px;
-    transition: all .42s cubic-bezier(.25,.8,.25,1);
-    width: 0;
-}
-  
-#botao:hover:before {
-    background-color: #fff;
-    width: 3rem;
-}
-
-
-#botao h1 {
     font-size: 40px;
     margin: 0;
+    
+}
+.botao_cardapio2 {
+    font-family: "Edu AU VIC WA NT Pre", cursive;
+    max-width: 800px;
+    width: 100%;
+    box-shadow: 0px 0px 15px rgba(277, 228, 237, 0.37);
+    border: 3px groove rgba(255, 255, 255, 0.18);
+    background-color: rgba(255, 255, 255, 0);
+    backdrop-filter: blur(1px);
+    border-radius: 15px;
+    display: flex;
+    color: #ffffff;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 40px;
+    margin: 0;
+    flex-direction: row-reverse;
 }
 
-#botao-seta-voltar {
-    position: absolute;
-    left: 28px;
-    background-color: var(--fundo-telas);
-    border: none;
-    padding-top: 25px;
-    color: #ffffff;
-    cursor: pointer;
-}
 
 img {
-    max-width: 100px;
-    width: auto;
-    height: auto;
-    object-fit: cover;
+    margin: 5px 0px;
+    border: 10px ridge rgba(179, 51, 0, 0.342);
+    max-width: 250px;
+    max-height: 150px;
+    border-radius: 10px;
 }
 
-footer.carrinho {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: var(--cinza-figma);
-    display: flex;
-    justify-content: center;
-    padding: 10px 0;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
-}
+@media only screen and (max-width: 600px) {
+    header h1 {
+        color: rgb(255, 255, 255);
+        
+        font-style: normal;
+        font-optical-sizing: auto;
+        font-family: "Edu AU VIC WA NT Pre", cursive;
+        font-size: 35px;
+    }
 
-#botao-carrinho {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--cinza-figma);
-    color: white;
-    font-size: 25px;
-    border: none;
-    padding: 15px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    width: 100%;
-    max-width: 850px;
-    text-align: center;
-    box-sizing: border-box;
-    gap: 10px;
-}
+    .cardapio {
+        max-width: 100%;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        padding: 20px 20px;
+        flex-direction: column;
+    }
+    
+    
+    .botao_cardapio {
+        font-family: "Edu AU VIC WA NT Pre", cursive;
+        max-width: 400px;
+        width: 100%;
+        min-height: 130px;
+        box-shadow: 0px 0px 5px rgba(277, 228, 237, 0.37);
+        border: 3px groove rgba(255, 255, 255, 0.18);
+        background-color: rgba(255, 255, 255, 0);
+        border-radius: 15px;
+        display: flex;
+        color: #ffffff;
+        justify-content: space-evenly;
+        align-items: center;
+        padding: 5px 2px;
+        font-size: 30px;
+        margin: 0;
+        
+    }
 
-footer.carrinho mat-icon {
-    font-size: 30px;
-    display: inline-block;
-    vertical-align: middle;
+    .botao_cardapio:hover {
+        cursor: pointer;
+    }
+
+    .botao_cardapio2 {
+        font-family: "Edu AU VIC WA NT Pre", cursive;
+        max-width: 400px;
+        width: 100%;
+        min-height: 130px;
+        box-shadow: 0px 0px 5px rgba(277, 228, 237, 0.37);
+        border: 3px groove rgba(255, 255, 255, 0.18);
+        background-color: rgba(255, 255, 255, 0);
+        backdrop-filter: blur(1px);
+        border-radius: 15px;
+        display: flex;
+        color: #ffffff;
+        justify-content: space-evenly;
+        align-items: center;
+        padding: 5px 2px;
+        font-size: 30px;
+        margin: 0;
+        flex-direction: row-reverse;
+    }
+    
+    .botao_cardapio2:hover {
+        cursor: pointer;
+    }
+    
+    img {
+        margin: 5px 0px;
+        border: 5px ridge rgba(179, 51, 0, 0.342);
+        width: 150px;
+        border-radius: 5px;
+    }
+
 }

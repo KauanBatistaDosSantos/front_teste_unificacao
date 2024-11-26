@@ -11,6 +11,7 @@ import { InserirNomeComponent } from '../inserir-nome/inserir-nome.component';
 import { ClienteService } from '../../services/cliente.service';
 import { CarrinhoService } from '../../services/carrinho.service';
 
+
 @Component({
   selector: 'app-tela-cliente-finalizar-pedido',
   standalone: true,

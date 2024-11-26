@@ -22,22 +22,10 @@ import { PedidoComponent } from './components/main-gerente/pedido/pedido.compone
 import { DetalhesPedidoComponent } from './components/main-gerente/detalhes-pedido/detalhes-pedido.component';
 
 export const routes: Routes = [
-    { path: '', component: InicioComponent},
-    { path: 'tela-cozinha', component: TelaInicialCozinhaComponent},
-    { path: 'tela-dir-entrega', component: TelaInicialDirecionamentoEntregaComponent},
-    { path: 'tela-escolher-entregador', component: TelaEscolherEntregadorComponent},
-    { path: 'tela-entregador', component: TelaInicialEntregadorComponent},
-    { path: 'finalizar-pedido', component: TelaClienteFinalizarPedidoComponent},
-    { path: 'acompanhar-pedido', component: AcompanharPedidoComponent},
-    { path: 'tela-escolher-entregador/:id', component: TelaEscolherEntregadorComponent},
-    { path: 'painel-entregadores', component: PainelEntregadorComponent},
-    { path: 'tela-inicial-entregador/:id', component: TelaInicialEntregadorComponent },
-    { path: 'inicio', component: InicioComponent },
-
     { path: 'cardapio', component: CardapioComponent },
     { path: 'dish-form', component: DishFormComponent }, 
-    { path: 'dish-form/:id', component: DishFormComponent }, 
     { path: 'dish-list', component: DishListComponent },
+<<<<<<< HEAD
     { path: 'cardapio/executivos', component: ExecutivosComponent },
     { path: 'cardapio/bebidas', component: BebidasComponent },
     { path: 'cardapio/porcoes', component: PorcoesComponent },
@@ -53,4 +41,36 @@ export const routes: Routes = [
     { path: 'todos-os-pedidos', component: PedidoComponent},
     { path: 'ver-detalhes/:id', component: DetalhesPedidoComponent}
 
+=======
+    { path: 'todos-os-pedidos', component: PedidoComponent},
+    { path: 'acompanhar-pedido', component: AcompanharPedidoComponent},
+    { path: '', component: InicioComponent, data: { breadcrumb: 'Início' } },
+    { path: 'inicio', component: InicioComponent },
+    { path: 'tela-dir-entrega', component: TelaInicialDirecionamentoEntregaComponent},
+    { path: 'tela-cozinha', component: TelaInicialCozinhaComponent, data: { breadcrumb: 'Cozinha' } },
+    { path: 'tela-dir-entrega', component: TelaInicialDirecionamentoEntregaComponent, data: { breadcrumb: 'Direcionamento de Entrega' } },
+    { path: 'tela-escolher-entregador', component: TelaEscolherEntregadorComponent, data: { breadcrumb: 'Escolher Entregador' } },
+    { path: 'tela-entregador', component: TelaInicialEntregadorComponent, data: { breadcrumb: 'Painel do Entregador' } },
+    { path: 'finalizar-pedido', component: TelaClienteFinalizarPedidoComponent, data: { breadcrumb: 'Finalizar Pedido' } },
+    { path: 'acompanhar-pedido', component: AcompanharPedidoComponent, data: { breadcrumb: 'Acompanhar Pedido' } },
+    { path: 'painel-entregadores', component: PainelEntregadorComponent, data: { breadcrumb: 'Painel de Entregadores' } },
+    { path: 'tela-inicial-entregador/:id', component: TelaInicialEntregadorComponent },
+    { path: 'tela-escolher-entregador/:id', component: TelaEscolherEntregadorComponent},
+    { path: 'tela-escolher-entregador', component: TelaEscolherEntregadorComponent, data: { breadcrumb: 'Atribuir ao entregador'}},
+    { path: 'cardapio', component: CardapioComponent, data: { breadcrumb: 'Cardápio' } },
+    { path: 'cardapio/executivos', component: ExecutivosComponent, data: { breadcrumb: 'Executivos' } },
+    { path: 'cardapio/bebidas', component: BebidasComponent, data: { breadcrumb: 'Bebidas' } },
+    { path: 'cardapio/porcoes', component: PorcoesComponent, data: { breadcrumb: 'Porções' } },
+    { path: 'cardapio/fazer-pedido/:id/:categoria', component: TestePedidoComponent},
+    { path: 'dish-list/edit-dish/:id', component: DishFormComponent},
+    { path: 'dish-form', component: DishFormComponent, data: { breadcrumb: 'Adicionar Prato' } },
+    { path: 'dish-form/:id', component: DishFormComponent },
+    { path: 'dish-list', component: DishListComponent, data: { breadcrumb: 'Lista de Pratos' } },
+    { path: 'carrinho', component: CarrinhoComponent, data: { breadcrumb: 'Carrinho' } },
+    { path: 'gerencia', component: GerenciaComponent, data: { breadcrumb: 'Gerência' } },
+    { path: 'cadastro-entregadores', component: CadastroEntregadorComponent, data: { breadcrumb: 'Cadastro de Entregadores' } },
+    { path: 'cadastro-entregadores/:id', component: CadastroEntregadorComponent, data: { breadcrumb: 'Novo entregador'} },
+    { path: 'lista-entregadores', component: ListaEntregadoresComponent, data: { breadcrumb: 'Lista de Entregadores' } },
+    { path: 'todos-os-pedidos', component: PedidoComponent, data: { breadcrumb: 'Todos os Pedidos' } }
+>>>>>>> 12eaf7a51b91c10fbd092047d759a1100d8a6835
 ];

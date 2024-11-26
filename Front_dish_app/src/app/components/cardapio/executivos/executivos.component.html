@@ -1,10 +1,14 @@
 <body class="mulish-fonte">
-    <header>
-        <button id="botao-seta-voltar" (click)="voltar()"><mat-icon>arrow_back_ios</mat-icon></button>
-        <button id="ver-pedidos">
-            VER PEDIDOS
-        </button>
-    </header>
+    <nav>
+        <ol class="breadcrumb">
+          <li *ngFor="let breadcrumb of breadcrumbs; let last = last" 
+              class="breadcrumb-item" 
+              [ngClass]="{ 'active': last }">
+            <a *ngIf="!last; else lastBreadcrumb" [routerLink]="breadcrumb.url">{{ breadcrumb.label }}</a>
+            <ng-template #lastBreadcrumb>{{ breadcrumb.label }}</ng-template>
+          </li>
+        </ol>
+      </nav>
 
     <main>
         EXECUTIVOS
