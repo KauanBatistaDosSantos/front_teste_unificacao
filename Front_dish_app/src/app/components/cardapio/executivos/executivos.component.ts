@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { DishService } from '../../../services/dish.service';
-import { Dish } from '../../../services/dish.service';
 import { CommonModule } from '@angular/common';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
@@ -9,7 +8,7 @@ import { PedidoService } from '../../../services/pedido.service';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatIcon } from '@angular/material/icon';
 import { CarrinhoService } from '../../../services/carrinho.service';
-import { Breadcrumb, BreadcrumbService } from '../../../services/breadcrump.service';
+import { BreadcrumbService, Breadcrumb } from '../../../services/breadcrump.service';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -39,7 +38,7 @@ export class ExecutivosComponent implements OnInit {
   ngOnInit() {
     // Assinar os breadcrumbs
     this.breadcrumbService.breadcrumbs$.subscribe(breadcrumbs => {
-      this.breadcrumbs = breadcrumbs;
+      this.breadcrumbs = breadcrumbs; // Atualiza os breadcrumbs sempre que o serviço emitir um novo valor
     });
 
     this.dishService.getDishesByCategory('executivos').subscribe(data => {
@@ -67,11 +66,11 @@ export class ExecutivosComponent implements OnInit {
     }
   }
 
- voltar() {
-  this.location.back();
- }
+  voltar() {
+    this.location.back();
+  }
 
- irParaCarrinho() {
-  this.router.navigate(['/carrinho']);
- }
+  irParaCarrinho() {
+    this.router.navigate(['/carrinho']);
+  }
 }

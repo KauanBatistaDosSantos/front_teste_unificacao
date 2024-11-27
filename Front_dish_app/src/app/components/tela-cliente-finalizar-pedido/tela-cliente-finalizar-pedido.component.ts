@@ -11,13 +11,12 @@ import { InserirNomeComponent } from '../inserir-nome/inserir-nome.component';
 import { ClienteService } from '../../services/cliente.service';
 import { CarrinhoService } from '../../services/carrinho.service';
 
-
 @Component({
   selector: 'app-tela-cliente-finalizar-pedido',
   standalone: true,
   imports: [MatIcon, NgClass, CommonModule, FormsModule],
   templateUrl: './tela-cliente-finalizar-pedido.component.html',
-  styleUrl: './tela-cliente-finalizar-pedido.component.css'
+  styleUrls: ['./tela-cliente-finalizar-pedido.component.css']
 })
 export class TelaClienteFinalizarPedidoComponent implements OnInit {
   enderecoSalvo: any = null;
@@ -40,9 +39,9 @@ export class TelaClienteFinalizarPedidoComponent implements OnInit {
 
   ngOnInit(): void {
     const cliente = this.clienteService.carregarDadosLocais();
-    this.nomeSalvo = cliente.nome;
-    this.cpfSalvo = cliente.cpf;
-    this.enderecoSalvo = cliente.endereco;
+    this.nomeSalvo = cliente?.nome || '';
+    this.cpfSalvo = cliente?.cpf || '';
+    this.enderecoSalvo = cliente?.endereco || null;
 
     this.observacao = localStorage.getItem('observacaoCliente') || '';
     this.cartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
@@ -52,10 +51,7 @@ export class TelaClienteFinalizarPedidoComponent implements OnInit {
   }
 
   abrirDialogoInserirNome(): void {
-    const dialogRef = this.dialog.open(InserirNomeComponent, {
-      width: '300px'
-    });
-
+    const dialogRef = this.dialog.open(InserirNomeComponent, { width: '300px' });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.nomeSalvo = result;
@@ -66,10 +62,7 @@ export class TelaClienteFinalizarPedidoComponent implements OnInit {
   }
 
   abrirDialogCpf(): void {
-    const dialogRef = this.dialog.open(InserirCpfComponent, {
-      width: '300px',
-    });
-
+    const dialogRef = this.dialog.open(InserirCpfComponent, { width: '300px' });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.cpfSalvo = result;
@@ -80,10 +73,7 @@ export class TelaClienteFinalizarPedidoComponent implements OnInit {
   }
 
   abrirDialogoInserirEndereco(): void {
-    const dialogRef = this.dialog.open(InserirEnderecoComponent, {
-      width: '400px'
-    });
-
+    const dialogRef = this.dialog.open(InserirEnderecoComponent, { width: '400px' });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.enderecoSalvo = result;
@@ -94,11 +84,7 @@ export class TelaClienteFinalizarPedidoComponent implements OnInit {
   }
 
   verificarCampos(): void {
-    if (this.cpfSalvo && this.enderecoSalvo && this.nomeSalvo) {
-      this.isButtonEnabled = true;
-    } else {
-      this.isButtonEnabled = false;
-    }
+    this.isButtonEnabled = !!(this.cpfSalvo && this.enderecoSalvo && this.nomeSalvo);
   }
 
   calcularTotal(): void {
@@ -108,53 +94,49 @@ export class TelaClienteFinalizarPedidoComponent implements OnInit {
 
   navegarParaOutroComponente() {
     if (this.isButtonEnabled) {
-        const cliente = {
-            nome: this.nomeSalvo,
-            cpf: this.cpfSalvo,
-            endereco: `${this.enderecoSalvo.logradouro}, ${this.enderecoSalvo.numero} - ${this.enderecoSalvo.bairro}`
-        };
+      const cliente = {
+        nome: this.nomeSalvo,
+        cpf: this.cpfSalvo,
+        endereco: `${this.enderecoSalvo.logradouro}, ${this.enderecoSalvo.numero} - ${this.enderecoSalvo.bairro}`
+      };
 
-        this.clienteService.buscarOuCriarCliente(cliente).subscribe({
-            next: (clienteCriadoOuExistente) => {
-                console.log('Cliente processado:', clienteCriadoOuExistente);
-                this.criarPedido(clienteCriadoOuExistente.id);
-            },
-            error: (err) => {
-                console.error('Erro ao processar cliente:', err);
-                alert('Erro ao processar cliente. Tente novamente.');
-            }
-        });
+      this.clienteService.buscarOuCriarCliente(cliente).subscribe({
+        next: (clienteCriadoOuExistente) => {
+          console.log('Cliente processado:', clienteCriadoOuExistente);
+          this.criarPedido(clienteCriadoOuExistente.id);
+        },
+        error: (err) => {
+          console.error('Erro ao processar cliente:', err);
+          alert('Erro ao processar cliente. Tente novamente.');
+        }
+      });
     }
-}
+  }
 
   private criarPedido(clienteId: number): void {
     const novoPedido = {
-      cliente:  { id: clienteId },
-      dish: this.cartItems,
-      precoTotal: this.total,
-      observacao: this.observacao,
-      status: 'não aceito',
-      data: new Date().toISOString(),
+      cliente: { id: clienteId },
+      dish: this.cartItems,          
+      precoTotal: this.total,       
+      observacao: this.observacao,   
+      status: 'não aceito',          
+      data: new Date().toISOString() // Data atual
     };
-    
     console.log('Novo Pedido:', novoPedido);
+
     this.pedidoService.fazerPedido(novoPedido).subscribe(
       (pedidoCriado) => {
-        this.pedidoService.setCodigoConfirmacao(this.cpfSalvo, pedidoCriado.id);
-  
-        localStorage.setItem('pedidoId', pedidoCriado.id);
-        localStorage.setItem('codigoConfirmacao', this.pedidoService.getCodigoConfirmacao());
+        console.log('Pedido criado:', pedidoCriado);
 
+        localStorage.setItem('pedidoId', pedidoCriado.id.toString());
         localStorage.removeItem('cartItems');
-        this.carrinhoService.clearCart();
         localStorage.removeItem('nomeCliente');
         localStorage.removeItem('cpfCliente');
         localStorage.removeItem('enderecoCliente');
         localStorage.removeItem('observacaoCliente');
-        
-        setTimeout(() => {
-          this.router.navigate(['/acompanhar-pedido']);
-        }, 100);
+
+        this.carrinhoService.clearCart();
+        this.router.navigate(['/acompanhar-pedido']);
       },
       (error) => {
         console.error('Erro ao criar pedido:', error);
@@ -172,7 +154,7 @@ export class TelaClienteFinalizarPedidoComponent implements OnInit {
     localStorage.setItem('observacaoCliente', this.observacao);
   }
 
-  voltar() {
+  voltar(): void {
     this.router.navigate(['/carrinho']);
   }
 }

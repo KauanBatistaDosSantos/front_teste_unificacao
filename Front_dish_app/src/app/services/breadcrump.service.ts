@@ -37,15 +37,12 @@ export class BreadcrumbService {
     url: string = '',
     breadcrumbs: Breadcrumb[] = []
   ): Breadcrumb[] {
-    // Obter dados e URL da rota
     const { data, url: routeUrl, params } = route;
-
+  
     if (data['breadcrumb']) {
-      // Monta o caminho completo da URL
       const path = routeUrl.map(segment => segment.path).join('/');
       const fullUrl = `${url}/${path}`;
-
-      // Define o rótulo
+  
       let label = data['breadcrumb'];
       if (params && params['id']) {
         label = label.replace(':id', params['id']);
@@ -53,15 +50,16 @@ export class BreadcrumbService {
       if (params && params['categoria']) {
         label = label.replace(':categoria', params['categoria']);
       }
-
+  
+      console.log('breadcrumb criado:', label, fullUrl); 
       breadcrumbs.push({ label, url: fullUrl });
     }
-
-    // Chama recursivamente para rotas filhas
+  
     if (route.firstChild) {
       return this.createBreadcrumbs(route.firstChild, url, breadcrumbs);
     }
-
+  
     return breadcrumbs;
   }
+
 }

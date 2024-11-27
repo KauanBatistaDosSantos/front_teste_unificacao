@@ -6,6 +6,8 @@ import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { PedidoService } from '../../services/pedido.service';
+import { EntregadorService } from '../../services/entregador.service';
+import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-inicio',
@@ -15,6 +17,10 @@ import { PedidoService } from '../../services/pedido.service';
   imports: [CommonModule, MatSidenavModule, MatButtonModule]
 })
 export class InicioComponent implements OnInit {
+
+  entregadores: any[] = [];
+  id: number | null = null;
+
   showFiller = false;
   totalDishes: number = 0;
   totalOutStock: number = 0;
@@ -26,7 +32,8 @@ export class InicioComponent implements OnInit {
   constructor(
     private router: Router,
     private dishService: DishService,
-    private pedidoService: PedidoService
+    private pedidoService: PedidoService,
+    private entregadorService: EntregadorService
   ) {}
 
   ngOnInit(): void {
@@ -34,6 +41,8 @@ export class InicioComponent implements OnInit {
     this.carregarPedidosPreparo();
     this.carregarPedidos();
     this.pratosForaEstoque();
+    this.loadEntregadoresDisponiveis();
+
   }
 
   carregarQuantidadeDePratos(): void {
@@ -61,6 +70,12 @@ export class InicioComponent implements OnInit {
         this.totalOrder = 0;
         this.pedidosEmPreparo = [];
       }
+    });
+  }
+
+  loadEntregadoresDisponiveis(): void {
+    this.entregadorService.getEntregadoresDisponiveis().subscribe((data) => {
+      this.entregadores = data;
     });
   }
 

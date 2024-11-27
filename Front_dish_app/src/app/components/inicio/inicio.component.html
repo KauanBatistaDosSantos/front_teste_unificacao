@@ -46,7 +46,11 @@
   
         <div class="retirada">
           <h1>Motoboy Disponível</h1>
-          <h2>Nome do Motoboy</h2> 
+          <ul>
+            <li *ngFor="let entregador of entregadores">
+              {{entregador.nome}}
+            </li>
+          </ul>   
         </div>
       </section>
     </main>

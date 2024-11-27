@@ -1,13 +1,15 @@
 <body class="mulish-fonte">
     <header>
         <button id="botao-seta-voltar" (click)="voltar()"><mat-icon>arrow_back_ios</mat-icon></button>
-        <button id="ver-pedidos">
-            VER PEDIDOS
+
+        <button *ngIf="cartHasItems" class="carrinho" (click)="irParaCarrinho()">
+            <mat-icon matBadge="{{ totalItens }}" matBadgeColor="accent" matBadgeOverlap="false">shopping_cart</mat-icon>
         </button>
     </header>
-
     <main>
-        BEBIDAS
+        <h1>
+            EXECUTIVOS
+        </h1>
         <div *ngFor="let dish of dishes; let last = last" class="cardapio">
             <button (click)="verDetalhes(dish.id)" class="botao-item-cardapio">
                 <div class="dish-nome">
@@ -21,13 +23,7 @@
             </button>
             <div *ngIf="!last" class="linha-separadora"></div>
         </div>
-        
-        <footer *ngIf="cartHasItems" class="carrinho" (click)="irParaCarrinho()">
-            <button id="botao-carrinho">
-                <span>Carrinho</span>
-                <mat-icon matBadge="{{ totalItens }}" matBadgeColor="accent" matBadgeOverlap="false">shopping_cart</mat-icon>
-            </button>
-        </footer>
+
+
     </main>
-    
 </body>
