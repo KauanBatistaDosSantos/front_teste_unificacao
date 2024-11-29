@@ -58,6 +58,4 @@ export class DishService {
   getNextId(): Observable<number> {
     return this.http.get<number>(`${this.apiUrl}/nextId`);
   }
-
-  
 }

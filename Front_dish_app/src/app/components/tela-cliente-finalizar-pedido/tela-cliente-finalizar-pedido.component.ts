@@ -136,11 +136,15 @@ export class TelaClienteFinalizarPedidoComponent implements OnInit {
         localStorage.removeItem('observacaoCliente');
 
         this.carrinhoService.clearCart();
-        this.router.navigate(['/acompanhar-pedido']);
+        this.router.navigate(['/acompanhar-pedido'], {
+          queryParams: { sucesso: true },
+        });
       },
       (error) => {
         console.error('Erro ao criar pedido:', error);
         alert('Erro ao processar pedido. Tente novamente.');
+
+
       }
     );
   }

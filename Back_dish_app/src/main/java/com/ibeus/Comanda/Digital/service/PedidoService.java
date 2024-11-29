@@ -76,12 +76,12 @@ public class PedidoService {
     }
 
 
-    /*Plano A*/
+/*Plano A*/
 /*  public Pedido addItem(Long idpedido, Long idprato, int quantidade) {
         Dish dish = dishRepository.findById(idprato).orElseThrow();
         Pedido pedido = pedidoRepository.findById(idpedido).orElseThrow();
         *//*ItemPedido item = new ItemPedido(dish, quantidade)*//*;
-     *//*      pedido.addItem(item);*//*
+  *//*      pedido.addItem(item);*//*
         List<Integer> ListaId = new ArrayList<>();
         Integer idPrato = dish.getId();
         Long LongIdPrato = idPrato.longValue();
@@ -92,7 +92,7 @@ public class PedidoService {
         return pedidoRepository.save(pedido);}*/
 
 
-    /*Plano B*/
+/*Plano B*/
 /*  public Pedido addItem(Long idpedido, Long idprato, int quantidade) {
         Dish dish = dishRepository.findById(idprato).orElseThrow();
         Pedido pedido = pedidoRepository.findById(idpedido).orElseThrow();

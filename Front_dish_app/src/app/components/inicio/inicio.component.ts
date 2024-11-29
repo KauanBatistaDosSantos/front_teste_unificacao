@@ -27,7 +27,10 @@ export class InicioComponent implements OnInit {
   totalOrder: number = 0;
   pedidosEmPreparo: any[] = [];
   pedidosAguardandoEntrega: any[] = [];
-  dishes: Dish[] = []; // Declare `dishes` array
+  pedidos: any[] = [];
+  pedidosFiltrados: any[] = [];
+  quantidadeFinalizados: number = 0;
+  dishes: Dish[] = []; 
 
   constructor(
     private router: Router,
@@ -42,6 +45,7 @@ export class InicioComponent implements OnInit {
     this.carregarPedidos();
     this.pratosForaEstoque();
     this.loadEntregadoresDisponiveis();
+    this.contarPedidosFinalizados();
 
   }
 
@@ -82,6 +86,10 @@ export class InicioComponent implements OnInit {
   carregarPedidos(): void {
     this.pedidoService.getPedidos().subscribe({
       next: (pedidos: any[]) => {
+        // Atribui os pedidos à variável pedidos para permitir a contagem
+        this.pedidos = pedidos;
+  
+        // Filtra os pedidos aguardando entrega
         this.pedidosAguardandoEntrega = pedidos
           .filter(pedido => pedido.status === 'aguardando entrega')
           .map(pedido => ({
@@ -89,12 +97,22 @@ export class InicioComponent implements OnInit {
             nomeCliente: pedido?.cliente?.nome || 'Cliente não identificado',
             status: pedido.status
           }));
+  
+        // Chama a função para contar os pedidos finalizados após carregar os pedidos
+        this.contarPedidosFinalizados();
+        
         console.log('Pedidos aguardando entrega:', this.pedidosAguardandoEntrega);
       },
       error: (err) => {
         console.error('Erro ao carregar pedidos:', err);
       }
     });
+  }
+  
+
+  contarPedidosFinalizados() {
+    const pedidosFinalizados = this.pedidos.filter(pedido => pedido.status === 'pedido finalizado');
+    this.quantidadeFinalizados = pedidosFinalizados.length;
   }
 
   pratosForaEstoque(): void {

@@ -8,7 +8,6 @@ import { PedidoService } from '../../../services/pedido.service';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatIcon } from '@angular/material/icon';
 import { CarrinhoService } from '../../../services/carrinho.service';
-import { BreadcrumbService, Breadcrumb } from '../../../services/breadcrump.service';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -19,7 +18,6 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./executivos.component.css']
 })
 export class ExecutivosComponent implements OnInit {
-  breadcrumbs: Breadcrumb[] = []; // Array para armazenar os breadcrumbs
   dishes: any[] = [];
   loading = true;
   cartHasItems = false;
@@ -32,15 +30,10 @@ export class ExecutivosComponent implements OnInit {
     private pedidosService: PedidosService,
     private pedidoService: PedidoService, 
     private carrinhoService: CarrinhoService,
-    private breadcrumbService: BreadcrumbService // Injeção do serviço de breadcrumbs
   ) {}
 
   ngOnInit() {
-    // Assinar os breadcrumbs
-    this.breadcrumbService.breadcrumbs$.subscribe(breadcrumbs => {
-      this.breadcrumbs = breadcrumbs; // Atualiza os breadcrumbs sempre que o serviço emitir um novo valor
-    });
-
+    // Carregar pratos executivos
     this.dishService.getDishesByCategory('executivos').subscribe(data => {
       this.dishes = data.filter(dish => dish.stock === 1);
       this.loading = false;
@@ -51,7 +44,8 @@ export class ExecutivosComponent implements OnInit {
     
     this.atualizarTotalItens();
   }
-  
+
+
   atualizarTotalItens() {
     const itensCarrinho = this.carrinhoService.getCartItems();
     this.totalItens = itensCarrinho.length;
@@ -60,9 +54,9 @@ export class ExecutivosComponent implements OnInit {
 
   verDetalhes(id: number | undefined) {
     if (id !== undefined) {
-        this.router.navigate(['/cardapio/fazer-pedido', id.toString(), 'executivos']);
+      this.router.navigate(['/cardapio/fazer-pedido', id.toString(), 'executivos']);
     } else {
-        console.error('ID do prato não encontrado');
+      console.error('ID do prato não encontrado');
     }
   }
 

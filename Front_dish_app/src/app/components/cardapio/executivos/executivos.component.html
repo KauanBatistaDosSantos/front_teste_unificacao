@@ -2,9 +2,9 @@
     <header>
         <button id="botao-seta-voltar" (click)="voltar()"><mat-icon>arrow_back_ios</mat-icon></button>
 
-        <button *ngIf="cartHasItems" class="carrinho" (click)="irParaCarrinho()">
+        <button class="carrinho" (click)="irParaCarrinho()" aria-label="Ir para o carrinho">
             <mat-icon matBadge="{{ totalItens }}" matBadgeColor="accent" matBadgeOverlap="false">shopping_cart</mat-icon>
-        </button>
+          </button>      
     </header>
     <main>
         <h1>

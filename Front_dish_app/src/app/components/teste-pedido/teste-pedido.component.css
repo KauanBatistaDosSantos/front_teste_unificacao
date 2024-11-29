@@ -38,6 +38,7 @@ body {
 
 
 img {
+    border: 3px groove white;
     max-width: 150px;
     margin-top:86px;
 }

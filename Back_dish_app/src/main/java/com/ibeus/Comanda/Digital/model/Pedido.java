@@ -28,9 +28,9 @@ public class Pedido {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "cliente_id", referencedColumnName = "id", nullable = false)
     private Cliente cliente;
-
+    
     @ManyToOne
-    @JoinColumn(name = "motoboy_id")
+    @JoinColumn(name = "motoboy_id")  
     private Motoboy motoboy;
 
     @ManyToMany

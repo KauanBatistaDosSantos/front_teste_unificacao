@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
-import { catchError } from 'rxjs/operators';
-import { throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -26,14 +24,8 @@ export class ClienteService {
   }
 
   buscarOuCriarCliente(cliente: any): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/buscarOuCriar`, cliente)
-        .pipe(
-            catchError(err => {
-                console.error('Erro ao buscar ou criar cliente', err);
-                return throwError(err);
-            })
-        );
-}
+    return this.http.post<any>(`${this.apiUrl}/buscarOuCriar`, cliente);
+  }
 
   salvarDadosLocais(cliente: any): void {
     localStorage.setItem('nomeCliente', cliente.nome);
